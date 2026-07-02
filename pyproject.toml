@@ -1,0 +1,50 @@
+[project]
+name = "atlassian-md-export"
+version = "0.1.0"
+description = "Jira Cloud Markdown export tooling."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "httpx>=0.27",
+    "pydantic>=2.8",
+    "typer>=0.16",
+    "rich>=13.7",
+    "PyYAML>=6.0",
+]
+
+[project.scripts]
+jira-md-export = "atlassian_md_export.cli:app"
+confluence-md-export = "atlassian_md_export.cli:confluence_app"
+
+[dependency-groups]
+dev = [
+    "mypy>=1.10",
+    "pytest>=8.2",
+    "ruff>=0.5",
+    "types-PyYAML>=6.0.12.20240311",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.0,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [
+    ".mypy_cache",
+    ".pytest_cache",
+    ".ruff_cache",
+    ".uv-cache",
+    ".venv",
+    "__pycache__",
+]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+
+[tool.pytest.ini_options]
+markers = [
+    "integration: real Jira and Confluence sandbox tests skipped unless sandbox env vars are set",
+]
