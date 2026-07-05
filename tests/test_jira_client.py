@@ -41,9 +41,7 @@ def test_search_issues_uses_enhanced_endpoint_and_next_page_token() -> None:
         return httpx.Response(
             200,
             json={
-                "issues": [
-                    {"id": "10002", "key": "ABC-2", "fields": {"updated": "2026-07-02"}}
-                ],
+                "issues": [{"id": "10002", "key": "ABC-2", "fields": {"updated": "2026-07-02"}}],
                 "isLast": True,
             },
         )
@@ -167,10 +165,7 @@ def test_updated_since_jql_formats_iso_in_jira_user_timezone() -> None:
         'project = "ABC" ORDER BY updated ASC, key ASC',
         "2026-07-01T12:20:59.999999+00:00",
         timezone_name="America/Los_Angeles",
-    ) == (
-        '(project = "ABC") AND updated >= "2026-07-01 05:20" '
-        "ORDER BY updated ASC, key ASC"
-    )
+    ) == ('(project = "ABC") AND updated >= "2026-07-01 05:20" ORDER BY updated ASC, key ASC')
 
 
 def test_ordered_jql_ignores_order_by_inside_quoted_literal() -> None:
@@ -181,8 +176,7 @@ def test_ordered_jql_ignores_order_by_inside_quoted_literal() -> None:
 
 def test_updated_since_jql_ignores_order_by_inside_quoted_literal() -> None:
     assert updated_since_jql('summary ~ "order by"', "2026-07-01 12:20") == (
-        '(summary ~ "order by") AND updated >= "2026-07-01 12:20" '
-        "ORDER BY updated ASC, key ASC"
+        '(summary ~ "order by") AND updated >= "2026-07-01 12:20" ORDER BY updated ASC, key ASC'
     )
 
 
@@ -196,9 +190,7 @@ def test_updated_since_jql_preserves_real_order_by_after_quoted_literal() -> Non
     assert updated_since_jql(
         'summary ~ "needle" ORDER BY created DESC',
         "2026-07-01 12:20",
-    ) == (
-        '(summary ~ "needle") AND updated >= "2026-07-01 12:20" ORDER BY created DESC'
-    )
+    ) == ('(summary ~ "needle") AND updated >= "2026-07-01 12:20" ORDER BY created DESC')
 
 
 def test_user_timezone_reads_myself_profile() -> None:
@@ -217,8 +209,7 @@ def test_search_jql_can_return_empty_success_for_invalid_date_literal() -> None:
         return httpx.Response(200, json={"issues": [], "isLast": True})
 
     result = _client(handler).search_issues(
-        '(project = "ABC") AND updated >= "2026-07-01T12:20:00+00:00" '
-        "ORDER BY updated ASC, key ASC"
+        '(project = "ABC") AND updated >= "2026-07-01T12:20:00+00:00" ORDER BY updated ASC, key ASC'
     )
 
     assert result.issues == ()

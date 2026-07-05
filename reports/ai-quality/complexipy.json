@@ -1,0 +1,5341 @@
+[
+  {
+    "complexity": 0,
+    "file_name": "attachments.py",
+    "function_name": "attachment_path",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "attachments.py",
+    "function_name": "attachment_relative_path",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "attachments.py",
+    "function_name": "confluence_attachment_path",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "attachments.py",
+    "function_name": "safe_attachment_name",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "attachments.py",
+    "function_name": "should_download_attachment",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "attachments.py",
+    "function_name": "sanitize_attachment_filename",
+    "path": "src/atlassian_md_export/attachments.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "_attachment_options",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "_config_option",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "_with_progress",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "attachments",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "clean",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "comments",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_attachments",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_clean",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_comments",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_index",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_init_command",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_main",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_page",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "confluence_pull",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "index",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "init_command",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "issue",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "cli.py",
+    "function_name": "main",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "cli.py",
+    "function_name": "_confluence_site",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "cli.py",
+    "function_name": "_friendly_call",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "cli.py",
+    "function_name": "_resolved_confluence_site",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "cli.py",
+    "function_name": "_with_stable_exported_at",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "cli.py",
+    "function_name": "_resolved_site",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "cli.py",
+    "function_name": "pull",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "cli.py",
+    "function_name": "_load_confluence_context",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "cli.py",
+    "function_name": "confluence_verify",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "cli.py",
+    "function_name": "verify",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "cli.py",
+    "function_name": "_confluence_pull_scope",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "cli.py",
+    "function_name": "_confluence_scope_kwargs",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "cli.py",
+    "function_name": "_load_jira_context",
+    "path": "src/atlassian_md_export/cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "AtlassianHttpClient::build_client",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "AtlassianHttpClient::request_json",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "AtlassianHttpError::__init__",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "MissingCredentialsError::__init__",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "_http_log_context",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_http_error_message",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_parse_retry_after",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_response_json_or_text",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "JiraCredentials::from_environment",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_atlassian_error_detail",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_retry_delay",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_safe_request_path",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "client.py",
+    "function_name": "_atlassian_error_map_detail",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "client.py",
+    "function_name": "_atlassian_message_list_detail",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "client.py",
+    "function_name": "_atlassian_scalar_error_detail",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 11,
+    "file_name": "client.py",
+    "function_name": "AtlassianHttpClient::request_bytes",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 11,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 10,
+        "kind": "extract_helper",
+        "line_end": 227,
+        "line_start": 183,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 11,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 5,
+        "kind": "loop_guards",
+        "line_end": 227,
+        "line_start": 183,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 13,
+    "file_name": "client.py",
+    "function_name": "AtlassianHttpClient::request_json_response",
+    "path": "src/atlassian_md_export/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 12,
+        "kind": "extract_helper",
+        "line_end": 168,
+        "line_start": 125,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 6,
+        "kind": "loop_guards",
+        "line_end": 168,
+        "line_start": 125,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "config.py",
+    "function_name": "MissingConfluenceCredentialsError::__init__",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "config.py",
+    "function_name": "load_confluence_config",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "config.py",
+    "function_name": "_parse_dotenv_value",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "config.py",
+    "function_name": "_find_config_path",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "config.py",
+    "function_name": "load_config",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "config.py",
+    "function_name": "_parse_dotenv_line",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "config.py",
+    "function_name": "ConfluenceCredentials::from_environment",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "config.py",
+    "function_name": "load_dotenv",
+    "path": "src/atlassian_md_export/config.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 158,
+        "line_start": 151,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_fetch_page_results",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_fetch_space_by_id",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_ancestors",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_attachment_metadata",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_descendants",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_labels",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_page",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_space_by_id",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::list_spaces",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_list_spaces",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_space_pages",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::search_pages",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_comment_object",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_descendant_summary",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_dict_payload",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_path_with_query",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "_required_results",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "confluence_updated_since_cql",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_fetch_page",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_ancestor_subtree",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_footer_comments",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_attachment_object",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_label_object",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_optional_string",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_page_object",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_paginate_v2",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_resolve_space",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::_search_page_ids",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::fetch_inline_comments",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "ConfluenceClient::resolve_space",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_cached_space_key",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_page_summary",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_split_order_by",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_cql_result_page_id",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_origin_port",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_same_origin",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_space_object",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_version_number",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "confluence_cql_date_literal",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "client.py",
+    "function_name": "_updated_at",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "client.py",
+    "function_name": "_next_cql_target",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 11,
+    "file_name": "client.py",
+    "function_name": "_next_link",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 11,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 644,
+        "line_start": 638,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 11,
+        "estimated_complexity_after": 9,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 644,
+        "line_start": 638,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "client.py",
+    "function_name": "_safe_next_path",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 13,
+    "file_name": "client.py",
+    "function_name": "_find_order_by",
+    "path": "src/atlassian_md_export/confluence/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 12,
+        "kind": "extract_helper",
+        "line_end": 463,
+        "line_start": 447,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 7,
+        "kind": "loop_guards",
+        "line_end": 463,
+        "line_start": 447,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "_confluence_page_sort_key",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "_issue_line",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "_parse_jira_datetime",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "_relative_index_link",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "generate_confluence_indexes",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "generate_indexes",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "indexes.py",
+    "function_name": "index_dir",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "indexes.py",
+    "function_name": "_label_text",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "indexes.py",
+    "function_name": "_string",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "indexes.py",
+    "function_name": "confluence_required_index_paths",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "indexes.py",
+    "function_name": "required_index_paths",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "_confluence_page_from_json",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "_confluence_page_line",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "_confluence_parent_group",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "_write_all_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "_write_confluence_all_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "read_confluence_index_pages",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "indexes.py",
+    "function_name": "read_index_issues",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "indexes.py",
+    "function_name": "_deterministic_confluence_reference_time",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "indexes.py",
+    "function_name": "_deterministic_reference_time",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "indexes.py",
+    "function_name": "_issue_from_json",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "indexes.py",
+    "function_name": "_parse_atlassian_datetime",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "indexes.py",
+    "function_name": "_write_grouped_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "indexes.py",
+    "function_name": "_write_confluence_stale_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "indexes.py",
+    "function_name": "_write_stale_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "indexes.py",
+    "function_name": "_write_confluence_grouped_index",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 10,
+    "file_name": "indexes.py",
+    "function_name": "_display",
+    "path": "src/atlassian_md_export/indexes.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 416,
+        "line_start": 412,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 416,
+        "line_start": 413,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "JiraClient::fetch_comments",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "JiraClient::search_issue_keys",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "JiraClient::search_issues",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "_jql_string",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "project_jql",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "client.py",
+    "function_name": "updated_since_jql",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "client.py",
+    "function_name": "JiraClient::_with_comments_concurrently",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "JiraClient::user_timezone",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_search_params",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "_split_order_by",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "client.py",
+    "function_name": "ordered_jql",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "JiraClient::fetch_issues_with_comments",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_comment_objects",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "client.py",
+    "function_name": "_next_search_page",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "client.py",
+    "function_name": "_search_page_issues",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "client.py",
+    "function_name": "JiraClient::_search_issues",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 5,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 164,
+        "line_start": 144,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 5,
+    "file_name": "client.py",
+    "function_name": "_jira_date_literal",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "client.py",
+    "function_name": "_normalize_issue",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "client.py",
+    "function_name": "exact_issue_jql",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 10,
+    "file_name": "client.py",
+    "function_name": "JiraClient::_fetch_comments",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 211,
+        "line_start": 186,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 4,
+        "kind": "loop_guards",
+        "line_end": 211,
+        "line_start": 186,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 13,
+    "file_name": "client.py",
+    "function_name": "_find_order_by",
+    "path": "src/atlassian_md_export/jira/client.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 12,
+        "kind": "extract_helper",
+        "line_end": 332,
+        "line_start": 316,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 7,
+        "kind": "loop_guards",
+        "line_end": 332,
+        "line_start": 316,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "log.py",
+    "function_name": "RedactingTextFormatter::format",
+    "path": "src/atlassian_md_export/log.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "log.py",
+    "function_name": "_redact_string",
+    "path": "src/atlassian_md_export/log.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "log.py",
+    "function_name": "configure_logging",
+    "path": "src/atlassian_md_export/log.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "log.py",
+    "function_name": "JsonLogFormatter::format",
+    "path": "src/atlassian_md_export/log.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 13,
+    "file_name": "log.py",
+    "function_name": "redact",
+    "path": "src/atlassian_md_export/log.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "VerificationResult::ok",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_display_path",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_escape_cql_string",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_fetch_confluence_footer_comments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_local_confluence_exported_pages",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_read_local_comments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_verify_confluence_state_hash_row",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_verify_issue_state_hash_row",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "_write_issue",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "build_confluence_client",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "build_jira_client",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "regenerate_confluence_indexes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "regenerate_indexes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "run_confluence_page",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "run_confluence_pull",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "run_issue",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "operations.py",
+    "function_name": "run_pull",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "AttachmentOptions::max_bytes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_confluence_manifest_payload",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_confluence_manifest_representative_run",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_confluence_markdown_path_from_payload",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_fetch_inline_comments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_has_hash",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_is_attachment_link",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_is_external_or_anchor",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_manifest_representative_run",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_partial_failure_message",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_prepare_confluence_page_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_read_confluence_page_payload",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_read_issue_payload",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_read_local_confluence_page_source",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_read_local_issue_source",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_sha256_file",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_site_host",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "operations.py",
+    "function_name": "_within",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_hydrate_confluence_page",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_list",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_payload_exporter_site_host",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_read_confluence_page_payloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_read_issue_payloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_representative_issue_keys",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_verify_relative_file_reference",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_verify_state_confluence_page_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_verify_state_issue_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "operations.py",
+    "function_name": "_write_confluence_page",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_confluence_markdown_paths_for_page_id",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_confluence_page_id",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_issue_key",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_normalized_keys",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_normalized_page_ids",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_origin",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_safe_relative_target",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_search_fields",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_verify_issue_attachment_metadata",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_verify_markdown_attachment_links",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_verify_sqlite",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "_verify_state_content_hash",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "initialize_confluence_output",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "operations.py",
+    "function_name": "update_manifest",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_apply_attachment_metadata",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_attachment_download_target",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_confluence_site_host_from_payloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_local_issue_keys",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_origin_port",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_prepare_confluence_page_exports",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_safe_resource_path",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_site_host_from_payloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_write_prepared_confluence_attachment_downloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "_writer_custom_fields",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "operations.py",
+    "function_name": "update_confluence_manifest",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_confluence_file_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_display_confluence_markdown_path",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_file_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_payload_raw_url_host",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_verify_state_file_hash",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "operations.py",
+    "function_name": "_verify_state_markdown_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "operations.py",
+    "function_name": "_log_confluence",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "operations.py",
+    "function_name": "_pull_scope",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "operations.py",
+    "function_name": "_same_origin",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "operations.py",
+    "function_name": "_verify_attachment_references",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "operations.py",
+    "function_name": "_verify_confluence_attachment_metadata",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 2608,
+        "line_start": 2589,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 4,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 2608,
+        "line_start": 2589,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "_confluence_markdown_path_for_page_id",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 2693,
+        "line_start": 2684,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "_confluence_scope_log_context",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 2,
+        "kind": "split_dispatcher",
+        "line_end": 2837,
+        "line_start": 2827,
+        "steps": [
+          "create one handler per case",
+          "replace the chain with a dispatch table or small delegating match",
+          "keep the orchestration function shallow"
+        ],
+        "title": "Split conditional dispatcher into handlers"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "_markdown_frontmatter_content_hash",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "_markdown_frontmatter_page_id",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "_verify_confluence_attachment_references",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 2556,
+        "line_start": 2538,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "run_attachments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 6,
+        "kind": "extract_helper",
+        "line_end": 734,
+        "line_start": 684,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "operations.py",
+    "function_name": "run_confluence_attachments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 7,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 6,
+        "kind": "extract_helper",
+        "line_end": 527,
+        "line_start": 434,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 8,
+    "file_name": "operations.py",
+    "function_name": "_confluence_export_context",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 8,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 2026,
+        "line_start": 2008,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 8,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 2026,
+        "line_start": 2008,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 8,
+    "file_name": "operations.py",
+    "function_name": "_confluence_pull_scope",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "operations.py",
+    "function_name": "_log_value",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "operations.py",
+    "function_name": "_safe_download_path",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 8,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 2,
+        "kind": "extract_predicate",
+        "line_end": 1772,
+        "line_start": 1772,
+        "steps": [
+          "move the condition into a well-named helper function",
+          "use the helper in the branch condition",
+          "keep the caller focused on control flow"
+        ],
+        "title": "Extract complex condition into named predicate"
+      }
+    ]
+  },
+  {
+    "complexity": 8,
+    "file_name": "operations.py",
+    "function_name": "run_comments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 8,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 6,
+        "kind": "extract_helper",
+        "line_end": 655,
+        "line_start": 614,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 9,
+    "file_name": "operations.py",
+    "function_name": "_verify_manifest_issue_files",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 9,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 7,
+        "kind": "extract_helper",
+        "line_end": 2433,
+        "line_start": 2420,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 9,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 2433,
+        "line_start": 2420,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 10,
+    "file_name": "operations.py",
+    "function_name": "_local_confluence_page_ids",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 10,
+    "file_name": "operations.py",
+    "function_name": "clean_confluence_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 7,
+        "kind": "extract_helper",
+        "line_end": 942,
+        "line_start": 932,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 3,
+        "kind": "loop_guards",
+        "line_end": 942,
+        "line_start": 932,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 937,
+        "line_start": 935,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 10,
+    "file_name": "operations.py",
+    "function_name": "clean_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 7,
+        "kind": "extract_helper",
+        "line_end": 830,
+        "line_start": 822,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 3,
+        "kind": "loop_guards",
+        "line_end": 830,
+        "line_start": 822,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 825,
+        "line_start": 823,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 11,
+    "file_name": "operations.py",
+    "function_name": "_confluence_attachment_download_target",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 11,
+    "file_name": "operations.py",
+    "function_name": "_fetch_confluence_scope_pages",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_download_attachments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 10,
+        "kind": "extract_helper",
+        "line_end": 1582,
+        "line_start": 1541,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 4,
+        "kind": "loop_guards",
+        "line_end": 1582,
+        "line_start": 1541,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_prepare_confluence_attachment_downloads",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 10,
+        "kind": "extract_helper",
+        "line_end": 1675,
+        "line_start": 1606,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 4,
+        "kind": "loop_guards",
+        "line_end": 1675,
+        "line_start": 1607,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_run_search_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 1064,
+        "line_start": 994,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_verify_index_links",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 10,
+        "kind": "extract_helper",
+        "line_end": 2509,
+        "line_start": 2496,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 10,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 2509,
+        "line_start": 2502,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_verify_manifest_confluence_page_files",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 2466,
+        "line_start": 2445,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 9,
+        "estimated_reduction": 3,
+        "kind": "loop_guards",
+        "line_end": 2466,
+        "line_start": 2445,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "_verify_manifest_hashes",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 3,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 2490,
+        "line_start": 2475,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 4,
+        "kind": "loop_guards",
+        "line_end": 2490,
+        "line_start": 2475,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 12,
+    "file_name": "operations.py",
+    "function_name": "run_confluence_comments",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 12,
+        "estimated_complexity_after": 6,
+        "estimated_reduction": 6,
+        "kind": "extract_helper",
+        "line_end": 396,
+        "line_start": 306,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 13,
+    "file_name": "operations.py",
+    "function_name": "verify_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 14,
+    "file_name": "operations.py",
+    "function_name": "_run_confluence_page_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 14,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 12,
+        "kind": "extract_helper",
+        "line_end": 1229,
+        "line_start": 1115,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 15,
+    "file_name": "operations.py",
+    "function_name": "verify_confluence_export",
+    "path": "src/atlassian_md_export/operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "payloads.py",
+    "function_name": "confluence_payload_url",
+    "path": "src/atlassian_md_export/payloads.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "payloads.py",
+    "function_name": "dict_list",
+    "path": "src/atlassian_md_export/payloads.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 14,
+    "file_name": "payloads.py",
+    "function_name": "confluence_payload_space_key",
+    "path": "src/atlassian_md_export/payloads.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 14,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 34,
+        "line_start": 26,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 14,
+        "estimated_complexity_after": 12,
+        "estimated_reduction": 2,
+        "kind": "flatten_condition",
+        "line_end": 34,
+        "line_start": 33,
+        "steps": [
+          "invert the outer condition",
+          "return early when the condition fails",
+          "move the main success path one indentation level left",
+          "repeat for inner nested conditions where safe"
+        ],
+        "title": "Flatten nested condition block with guard clauses"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::__init__",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_table_cell",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "_escape_url",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "_mark_sort_key",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "escape_markdown_table_cell",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "renderer.py",
+    "function_name": "escape_markdown_text",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_blocks",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_heading",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_inlines",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_media",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_unknown_node",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_attrs",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_date_from_epoch",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_fenced_block",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_optional_mapping_content",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_task_item_marker",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "renderer.py",
+    "function_name": "_text_content",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_code_block",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_inline_card",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::render",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_indent",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_blockquote",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_media_container",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_panel",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "_code_span",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "_content",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "renderer.py",
+    "function_name": "_marks",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_apply_link_mark",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_emoji",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "renderer.py",
+    "function_name": "_named_attrs",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "renderer.py",
+    "function_name": "_required_mapping_content",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_date",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "renderer.py",
+    "function_name": "_date_from_timestamp",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_append_task_inline_nodes",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_inline",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_list_item",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_mention",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_table",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 9,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_task_list",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 10,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_task_item",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 169,
+        "line_start": 156,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 3,
+        "kind": "loop_guards",
+        "line_end": 169,
+        "line_start": 156,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 11,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_text",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 11,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 3,
+        "kind": "split_dispatcher",
+        "line_end": 301,
+        "line_start": 292,
+        "steps": [
+          "create one handler per case",
+          "replace the chain with a dispatch table or small delegating match",
+          "keep the orchestration function shallow"
+        ],
+        "title": "Split conditional dispatcher into handlers"
+      }
+    ]
+  },
+  {
+    "complexity": 13,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_block",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 13,
+    "file_name": "renderer.py",
+    "function_name": "AdfMarkdownRenderer::_render_list",
+    "path": "src/atlassian_md_export/renderer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 13,
+        "estimated_complexity_after": 11,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 110,
+        "line_start": 97,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "_confluence_run_from_row",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "_format_iso",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "_json_list",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "_run_from_row",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "clear_confluence_page_export_artifacts",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "clear_issue_export_artifacts",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "initialize_state",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "now_iso",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "stable_json_hash",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "upsert_confluence_page_state",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "state.py",
+    "function_name": "upsert_issue_state",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "_is_confluence_representative_scope",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "_is_representative_scope",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "_optional_str",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "last_successful_confluence_representative_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "last_successful_confluence_scope_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "last_successful_representative_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "last_successful_scope_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "latest_successful_confluence_representative_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "state.py",
+    "function_name": "latest_successful_representative_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "state.py",
+    "function_name": "_ensure_column",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "state.py",
+    "function_name": "_parse_iso",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "state.py",
+    "function_name": "confluence_representative_page_ids",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "state.py",
+    "function_name": "start_confluence_export_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "state.py",
+    "function_name": "start_export_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "state.py",
+    "function_name": "finish_confluence_export_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "state.py",
+    "function_name": "finish_export_run",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "state.py",
+    "function_name": "_tuple_from_json",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "state.py",
+    "function_name": "decide_incremental_sync",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "state.py",
+    "function_name": "decide_confluence_incremental_sync",
+    "path": "src/atlassian_md_export/state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_attachment_hash_metadata",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_confluence_actor",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_confluence_page_body",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_confluence_page_markdown_relative_path",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_confluence_reference_sort_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_escape_url",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_frontmatter_yaml",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_path_as_posix",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_relative_page_url",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_sha256_text",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_sorted_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "_sorted_confluence_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "atomic_write_json",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "canonical_json",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "confluence_page_markdown_path",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "confluence_page_raw_dir",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "confluence_page_raw_path",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "issue_markdown_path",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "issue_raw_dir",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "issue_raw_path",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "manifest_json",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "write_confluence_page_files",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "writer.py",
+    "function_name": "write_issue_files",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_comment_sort_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_comment_sort_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_exported_page_hash_inputs",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_label_sort_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_label_text",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_reference_payload",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_space_id",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_space_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_confluence_updated",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_frontmatter_payload",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_issue_body",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_json_object",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_normalize_attachments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_normalize_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_normalize_confluence_attachments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_normalize_confluence_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_optional_mapping",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_parent_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_required_string",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_site_host",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "_unsupported_body_placeholder",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "atomic_write_bytes",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "atomic_write_text",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "normalize_confluence_page",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "normalize_jira_issue",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "render_confluence_page_markdown",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "writer.py",
+    "function_name": "render_issue_markdown",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_attachments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_compact_join",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_ancestors",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_attachments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_child_pages",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_content",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_raw_field_notes",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_confluence_version",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_exported_at",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_json_string_object",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_key_fields",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_linked_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_mapping",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_raw_field_notes",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "writer.py",
+    "function_name": "_visibility",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_confluence_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_confluence_frontmatter_payload",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_display_list_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_display_mapping_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_id_sort_key",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_mapping_list",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_migrate_legacy_raw_issue_files",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_normalize_confluence_labels",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_normalize_subtasks",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "_optional_string",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "initialize_output",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "writer.py",
+    "function_name": "issue_raw_export_json",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "_confluence_labels",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "_confluence_page_metadata",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "_epic_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "_sorted_display_list",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "_subtasks",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "writer.py",
+    "function_name": "issue_content_hash",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_absolute_url",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_confluence_parent",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_confluence_reference_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_confluence_site_base",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_display_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "writer.py",
+    "function_name": "_site_base",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "writer.py",
+    "function_name": "_confluence_body_adf",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "writer.py",
+    "function_name": "_links",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "writer.py",
+    "function_name": "_normalize_confluence_page_refs",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 1213,
+        "line_start": 1199,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 4,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 1213,
+        "line_start": 1199,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 6,
+    "file_name": "writer.py",
+    "function_name": "_normalize_custom_fields",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 1,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 1562,
+        "line_start": 1553,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 6,
+        "estimated_complexity_after": 4,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 1562,
+        "line_start": 1553,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 7,
+    "file_name": "writer.py",
+    "function_name": "_attachment_line",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "writer.py",
+    "function_name": "_jsonable",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "writer.py",
+    "function_name": "_markdown_value",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 7,
+    "file_name": "writer.py",
+    "function_name": "confluence_page_content_hash",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "writer.py",
+    "function_name": "_adf_from_body_representation",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 8,
+        "estimated_complexity_after": 2,
+        "estimated_reduction": 6,
+        "kind": "extract_helper",
+        "line_end": 1356,
+        "line_start": 1348,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      }
+    ]
+  },
+  {
+    "complexity": 8,
+    "file_name": "writer.py",
+    "function_name": "_normalize_issue_links",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "writer.py",
+    "function_name": "confluence_page_raw_export_json",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "writer.py",
+    "function_name": "safe_confluence_path_segment",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 9,
+    "file_name": "writer.py",
+    "function_name": "_confluence_base_from_url",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 9,
+        "estimated_complexity_after": 4,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 1729,
+        "line_start": 1725,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 9,
+        "estimated_complexity_after": 7,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 1729,
+        "line_start": 1726,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 9,
+    "file_name": "writer.py",
+    "function_name": "_confluence_web_url",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 10,
+    "file_name": "writer.py",
+    "function_name": "_comments",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 5,
+        "kind": "extract_helper",
+        "line_end": 1172,
+        "line_start": 1157,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 10,
+        "estimated_complexity_after": 8,
+        "estimated_reduction": 2,
+        "kind": "loop_guards",
+        "line_end": 1172,
+        "line_start": 1157,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 14,
+    "file_name": "writer.py",
+    "function_name": "_render_confluence_comment_group",
+    "path": "src/atlassian_md_export/writer.py",
+    "refactor_plans": [
+      {
+        "current_complexity": 14,
+        "estimated_complexity_after": 5,
+        "estimated_reduction": 9,
+        "kind": "extract_helper",
+        "line_end": 911,
+        "line_start": 889,
+        "steps": [
+          "move the selected block into a private helper",
+          "pass required values as parameters",
+          "return the result/status needed by the caller"
+        ],
+        "title": "Extract complex block into helper function"
+      },
+      {
+        "current_complexity": 14,
+        "estimated_complexity_after": 10,
+        "estimated_reduction": 4,
+        "kind": "loop_guards",
+        "line_end": 911,
+        "line_start": 889,
+        "steps": [
+          "add negative condition checks at the top of the loop",
+          "use continue for skipped items",
+          "keep the main processing path unindented"
+        ],
+        "title": "Flatten loop body with continue guards"
+      }
+    ]
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_config_rejects_negative_sync_overlap_and_allows_zero",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_config_default_filenames_and_keys",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_credentials_use_confluence_then_atlassian_without_jira",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_json_logs_and_redaction_do_not_leak_tokens",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_local_cli_commands_use_real_paths",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_stateful_commands_require_explicit_out",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_json_log_formatter_redacts_nested_confluence_context",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_local_cli_commands_use_real_paths",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_pull_reports_missing_credentials_without_secret_values",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_cli.py",
+    "function_name": "test_pyproject_exposes_confluence_console_script",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "_assert_command_options",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_dotenv_loading_for_auth",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_exact_commands_expose_rendering_and_attachment_options",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_init_creates_skeleton_without_credentials",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_missing_credentials_are_friendly_and_ignore_jira",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_confluence_pull_exposes_ratified_scope_options",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_cli.py",
+    "function_name": "test_rendering_commands_expose_stable_exported_at_flag",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "test_cli.py",
+    "function_name": "_command_options",
+    "path": "tests/test_cli.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_401_fails_fast_without_retry",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_confluence_http_error_uses_message_payload",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_client.py",
+    "function_name": "_client",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_cql_pagination_rejects_scheme_relative_next_links",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_malformed_200_payloads_fail_strict_validation",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_missing_results_list_fails_strict_validation",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_confluence_client.py",
+    "function_name": "_log_record",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_fetch_page_resolves_space_key_by_id_without_mutating_raw",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_retry_handles_429_and_5xx",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_ancestor_subtree_includes_root_and_hydrated_page_descendants",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_cql_discovery_uses_v1_search_then_v2_page_hydration",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_labels_ancestors_descendants_and_attachment_metadata_methods_validate_payloads",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_v2_pagination_accepts_same_origin_absolute_links_and_rejects_cross_origin",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 9,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_footer_and_inline_comments_paginate_with_default_body_format",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 12,
+    "file_name": "test_confluence_client.py",
+    "function_name": "test_space_discovery_uses_v2_link_pagination_and_hydrates_pages",
+    "path": "tests/test_confluence_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::__init__",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_enter_network_request",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_leave_network_request",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_adf_doc",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_full_confluence_pull_manifest",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_full_confluence_pull_outputs",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_safe_confluence_log_context",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_attachment",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_attachment_partial_failure_handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_client",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_config",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_empty_results",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_full_pull_handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_json_response",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_raw_page",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_single_page_pull_handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_space_resolution_handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_space_response",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_attachment_partial_failure_does_not_advance_representative_run",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_clean_remove_missing_uses_representative_authority_and_preserves_state",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_page_resolves_space_key_and_wiki_urls_for_v2_page_payload",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_pull_fetches_resources_downloads_filtered_attachments_and_verifies",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_pull_honors_concurrency_and_preserves_export_order",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_pull_logs_safe_structured_context",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_page_response",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_tracked_download",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_tracked_page_resource",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_full_confluence_pull_markdown",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_missing_confluence_download_fails_verification",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_comment",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_record_attrs",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_attachment_filename_and_url_safety",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_indexes_cover_all_groupings_and_stale_pages",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_route_handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_assert_full_confluence_pull_payload",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::_coordinate_page_fetch",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_ConcurrencyProbe::handler",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "_log_record",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_refresh_commands_preserve_normalized_page_metadata",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 11,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_ancestor_pull_refreshes_cleanup_authority",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 14,
+    "file_name": "test_confluence_operations.py",
+    "function_name": "test_confluence_page_repull_uses_existing_local_link_context",
+    "path": "tests/test_confluence_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_ancestor_ref",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_assert_confluence_raw_json_file",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_attachments",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_child_parent_ref",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_child_ref",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_footer_comments",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_inline_comments",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_labels",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_labels_sorted_raw",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_normalized_page_set",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_raw_page",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_whiteboard_ref",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_content_hash_ignores_exported_at_and_tracks_links",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_normalization_uses_resolved_space_key_and_wiki_base",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_page_filename_normalizes_unicode_stably",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_raw_json_is_under_pages_raw_and_preserves_source",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_representative_confluence_page_markdown_snapshot",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_storage_only_confluence_body_renders_unsupported_placeholder",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_adf_doc",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_frontmatter_order_and_section_order_are_stable",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_confluence_page_filename_safety",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "test_write_confluence_page_files_uses_atomic_replace",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_confluence_writer.py",
+    "function_name": "_assert_confluence_raw_json_payload",
+    "path": "tests/test_confluence_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "test_integration_sandbox.py",
+    "function_name": "test_real_confluence_sandbox_page_can_be_exported",
+    "path": "tests/test_integration_sandbox.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_integration_sandbox.py",
+    "function_name": "test_real_jira_sandbox_issue_can_be_read",
+    "path": "tests/test_integration_sandbox.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_401_fails_fast_without_retry",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_fetch_comments_accepts_empty_comments_success_payload",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_fetch_comments_rejects_missing_comments_success_payload",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_ordered_jql_ignores_order_by_inside_escaped_quotes",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_ordered_jql_ignores_order_by_inside_quoted_literal",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_search_issue_keys_uses_key_constrained_jql",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_search_issues_rejects_missing_issues_success_payload",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_search_jql_can_return_empty_success_for_invalid_date_literal",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_updated_since_jql_formats_iso_in_jira_user_timezone",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_updated_since_jql_ignores_order_by_inside_quoted_literal",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_updated_since_jql_preserves_real_order_by_after_quoted_literal",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_user_timezone_reads_myself_profile",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_jira_client.py",
+    "function_name": "_client",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_retry_uses_retry_after_for_429",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_fetch_comments_paginates_until_total",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 3,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_fetch_issues_with_comments_ignores_embedded_search_comments",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_jira_client.py",
+    "function_name": "test_search_issues_uses_enhanced_endpoint_and_next_page_token",
+    "path": "tests/test_jira_client.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_latest_run_failed",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_pull_download_manifest",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_pull_download_outputs",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_attachment",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_client",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_comment",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_comments_response",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_config",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_seed_successful_project_pull",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "_write_local_issue",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "test_attachment_filename_safety_blocks_path_tricks",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "test_clean_remove_missing_uses_representative_run_and_preserves_state",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "test_comments_force_refreshes_existing_raw_issue",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_operations.py",
+    "function_name": "test_stale_index_uses_issue_data_not_wall_clock",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_missing_download_fails_verification",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_pull_download_markdown",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_operations.py",
+    "function_name": "_assert_pull_download_payload",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_operations.py",
+    "function_name": "_raw_issue",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_operations.py",
+    "function_name": "test_verify_compares_state_hashes_against_current_issue_files",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 2,
+    "file_name": "test_operations.py",
+    "function_name": "test_verify_reports_state_rows_missing_issue_files",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_operations.py",
+    "function_name": "test_incremental_pull_formats_since_as_jira_date_literal",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_attributes_write_failure_to_issue_key",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_blocks_same_host_attachment_content_url_with_wrong_scheme",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_malformed_search_payload_fails_run_and_preserves_cursor",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 4,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_renders_configured_custom_fields_from_public_config_shape",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 5,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_blocks_external_attachment_content_url_without_request",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_downloads_eligible_attachments_and_verify_checks_local_refs",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 6,
+    "file_name": "test_operations.py",
+    "function_name": "test_pull_malformed_comments_payload_fails_run_and_preserves_cursor",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 8,
+    "file_name": "test_operations.py",
+    "function_name": "test_attachment_partial_failure_does_not_advance_representative_run",
+    "path": "tests/test_operations.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_payloads.py",
+    "function_name": "test_confluence_payload_metadata_prefers_normalized_page_values",
+    "path": "tests/test_payloads.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_payloads.py",
+    "function_name": "test_confluence_payload_space_key_falls_back_to_raw_payload",
+    "path": "tests/test_payloads.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_payloads.py",
+    "function_name": "test_dict_list_materializes_mapping_items_and_ignores_other_values",
+    "path": "tests/test_payloads.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_malformed_task_list_content_uses_unknown_fallback_and_raw_json",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_renderer_supports_required_nodes_and_marks",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_task_list_renders_checked_unchecked_and_rich_inline_content",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_task_list_renders_nested_task_lists_deterministically",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_unknown_node_placeholder_can_include_deterministic_raw_json",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_renderer.py",
+    "function_name": "test_unknown_node_placeholder_can_omit_raw_json",
+    "path": "tests/test_renderer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "_assert_confluence_scope_decisions",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_confluence_cql_date_literal_formats_iso_without_seconds_or_timezone",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_confluence_incremental_decision_uses_successful_compatible_run_overlap",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_confluence_page_state_tracks_required_fields",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_confluence_partial_failure_does_not_advance_cursor_or_cleanup_authority",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_confluence_since_force_exact_and_representative_cleanup_semantics",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_failed_scope_run_does_not_advance_incremental_cursor",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_incremental_cursor_uses_same_command_and_scope",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_incremental_decision_uses_successful_representative_run_overlap",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_incremental_success_advances_sync_without_becoming_cleanup_authority",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_initialize_state_repairs_early_confluence_tables",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_issue_state_tracks_required_fields",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_partial_failure_does_not_advance_representative_run",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_state.py",
+    "function_name": "test_since_force_and_exact_issue_decisions",
+    "path": "tests/test_state.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "_comments",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "_normalized_issue",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "_raw_issue",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "test_attachment_local_path_changes_markdown_content_hash",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "test_initialize_output_migrates_legacy_issue_json_to_raw_dir",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "test_issue_markdown_renders_description_and_comment_task_lists",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "test_representative_issue_markdown_snapshot",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 0,
+    "file_name": "test_writer.py",
+    "function_name": "test_stable_exported_at_and_content_hash_ignore_export_timestamp",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_writer.py",
+    "function_name": "test_frontmatter_order_and_section_order_are_stable",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_writer.py",
+    "function_name": "test_raw_issue_export_json_preserves_required_source_material",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  },
+  {
+    "complexity": 1,
+    "file_name": "test_writer.py",
+    "function_name": "test_write_issue_files_uses_atomic_replace",
+    "path": "tests/test_writer.py",
+    "refactor_plans": []
+  }
+]

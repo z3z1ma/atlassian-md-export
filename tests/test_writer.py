@@ -27,7 +27,9 @@ def test_representative_issue_markdown_snapshot() -> None:
 
     markdown = render_issue_markdown(issue, renderer=renderer, stable_exported_at=True)
 
-    assert markdown == f"""---
+    assert (
+        markdown
+        == f"""---
 schema_version: 1
 source: jira-cloud:example.atlassian.net
 key: ABC-1
@@ -121,6 +123,7 @@ First comment
 
 Second comment
 """
+    )
 
 
 def test_frontmatter_order_and_section_order_are_stable() -> None:
@@ -203,10 +206,7 @@ def test_issue_markdown_renders_description_and_comment_task_lists() -> None:
     markdown = render_issue_markdown(issue, stable_exported_at=True)
 
     assert (
-        "## Description\n\n"
-        "- [ ] Document acceptance\n"
-        "- [x] Review **ADF**\n\n"
-        "## Key Fields"
+        "## Description\n\n- [ ] Document acceptance\n- [x] Review **ADF**\n\n## Key Fields"
     ) in markdown
     assert (
         "### Comment 1 — Rae Reporter — 2026-07-01T12:00:00.000+0000\n\n"
@@ -252,9 +252,7 @@ def test_attachment_local_path_changes_markdown_content_hash() -> None:
     issue_with_download = issue_without_download.model_copy(
         update={
             "attachments": [
-                attachment.model_copy(
-                    update={"local_path": "../attachments/ABC-1/att-1-debug.log"}
-                )
+                attachment.model_copy(update={"local_path": "../attachments/ABC-1/att-1-debug.log"})
                 for attachment in issue_without_download.attachments
             ]
         },
@@ -338,7 +336,9 @@ def test_write_issue_files_uses_atomic_replace(
     )
 
     assert result.exported_at == "2026-07-01T12:00:00Z"
-    frontmatter = yaml.safe_load(result.markdown_path.read_text(encoding="utf-8").split("---\n", 2)[1])
+    frontmatter = yaml.safe_load(
+        result.markdown_path.read_text(encoding="utf-8").split("---\n", 2)[1]
+    )
     assert frontmatter["exported_at"] == STABLE_EXPORTED_AT
     assert result.markdown_path == tmp_path / "issues" / "ABC-1.md"
     assert result.json_path == tmp_path / "issues" / "_raw" / "ABC-1.json"

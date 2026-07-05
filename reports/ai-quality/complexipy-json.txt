@@ -1,0 +1,721 @@
+──────────────────────────────── 🐙 complexipy ─────────────────────────────────
+Results saved at
+/Users/alexanderbut/code_projects/work/tools/atlassian-md-export/reports/ai-qual
+ity/complexipy.json
+src/atlassian_md_export/attachments.py
+    attachment_path 0  ✅ PASSED
+    attachment_relative_path 0  ✅ PASSED
+    confluence_attachment_path 0  ✅ PASSED
+    safe_attachment_name 0  ✅ PASSED
+    should_download_attachment 5  ✅ PASSED
+    sanitize_attachment_filename 8  ✅ PASSED
+
+src/atlassian_md_export/cli.py
+    _attachment_options 0  ✅ PASSED
+    _config_option 0  ✅ PASSED
+    _with_progress 0  ✅ PASSED
+    attachments 0  ✅ PASSED
+    clean 0  ✅ PASSED
+    comments 0  ✅ PASSED
+    confluence_attachments 0  ✅ PASSED
+    confluence_clean 0  ✅ PASSED
+    confluence_comments 0  ✅ PASSED
+    confluence_index 0  ✅ PASSED
+    confluence_init_command 0  ✅ PASSED
+    confluence_main 0  ✅ PASSED
+    confluence_page 0  ✅ PASSED
+    confluence_pull 0  ✅ PASSED
+    index 0  ✅ PASSED
+    init_command 0  ✅ PASSED
+    issue 0  ✅ PASSED
+    main 0  ✅ PASSED
+    _confluence_site 1  ✅ PASSED
+    _friendly_call 1  ✅ PASSED
+    _resolved_confluence_site 1  ✅ PASSED
+    _with_stable_exported_at 1  ✅ PASSED
+    _resolved_site 2  ✅ PASSED
+    pull 2  ✅ PASSED
+    _load_confluence_context 3  ✅ PASSED
+    confluence_verify 3  ✅ PASSED
+    verify 3  ✅ PASSED
+    _confluence_pull_scope 4  ✅ PASSED
+    _confluence_scope_kwargs 4  ✅ PASSED
+    _load_jira_context 4  ✅ PASSED
+
+src/atlassian_md_export/client.py
+    AtlassianHttpClient::build_client 0  ✅ PASSED
+    AtlassianHttpClient::request_json 0  ✅ PASSED
+    AtlassianHttpError::__init__ 0  ✅ PASSED
+    MissingCredentialsError::__init__ 0  ✅ PASSED
+    _http_log_context 0  ✅ PASSED
+    _http_error_message 1  ✅ PASSED
+    _parse_retry_after 3  ✅ PASSED
+    _response_json_or_text 3  ✅ PASSED
+    JiraCredentials::from_environment 4  ✅ PASSED
+    _atlassian_error_detail 4  ✅ PASSED
+    _retry_delay 4  ✅ PASSED
+    _safe_request_path 4  ✅ PASSED
+    _atlassian_error_map_detail 5  ✅ PASSED
+    _atlassian_message_list_detail 6  ✅ PASSED
+    _atlassian_scalar_error_detail 7  ✅ PASSED
+    AtlassianHttpClient::request_bytes 11  ✅ PASSED
+    AtlassianHttpClient::request_json_response 13  ✅ PASSED
+
+src/atlassian_md_export/config.py
+    MissingConfluenceCredentialsError::__init__ 0  ✅ PASSED
+    load_confluence_config 0  ✅ PASSED
+    _parse_dotenv_value 3  ✅ PASSED
+    _find_config_path 4  ✅ PASSED
+    load_config 4  ✅ PASSED
+    _parse_dotenv_line 5  ✅ PASSED
+    ConfluenceCredentials::from_environment 6  ✅ PASSED
+    load_dotenv 7  ✅ PASSED
+
+src/atlassian_md_export/confluence/client.py
+    ConfluenceClient::_fetch_page_results 0  ✅ PASSED
+    ConfluenceClient::_fetch_space_by_id 0  ✅ PASSED
+    ConfluenceClient::fetch_ancestors 0  ✅ PASSED
+    ConfluenceClient::fetch_attachment_metadata 0  ✅ PASSED
+    ConfluenceClient::fetch_descendants 0  ✅ PASSED
+    ConfluenceClient::fetch_labels 0  ✅ PASSED
+    ConfluenceClient::fetch_page 0  ✅ PASSED
+    ConfluenceClient::fetch_space_by_id 0  ✅ PASSED
+    ConfluenceClient::list_spaces 0  ✅ PASSED
+    ConfluenceClient::_list_spaces 1  ✅ PASSED
+    ConfluenceClient::fetch_space_pages 1  ✅ PASSED
+    ConfluenceClient::search_pages 1  ✅ PASSED
+    _comment_object 1  ✅ PASSED
+    _descendant_summary 1  ✅ PASSED
+    _dict_payload 1  ✅ PASSED
+    _path_with_query 1  ✅ PASSED
+    _required_results 1  ✅ PASSED
+    confluence_updated_since_cql 1  ✅ PASSED
+    ConfluenceClient::_fetch_page 2  ✅ PASSED
+    ConfluenceClient::fetch_ancestor_subtree 2  ✅ PASSED
+    ConfluenceClient::fetch_footer_comments 2  ✅ PASSED
+    _attachment_object 2  ✅ PASSED
+    _label_object 2  ✅ PASSED
+    _optional_string 2  ✅ PASSED
+    _page_object 2  ✅ PASSED
+    ConfluenceClient::_paginate_v2 3  ✅ PASSED
+    ConfluenceClient::_resolve_space 3  ✅ PASSED
+    ConfluenceClient::_search_page_ids 3  ✅ PASSED
+    ConfluenceClient::fetch_inline_comments 3  ✅ PASSED
+    ConfluenceClient::resolve_space 3  ✅ PASSED
+    _cached_space_key 3  ✅ PASSED
+    _page_summary 3  ✅ PASSED
+    _split_order_by 3  ✅ PASSED
+    _cql_result_page_id 4  ✅ PASSED
+    _origin_port 4  ✅ PASSED
+    _same_origin 4  ✅ PASSED
+    _space_object 4  ✅ PASSED
+    _version_number 4  ✅ PASSED
+    confluence_cql_date_literal 4  ✅ PASSED
+    _updated_at 7  ✅ PASSED
+    _next_cql_target 8  ✅ PASSED
+    _next_link 11  ✅ PASSED
+    _safe_next_path 12  ✅ PASSED
+    _find_order_by 13  ✅ PASSED
+
+src/atlassian_md_export/indexes.py
+    _confluence_page_sort_key 0  ✅ PASSED
+    _issue_line 0  ✅ PASSED
+    _parse_jira_datetime 0  ✅ PASSED
+    _relative_index_link 0  ✅ PASSED
+    generate_confluence_indexes 0  ✅ PASSED
+    generate_indexes 0  ✅ PASSED
+    index_dir 0  ✅ PASSED
+    _label_text 1  ✅ PASSED
+    _string 1  ✅ PASSED
+    confluence_required_index_paths 1  ✅ PASSED
+    required_index_paths 1  ✅ PASSED
+    _confluence_page_from_json 2  ✅ PASSED
+    _confluence_page_line 2  ✅ PASSED
+    _confluence_parent_group 2  ✅ PASSED
+    _write_all_index 2  ✅ PASSED
+    _write_confluence_all_index 2  ✅ PASSED
+    read_confluence_index_pages 2  ✅ PASSED
+    read_index_issues 2  ✅ PASSED
+    _deterministic_confluence_reference_time 3  ✅ PASSED
+    _deterministic_reference_time 3  ✅ PASSED
+    _issue_from_json 4  ✅ PASSED
+    _parse_atlassian_datetime 4  ✅ PASSED
+    _write_grouped_index 5  ✅ PASSED
+    _write_confluence_stale_index 6  ✅ PASSED
+    _write_stale_index 6  ✅ PASSED
+    _write_confluence_grouped_index 7  ✅ PASSED
+    _display 10  ✅ PASSED
+
+src/atlassian_md_export/jira/client.py
+    JiraClient::fetch_comments 0  ✅ PASSED
+    JiraClient::search_issue_keys 0  ✅ PASSED
+    JiraClient::search_issues 0  ✅ PASSED
+    _jql_string 0  ✅ PASSED
+    project_jql 0  ✅ PASSED
+    updated_since_jql 0  ✅ PASSED
+    JiraClient::_with_comments_concurrently 1  ✅ PASSED
+    JiraClient::user_timezone 2  ✅ PASSED
+    _search_params 2  ✅ PASSED
+    _split_order_by 2  ✅ PASSED
+    ordered_jql 2  ✅ PASSED
+    JiraClient::fetch_issues_with_comments 3  ✅ PASSED
+    _comment_objects 3  ✅ PASSED
+    _next_search_page 3  ✅ PASSED
+    _search_page_issues 4  ✅ PASSED
+    JiraClient::_search_issues 5  ✅ PASSED
+    _jira_date_literal 5  ✅ PASSED
+    _normalize_issue 5  ✅ PASSED
+    exact_issue_jql 5  ✅ PASSED
+    JiraClient::_fetch_comments 10  ✅ PASSED
+    _find_order_by 13  ✅ PASSED
+
+src/atlassian_md_export/log.py
+    RedactingTextFormatter::format 0  ✅ PASSED
+    _redact_string 3  ✅ PASSED
+    configure_logging 3  ✅ PASSED
+    JsonLogFormatter::format 4  ✅ PASSED
+    redact 13  ✅ PASSED
+
+src/atlassian_md_export/operations.py
+    VerificationResult::ok 0  ✅ PASSED
+    _display_path 0  ✅ PASSED
+    _escape_cql_string 0  ✅ PASSED
+    _fetch_confluence_footer_comments 0  ✅ PASSED
+    _local_confluence_exported_pages 0  ✅ PASSED
+    _read_local_comments 0  ✅ PASSED
+    _verify_confluence_state_hash_row 0  ✅ PASSED
+    _verify_issue_state_hash_row 0  ✅ PASSED
+    _write_issue 0  ✅ PASSED
+    build_confluence_client 0  ✅ PASSED
+    build_jira_client 0  ✅ PASSED
+    regenerate_confluence_indexes 0  ✅ PASSED
+    regenerate_indexes 0  ✅ PASSED
+    run_confluence_page 0  ✅ PASSED
+    run_confluence_pull 0  ✅ PASSED
+    run_issue 0  ✅ PASSED
+    run_pull 0  ✅ PASSED
+    AttachmentOptions::max_bytes 1  ✅ PASSED
+    _confluence_manifest_payload 1  ✅ PASSED
+    _confluence_manifest_representative_run 1  ✅ PASSED
+    _confluence_markdown_path_from_payload 1  ✅ PASSED
+    _fetch_inline_comments 1  ✅ PASSED
+    _has_hash 1  ✅ PASSED
+    _is_attachment_link 1  ✅ PASSED
+    _is_external_or_anchor 1  ✅ PASSED
+    _manifest_representative_run 1  ✅ PASSED
+    _partial_failure_message 1  ✅ PASSED
+    _prepare_confluence_page_export 1  ✅ PASSED
+    _read_confluence_page_payload 1  ✅ PASSED
+    _read_issue_payload 1  ✅ PASSED
+    _read_local_confluence_page_source 1  ✅ PASSED
+    _read_local_issue_source 1  ✅ PASSED
+    _sha256_file 1  ✅ PASSED
+    _site_host 1  ✅ PASSED
+    _within 1  ✅ PASSED
+    _hydrate_confluence_page 2  ✅ PASSED
+    _list 2  ✅ PASSED
+    _payload_exporter_site_host 2  ✅ PASSED
+    _read_confluence_page_payloads 2  ✅ PASSED
+    _read_issue_payloads 2  ✅ PASSED
+    _representative_issue_keys 2  ✅ PASSED
+    _verify_relative_file_reference 2  ✅ PASSED
+    _verify_state_confluence_page_hashes 2  ✅ PASSED
+    _verify_state_issue_hashes 2  ✅ PASSED
+    _write_confluence_page 2  ✅ PASSED
+    _confluence_markdown_paths_for_page_id 3  ✅ PASSED
+    _confluence_page_id 3  ✅ PASSED
+    _issue_key 3  ✅ PASSED
+    _normalized_keys 3  ✅ PASSED
+    _normalized_page_ids 3  ✅ PASSED
+    _origin 3  ✅ PASSED
+    _safe_relative_target 3  ✅ PASSED
+    _search_fields 3  ✅ PASSED
+    _verify_issue_attachment_metadata 3  ✅ PASSED
+    _verify_markdown_attachment_links 3  ✅ PASSED
+    _verify_sqlite 3  ✅ PASSED
+    _verify_state_content_hash 3  ✅ PASSED
+    initialize_confluence_output 3  ✅ PASSED
+    update_manifest 3  ✅ PASSED
+    _apply_attachment_metadata 4  ✅ PASSED
+    _attachment_download_target 4  ✅ PASSED
+    _confluence_site_host_from_payloads 4  ✅ PASSED
+    _local_issue_keys 4  ✅ PASSED
+    _origin_port 4  ✅ PASSED
+    _prepare_confluence_page_exports 4  ✅ PASSED
+    _safe_resource_path 4  ✅ PASSED
+    _site_host_from_payloads 4  ✅ PASSED
+    _write_prepared_confluence_attachment_downloads 4  ✅ PASSED
+    _writer_custom_fields 4  ✅ PASSED
+    update_confluence_manifest 4  ✅ PASSED
+    _confluence_file_hashes 5  ✅ PASSED
+    _display_confluence_markdown_path 5  ✅ PASSED
+    _file_hashes 5  ✅ PASSED
+    _payload_raw_url_host 5  ✅ PASSED
+    _verify_state_file_hash 5  ✅ PASSED
+    _verify_state_markdown_hashes 5  ✅ PASSED
+    _log_confluence 6  ✅ PASSED
+    _pull_scope 6  ✅ PASSED
+    _same_origin 6  ✅ PASSED
+    _verify_attachment_references 6  ✅ PASSED
+    _verify_confluence_attachment_metadata 6  ✅ PASSED
+    _confluence_markdown_path_for_page_id 7  ✅ PASSED
+    _confluence_scope_log_context 7  ✅ PASSED
+    _markdown_frontmatter_content_hash 7  ✅ PASSED
+    _markdown_frontmatter_page_id 7  ✅ PASSED
+    _verify_confluence_attachment_references 7  ✅ PASSED
+    run_attachments 7  ✅ PASSED
+    run_confluence_attachments 7  ✅ PASSED
+    _confluence_export_context 8  ✅ PASSED
+    _confluence_pull_scope 8  ✅ PASSED
+    _log_value 8  ✅ PASSED
+    _safe_download_path 8  ✅ PASSED
+    run_comments 8  ✅ PASSED
+    _verify_manifest_issue_files 9  ✅ PASSED
+    _local_confluence_page_ids 10  ✅ PASSED
+    clean_confluence_export 10  ✅ PASSED
+    clean_export 10  ✅ PASSED
+    _confluence_attachment_download_target 11  ✅ PASSED
+    _fetch_confluence_scope_pages 11  ✅ PASSED
+    _download_attachments 12  ✅ PASSED
+    _prepare_confluence_attachment_downloads 12  ✅ PASSED
+    _run_search_export 12  ✅ PASSED
+    _verify_index_links 12  ✅ PASSED
+    _verify_manifest_confluence_page_files 12  ✅ PASSED
+    _verify_manifest_hashes 12  ✅ PASSED
+    run_confluence_comments 12  ✅ PASSED
+    verify_export 13  ✅ PASSED
+    _run_confluence_page_export 14  ✅ PASSED
+    verify_confluence_export 15  ✅ PASSED
+
+src/atlassian_md_export/payloads.py
+    confluence_payload_url 4  ✅ PASSED
+    dict_list 5  ✅ PASSED
+    confluence_payload_space_key 14  ✅ PASSED
+
+src/atlassian_md_export/renderer.py
+    AdfMarkdownRenderer::__init__ 0  ✅ PASSED
+    AdfMarkdownRenderer::_render_table_cell 0  ✅ PASSED
+    _escape_url 0  ✅ PASSED
+    _mark_sort_key 0  ✅ PASSED
+    escape_markdown_table_cell 0  ✅ PASSED
+    escape_markdown_text 0  ✅ PASSED
+    AdfMarkdownRenderer::_render_blocks 1  ✅ PASSED
+    AdfMarkdownRenderer::_render_heading 1  ✅ PASSED
+    AdfMarkdownRenderer::_render_inlines 1  ✅ PASSED
+    AdfMarkdownRenderer::_render_media 1  ✅ PASSED
+    AdfMarkdownRenderer::_unknown_node 1  ✅ PASSED
+    _attrs 1  ✅ PASSED
+    _date_from_epoch 1  ✅ PASSED
+    _fenced_block 1  ✅ PASSED
+    _optional_mapping_content 1  ✅ PASSED
+    _task_item_marker 1  ✅ PASSED
+    _text_content 1  ✅ PASSED
+    AdfMarkdownRenderer::_render_code_block 2  ✅ PASSED
+    AdfMarkdownRenderer::_render_inline_card 2  ✅ PASSED
+    AdfMarkdownRenderer::render 2  ✅ PASSED
+    AdfMarkdownRenderer::_indent 3  ✅ PASSED
+    AdfMarkdownRenderer::_render_blockquote 3  ✅ PASSED
+    AdfMarkdownRenderer::_render_media_container 3  ✅ PASSED
+    AdfMarkdownRenderer::_render_panel 3  ✅ PASSED
+    _code_span 3  ✅ PASSED
+    _content 3  ✅ PASSED
+    _marks 3  ✅ PASSED
+    AdfMarkdownRenderer::_apply_link_mark 4  ✅ PASSED
+    AdfMarkdownRenderer::_render_emoji 4  ✅ PASSED
+    _named_attrs 4  ✅ PASSED
+    _required_mapping_content 4  ✅ PASSED
+    AdfMarkdownRenderer::_render_date 5  ✅ PASSED
+    _date_from_timestamp 5  ✅ PASSED
+    AdfMarkdownRenderer::_append_task_inline_nodes 6  ✅ PASSED
+    AdfMarkdownRenderer::_render_inline 7  ✅ PASSED
+    AdfMarkdownRenderer::_render_list_item 8  ✅ PASSED
+    AdfMarkdownRenderer::_render_mention 8  ✅ PASSED
+    AdfMarkdownRenderer::_render_table 8  ✅ PASSED
+    AdfMarkdownRenderer::_render_task_list 9  ✅ PASSED
+    AdfMarkdownRenderer::_render_task_item 10  ✅ PASSED
+    AdfMarkdownRenderer::_render_text 11  ✅ PASSED
+    AdfMarkdownRenderer::_render_block 13  ✅ PASSED
+    AdfMarkdownRenderer::_render_list 13  ✅ PASSED
+
+src/atlassian_md_export/state.py
+    _confluence_run_from_row 0  ✅ PASSED
+    _format_iso 0  ✅ PASSED
+    _json_list 0  ✅ PASSED
+    _run_from_row 0  ✅ PASSED
+    clear_confluence_page_export_artifacts 0  ✅ PASSED
+    clear_issue_export_artifacts 0  ✅ PASSED
+    initialize_state 0  ✅ PASSED
+    now_iso 0  ✅ PASSED
+    stable_json_hash 0  ✅ PASSED
+    upsert_confluence_page_state 0  ✅ PASSED
+    upsert_issue_state 0  ✅ PASSED
+    _is_confluence_representative_scope 1  ✅ PASSED
+    _is_representative_scope 1  ✅ PASSED
+    _optional_str 1  ✅ PASSED
+    last_successful_confluence_representative_run 1  ✅ PASSED
+    last_successful_confluence_scope_run 1  ✅ PASSED
+    last_successful_representative_run 1  ✅ PASSED
+    last_successful_scope_run 1  ✅ PASSED
+    latest_successful_confluence_representative_run 1  ✅ PASSED
+    latest_successful_representative_run 1  ✅ PASSED
+    _ensure_column 2  ✅ PASSED
+    _parse_iso 2  ✅ PASSED
+    confluence_representative_page_ids 2  ✅ PASSED
+    start_confluence_export_run 3  ✅ PASSED
+    start_export_run 3  ✅ PASSED
+    finish_confluence_export_run 4  ✅ PASSED
+    finish_export_run 4  ✅ PASSED
+    _tuple_from_json 5  ✅ PASSED
+    decide_incremental_sync 6  ✅ PASSED
+    decide_confluence_incremental_sync 8  ✅ PASSED
+
+src/atlassian_md_export/writer.py
+    _attachment_hash_metadata 0  ✅ PASSED
+    _confluence_actor 0  ✅ PASSED
+    _confluence_page_body 0  ✅ PASSED
+    _confluence_page_markdown_relative_path 0  ✅ PASSED
+    _confluence_reference_sort_key 0  ✅ PASSED
+    _escape_url 0  ✅ PASSED
+    _frontmatter_yaml 0  ✅ PASSED
+    _path_as_posix 0  ✅ PASSED
+    _relative_page_url 0  ✅ PASSED
+    _sha256_text 0  ✅ PASSED
+    _sorted_comments 0  ✅ PASSED
+    _sorted_confluence_comments 0  ✅ PASSED
+    atomic_write_json 0  ✅ PASSED
+    canonical_json 0  ✅ PASSED
+    confluence_page_markdown_path 0  ✅ PASSED
+    confluence_page_raw_dir 0  ✅ PASSED
+    confluence_page_raw_path 0  ✅ PASSED
+    issue_markdown_path 0  ✅ PASSED
+    issue_raw_dir 0  ✅ PASSED
+    issue_raw_path 0  ✅ PASSED
+    manifest_json 0  ✅ PASSED
+    write_confluence_page_files 0  ✅ PASSED
+    write_issue_files 0  ✅ PASSED
+    _comment_sort_key 1  ✅ PASSED
+    _confluence_comment_sort_key 1  ✅ PASSED
+    _confluence_exported_page_hash_inputs 1  ✅ PASSED
+    _confluence_label_sort_key 1  ✅ PASSED
+    _confluence_label_text 1  ✅ PASSED
+    _confluence_reference_payload 1  ✅ PASSED
+    _confluence_space_id 1  ✅ PASSED
+    _confluence_space_key 1  ✅ PASSED
+    _confluence_updated 1  ✅ PASSED
+    _frontmatter_payload 1  ✅ PASSED
+    _issue_body 1  ✅ PASSED
+    _json_object 1  ✅ PASSED
+    _normalize_attachments 1  ✅ PASSED
+    _normalize_comments 1  ✅ PASSED
+    _normalize_confluence_attachments 1  ✅ PASSED
+    _normalize_confluence_comments 1  ✅ PASSED
+    _optional_mapping 1  ✅ PASSED
+    _parent_key 1  ✅ PASSED
+    _required_string 1  ✅ PASSED
+    _site_host 1  ✅ PASSED
+    _unsupported_body_placeholder 1  ✅ PASSED
+    atomic_write_bytes 1  ✅ PASSED
+    atomic_write_text 1  ✅ PASSED
+    normalize_confluence_page 1  ✅ PASSED
+    normalize_jira_issue 1  ✅ PASSED
+    render_confluence_page_markdown 1  ✅ PASSED
+    render_issue_markdown 1  ✅ PASSED
+    _attachments 2  ✅ PASSED
+    _compact_join 2  ✅ PASSED
+    _confluence_ancestors 2  ✅ PASSED
+    _confluence_attachments 2  ✅ PASSED
+    _confluence_child_pages 2  ✅ PASSED
+    _confluence_content 2  ✅ PASSED
+    _confluence_raw_field_notes 2  ✅ PASSED
+    _confluence_version 2  ✅ PASSED
+    _exported_at 2  ✅ PASSED
+    _json_string_object 2  ✅ PASSED
+    _key_fields 2  ✅ PASSED
+    _linked_key 2  ✅ PASSED
+    _mapping 2  ✅ PASSED
+    _raw_field_notes 2  ✅ PASSED
+    _visibility 2  ✅ PASSED
+    _confluence_comments 3  ✅ PASSED
+    _confluence_frontmatter_payload 3  ✅ PASSED
+    _display_list_value 3  ✅ PASSED
+    _display_mapping_value 3  ✅ PASSED
+    _id_sort_key 3  ✅ PASSED
+    _mapping_list 3  ✅ PASSED
+    _migrate_legacy_raw_issue_files 3  ✅ PASSED
+    _normalize_confluence_labels 3  ✅ PASSED
+    _normalize_subtasks 3  ✅ PASSED
+    _optional_string 3  ✅ PASSED
+    initialize_output 3  ✅ PASSED
+    issue_raw_export_json 3  ✅ PASSED
+    _confluence_labels 4  ✅ PASSED
+    _confluence_page_metadata 4  ✅ PASSED
+    _epic_value 4  ✅ PASSED
+    _sorted_display_list 4  ✅ PASSED
+    _subtasks 4  ✅ PASSED
+    issue_content_hash 4  ✅ PASSED
+    _absolute_url 5  ✅ PASSED
+    _confluence_parent 5  ✅ PASSED
+    _confluence_reference_value 5  ✅ PASSED
+    _confluence_site_base 5  ✅ PASSED
+    _display_value 5  ✅ PASSED
+    _site_base 5  ✅ PASSED
+    _confluence_body_adf 6  ✅ PASSED
+    _links 6  ✅ PASSED
+    _normalize_confluence_page_refs 6  ✅ PASSED
+    _normalize_custom_fields 6  ✅ PASSED
+    _attachment_line 7  ✅ PASSED
+    _jsonable 7  ✅ PASSED
+    _markdown_value 7  ✅ PASSED
+    confluence_page_content_hash 7  ✅ PASSED
+    _adf_from_body_representation 8  ✅ PASSED
+    _normalize_issue_links 8  ✅ PASSED
+    confluence_page_raw_export_json 8  ✅ PASSED
+    safe_confluence_path_segment 8  ✅ PASSED
+    _confluence_base_from_url 9  ✅ PASSED
+    _confluence_web_url 9  ✅ PASSED
+    _comments 10  ✅ PASSED
+    _render_confluence_comment_group 14  ✅ PASSED
+
+tests/test_cli.py
+    test_config_rejects_negative_sync_overlap_and_allows_zero 0  ✅ PASSED
+    test_confluence_config_default_filenames_and_keys 0  ✅ PASSED
+    test_confluence_credentials_use_confluence_then_atlassian_without_jira 0  ✅
+PASSED
+    test_confluence_json_logs_and_redaction_do_not_leak_tokens 0  ✅ PASSED
+    test_confluence_local_cli_commands_use_real_paths 0  ✅ PASSED
+    test_confluence_stateful_commands_require_explicit_out 0  ✅ PASSED
+    test_json_log_formatter_redacts_nested_confluence_context 0  ✅ PASSED
+    test_local_cli_commands_use_real_paths 0  ✅ PASSED
+    test_pull_reports_missing_credentials_without_secret_values 0  ✅ PASSED
+    test_pyproject_exposes_confluence_console_script 0  ✅ PASSED
+    _assert_command_options 1  ✅ PASSED
+    test_confluence_dotenv_loading_for_auth 1  ✅ PASSED
+    test_confluence_exact_commands_expose_rendering_and_attachment_options 1  ✅
+PASSED
+    test_confluence_init_creates_skeleton_without_credentials 1  ✅ PASSED
+    test_confluence_missing_credentials_are_friendly_and_ignore_jira 1  ✅
+PASSED
+    test_confluence_pull_exposes_ratified_scope_options 1  ✅ PASSED
+    test_rendering_commands_expose_stable_exported_at_flag 1  ✅ PASSED
+    _command_options 3  ✅ PASSED
+
+tests/test_confluence_client.py
+    test_401_fails_fast_without_retry 0  ✅ PASSED
+    test_confluence_http_error_uses_message_payload 0  ✅ PASSED
+    _client 1  ✅ PASSED
+    test_cql_pagination_rejects_scheme_relative_next_links 2  ✅ PASSED
+    test_malformed_200_payloads_fail_strict_validation 2  ✅ PASSED
+    test_missing_results_list_fails_strict_validation 2  ✅ PASSED
+    _log_record 4  ✅ PASSED
+    test_fetch_page_resolves_space_key_by_id_without_mutating_raw 4  ✅ PASSED
+    test_retry_handles_429_and_5xx 6  ✅ PASSED
+    test_ancestor_subtree_includes_root_and_hydrated_page_descendants 8  ✅
+PASSED
+    test_cql_discovery_uses_v1_search_then_v2_page_hydration 8  ✅ PASSED
+    test_labels_ancestors_descendants_and_attachment_metadata_methods_validate_p
+ayloads 8  ✅ PASSED
+    test_v2_pagination_accepts_same_origin_absolute_links_and_rejects_cross_orig
+in 8  ✅ PASSED
+    test_footer_and_inline_comments_paginate_with_default_body_format 9  ✅
+PASSED
+    test_space_discovery_uses_v2_link_pagination_and_hydrates_pages 12  ✅
+PASSED
+
+tests/test_confluence_operations.py
+    _ConcurrencyProbe::__init__ 0  ✅ PASSED
+    _ConcurrencyProbe::_enter_network_request 0  ✅ PASSED
+    _ConcurrencyProbe::_leave_network_request 0  ✅ PASSED
+    _adf_doc 0  ✅ PASSED
+    _assert_full_confluence_pull_manifest 0  ✅ PASSED
+    _assert_full_confluence_pull_outputs 0  ✅ PASSED
+    _assert_safe_confluence_log_context 0  ✅ PASSED
+    _attachment 0  ✅ PASSED
+    _attachment_partial_failure_handler 0  ✅ PASSED
+    _client 0  ✅ PASSED
+    _config 0  ✅ PASSED
+    _empty_results 0  ✅ PASSED
+    _full_pull_handler 0  ✅ PASSED
+    _json_response 0  ✅ PASSED
+    _raw_page 0  ✅ PASSED
+    _single_page_pull_handler 0  ✅ PASSED
+    _space_resolution_handler 0  ✅ PASSED
+    _space_response 0  ✅ PASSED
+    test_confluence_attachment_partial_failure_does_not_advance_representative_r
+un 0  ✅ PASSED
+    test_confluence_clean_remove_missing_uses_representative_authority_and_prese
+rves_state 0  ✅ PASSED
+    test_confluence_page_resolves_space_key_and_wiki_urls_for_v2_page_payload 0
+✅ PASSED
+    test_confluence_pull_fetches_resources_downloads_filtered_attachments_and_ve
+rifies 0  ✅ PASSED
+    test_confluence_pull_honors_concurrency_and_preserves_export_order 0  ✅
+PASSED
+    test_confluence_pull_logs_safe_structured_context 0  ✅ PASSED
+    _ConcurrencyProbe::_page_response 1  ✅ PASSED
+    _ConcurrencyProbe::_tracked_download 1  ✅ PASSED
+    _ConcurrencyProbe::_tracked_page_resource 1  ✅ PASSED
+    _assert_full_confluence_pull_markdown 1  ✅ PASSED
+    _assert_missing_confluence_download_fails_verification 1  ✅ PASSED
+    _comment 1  ✅ PASSED
+    _record_attrs 1  ✅ PASSED
+    test_confluence_attachment_filename_and_url_safety 1  ✅ PASSED
+    test_confluence_indexes_cover_all_groupings_and_stale_pages 1  ✅ PASSED
+    _route_handler 2  ✅ PASSED
+    _assert_full_confluence_pull_payload 3  ✅ PASSED
+    _ConcurrencyProbe::_coordinate_page_fetch 4  ✅ PASSED
+    _ConcurrencyProbe::handler 4  ✅ PASSED
+    _log_record 4  ✅ PASSED
+    test_confluence_refresh_commands_preserve_normalized_page_metadata 8  ✅
+PASSED
+    test_confluence_ancestor_pull_refreshes_cleanup_authority 11  ✅ PASSED
+    test_confluence_page_repull_uses_existing_local_link_context 14  ✅ PASSED
+
+tests/test_confluence_writer.py
+    _ancestor_ref 0  ✅ PASSED
+    _assert_confluence_raw_json_file 0  ✅ PASSED
+    _attachments 0  ✅ PASSED
+    _child_parent_ref 0  ✅ PASSED
+    _child_ref 0  ✅ PASSED
+    _footer_comments 0  ✅ PASSED
+    _inline_comments 0  ✅ PASSED
+    _labels 0  ✅ PASSED
+    _labels_sorted_raw 0  ✅ PASSED
+    _normalized_page_set 0  ✅ PASSED
+    _raw_page 0  ✅ PASSED
+    _whiteboard_ref 0  ✅ PASSED
+    test_confluence_content_hash_ignores_exported_at_and_tracks_links 0  ✅
+PASSED
+    test_confluence_normalization_uses_resolved_space_key_and_wiki_base 0  ✅
+PASSED
+    test_confluence_page_filename_normalizes_unicode_stably 0  ✅ PASSED
+    test_confluence_raw_json_is_under_pages_raw_and_preserves_source 0  ✅
+PASSED
+    test_representative_confluence_page_markdown_snapshot 0  ✅ PASSED
+    test_storage_only_confluence_body_renders_unsupported_placeholder 0  ✅
+PASSED
+    _adf_doc 1  ✅ PASSED
+    test_confluence_frontmatter_order_and_section_order_are_stable 1  ✅ PASSED
+    test_confluence_page_filename_safety 1  ✅ PASSED
+    test_write_confluence_page_files_uses_atomic_replace 1  ✅ PASSED
+    _assert_confluence_raw_json_payload 2  ✅ PASSED
+
+tests/test_integration_sandbox.py
+    test_real_confluence_sandbox_page_can_be_exported 3  ✅ PASSED
+    test_real_jira_sandbox_issue_can_be_read 4  ✅ PASSED
+
+tests/test_jira_client.py
+    test_401_fails_fast_without_retry 0  ✅ PASSED
+    test_fetch_comments_accepts_empty_comments_success_payload 0  ✅ PASSED
+    test_fetch_comments_rejects_missing_comments_success_payload 0  ✅ PASSED
+    test_ordered_jql_ignores_order_by_inside_escaped_quotes 0  ✅ PASSED
+    test_ordered_jql_ignores_order_by_inside_quoted_literal 0  ✅ PASSED
+    test_search_issue_keys_uses_key_constrained_jql 0  ✅ PASSED
+    test_search_issues_rejects_missing_issues_success_payload 0  ✅ PASSED
+    test_search_jql_can_return_empty_success_for_invalid_date_literal 0  ✅
+PASSED
+    test_updated_since_jql_formats_iso_in_jira_user_timezone 0  ✅ PASSED
+    test_updated_since_jql_ignores_order_by_inside_quoted_literal 0  ✅ PASSED
+    test_updated_since_jql_preserves_real_order_by_after_quoted_literal 0  ✅
+PASSED
+    test_user_timezone_reads_myself_profile 0  ✅ PASSED
+    _client 1  ✅ PASSED
+    test_retry_uses_retry_after_for_429 2  ✅ PASSED
+    test_fetch_comments_paginates_until_total 3  ✅ PASSED
+    test_fetch_issues_with_comments_ignores_embedded_search_comments 3  ✅
+PASSED
+    test_search_issues_uses_enhanced_endpoint_and_next_page_token 4  ✅ PASSED
+
+tests/test_operations.py
+    _assert_latest_run_failed 0  ✅ PASSED
+    _assert_pull_download_manifest 0  ✅ PASSED
+    _assert_pull_download_outputs 0  ✅ PASSED
+    _attachment 0  ✅ PASSED
+    _client 0  ✅ PASSED
+    _comment 0  ✅ PASSED
+    _comments_response 0  ✅ PASSED
+    _config 0  ✅ PASSED
+    _seed_successful_project_pull 0  ✅ PASSED
+    _write_local_issue 0  ✅ PASSED
+    test_attachment_filename_safety_blocks_path_tricks 0  ✅ PASSED
+    test_clean_remove_missing_uses_representative_run_and_preserves_state 0  ✅
+PASSED
+    test_comments_force_refreshes_existing_raw_issue 0  ✅ PASSED
+    test_stale_index_uses_issue_data_not_wall_clock 0  ✅ PASSED
+    _assert_missing_download_fails_verification 1  ✅ PASSED
+    _assert_pull_download_markdown 1  ✅ PASSED
+    _assert_pull_download_payload 1  ✅ PASSED
+    _raw_issue 1  ✅ PASSED
+    test_verify_compares_state_hashes_against_current_issue_files 1  ✅ PASSED
+    test_verify_reports_state_rows_missing_issue_files 2  ✅ PASSED
+    test_incremental_pull_formats_since_as_jira_date_literal 4  ✅ PASSED
+    test_pull_attributes_write_failure_to_issue_key 4  ✅ PASSED
+    test_pull_blocks_same_host_attachment_content_url_with_wrong_scheme 4  ✅
+PASSED
+    test_pull_malformed_search_payload_fails_run_and_preserves_cursor 4  ✅
+PASSED
+    test_pull_renders_configured_custom_fields_from_public_config_shape 4  ✅
+PASSED
+    test_pull_blocks_external_attachment_content_url_without_request 5  ✅
+PASSED
+    test_pull_downloads_eligible_attachments_and_verify_checks_local_refs 6  ✅
+PASSED
+    test_pull_malformed_comments_payload_fails_run_and_preserves_cursor 6  ✅
+PASSED
+    test_attachment_partial_failure_does_not_advance_representative_run 8  ✅
+PASSED
+
+tests/test_payloads.py
+    test_confluence_payload_metadata_prefers_normalized_page_values 0  ✅ PASSED
+    test_confluence_payload_space_key_falls_back_to_raw_payload 0  ✅ PASSED
+    test_dict_list_materializes_mapping_items_and_ignores_other_values 0  ✅
+PASSED
+
+tests/test_renderer.py
+    test_malformed_task_list_content_uses_unknown_fallback_and_raw_json 0  ✅
+PASSED
+    test_renderer_supports_required_nodes_and_marks 0  ✅ PASSED
+    test_task_list_renders_checked_unchecked_and_rich_inline_content 0  ✅
+PASSED
+    test_task_list_renders_nested_task_lists_deterministically 0  ✅ PASSED
+    test_unknown_node_placeholder_can_include_deterministic_raw_json 0  ✅
+PASSED
+    test_unknown_node_placeholder_can_omit_raw_json 0  ✅ PASSED
+
+tests/test_state.py
+    _assert_confluence_scope_decisions 0  ✅ PASSED
+    test_confluence_cql_date_literal_formats_iso_without_seconds_or_timezone 0
+✅ PASSED
+    test_confluence_incremental_decision_uses_successful_compatible_run_overlap
+0  ✅ PASSED
+    test_confluence_page_state_tracks_required_fields 0  ✅ PASSED
+    test_confluence_partial_failure_does_not_advance_cursor_or_cleanup_authority
+0  ✅ PASSED
+    test_confluence_since_force_exact_and_representative_cleanup_semantics 0  ✅
+PASSED
+    test_failed_scope_run_does_not_advance_incremental_cursor 0  ✅ PASSED
+    test_incremental_cursor_uses_same_command_and_scope 0  ✅ PASSED
+    test_incremental_decision_uses_successful_representative_run_overlap 0  ✅
+PASSED
+    test_incremental_success_advances_sync_without_becoming_cleanup_authority 0
+✅ PASSED
+    test_initialize_state_repairs_early_confluence_tables 0  ✅ PASSED
+    test_issue_state_tracks_required_fields 0  ✅ PASSED
+    test_partial_failure_does_not_advance_representative_run 0  ✅ PASSED
+    test_since_force_and_exact_issue_decisions 0  ✅ PASSED
+
+tests/test_writer.py
+    _comments 0  ✅ PASSED
+    _normalized_issue 0  ✅ PASSED
+    _raw_issue 0  ✅ PASSED
+    test_attachment_local_path_changes_markdown_content_hash 0  ✅ PASSED
+    test_initialize_output_migrates_legacy_issue_json_to_raw_dir 0  ✅ PASSED
+    test_issue_markdown_renders_description_and_comment_task_lists 0  ✅ PASSED
+    test_representative_issue_markdown_snapshot 0  ✅ PASSED
+    test_stable_exported_at_and_content_hash_ignore_export_timestamp 0  ✅
+PASSED
+    test_frontmatter_order_and_section_order_are_stable 1  ✅ PASSED
+    test_raw_issue_export_json_preserves_required_source_material 1  ✅ PASSED
+    test_write_issue_files_uses_atomic_replace 1  ✅ PASSED
+
+All functions are within the allowed complexity.
+────────────────────────── 🎉 Analysis completed! 🎉 ───────────────────────────

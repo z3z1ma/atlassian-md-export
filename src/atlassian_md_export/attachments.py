@@ -62,7 +62,9 @@ def attachment_path(
     return out_dir / "attachments" / issue_key / safe_attachment_name(attachment_id, filename)
 
 
-def attachment_relative_path(issue_key: str, attachment_id: str | None, filename: str | None) -> str:
+def attachment_relative_path(
+    issue_key: str, attachment_id: str | None, filename: str | None
+) -> str:
     return f"../attachments/{issue_key}/{safe_attachment_name(attachment_id, filename)}"
 
 

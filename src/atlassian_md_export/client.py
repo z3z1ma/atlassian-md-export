@@ -268,16 +268,26 @@ def _http_error_message(response: httpx.Response, prefix: str) -> str:
 
 
 def _atlassian_error_detail(response: httpx.Response) -> str | None:
+    payload = _response_json_or_text(response)
+    if not isinstance(payload, Mapping):
+        return payload if isinstance(payload, str) else None
+    return (
+        _atlassian_scalar_error_detail(payload)
+        or _atlassian_message_list_detail(payload)
+        or _atlassian_error_map_detail(payload)
+    )
+
+
+def _response_json_or_text(response: httpx.Response) -> object:
     try:
-        payload = response.json()
+        return response.json()
     except ValueError:
         text = response.text.strip()
         return text[:500] if text else None
 
-    if not isinstance(payload, dict):
-        return None
 
-    scalar_messages = []
+def _atlassian_scalar_error_detail(payload: Mapping[Any, Any]) -> str | None:
+    scalar_messages: list[str] = []
     for key in ("message", "detail", "title", "error"):
         value = payload.get(key)
         if isinstance(value, str) and value:
@@ -287,13 +297,19 @@ def _atlassian_error_detail(response: httpx.Response) -> str | None:
         scalar_messages.append(f"statusCode={status_code}")
     if scalar_messages:
         return "; ".join(dict.fromkeys(scalar_messages))
+    return None
 
+
+def _atlassian_message_list_detail(payload: Mapping[Any, Any]) -> str | None:
     messages = payload.get("errorMessages")
     if isinstance(messages, list):
         text_messages = [item for item in messages if isinstance(item, str)]
         if text_messages:
             return "; ".join(text_messages)
+    return None
 
+
+def _atlassian_error_map_detail(payload: Mapping[Any, Any]) -> str | None:
     errors = payload.get("errors")
     if isinstance(errors, dict):
         values = [str(value) for value in errors.values()]

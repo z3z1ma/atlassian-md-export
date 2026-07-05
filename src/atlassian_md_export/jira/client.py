@@ -142,35 +142,26 @@ class JiraClient:
         stopped_without_next_token = False
 
         while True:
-            params: dict[str, Any] = {"jql": jql, "maxResults": max_results}
-            if fields:
-                params["fields"] = ",".join(fields)
-            if next_page_token:
-                params["nextPageToken"] = next_page_token
-
-            payload = self.http.request_json(client, "GET", SEARCH_JQL_PATH, params=params)
+            payload = self.http.request_json(
+                client,
+                "GET",
+                SEARCH_JQL_PATH,
+                params=_search_params(
+                    jql,
+                    fields=fields,
+                    max_results=max_results,
+                    next_page_token=next_page_token,
+                ),
+            )
             pages += 1
-
-            if "issues" not in payload:
-                raise AtlassianClientError("Jira search response did not include an issues list.")
-            raw_issues = payload["issues"]
-            if not isinstance(raw_issues, list):
-                raise AtlassianClientError("Jira search response did not include an issues list.")
-
-            for raw_issue in raw_issues:
-                if not isinstance(raw_issue, dict):
-                    raise AtlassianClientError("Jira search response contained a non-object issue.")
-                issues.append(_normalize_issue(raw_issue))
-
-            next_token = payload.get("nextPageToken")
-            is_last = payload.get("isLast")
-            if is_last is True:
+            issues.extend(_search_page_issues(payload))
+            next_page_token, stop_reason = _next_search_page(payload)
+            if stop_reason == "is_last":
                 stopped_on_is_last = True
                 break
-            if not isinstance(next_token, str) or not next_token:
+            if stop_reason == "no_next_token":
                 stopped_without_next_token = True
                 break
-            next_page_token = next_token
 
         return JiraSearchResult(
             issues=tuple(issues),
@@ -205,7 +196,9 @@ class JiraClient:
                 )
             raw_comments = payload["comments"]
             if not isinstance(raw_comments, list):
-                raise AtlassianClientError("Jira comments response did not include a comments list.")
+                raise AtlassianClientError(
+                    "Jira comments response did not include a comments list."
+                )
             page_comments = _comment_objects(raw_comments)
             comments.extend(page_comments)
 
@@ -266,6 +259,43 @@ def ordered_jql(jql: str) -> str:
 def updated_since_jql(jql: str, since: str, *, timezone_name: str = "UTC") -> str:
     filter_jql, order_by = _split_order_by(jql)
     return f"({filter_jql}) AND updated >= {_jql_string(_jira_date_literal(since, timezone_name))} {order_by}"
+
+
+def _search_params(
+    jql: str,
+    *,
+    fields: Sequence[str] | None,
+    max_results: int,
+    next_page_token: str | None,
+) -> dict[str, Any]:
+    params: dict[str, Any] = {"jql": jql, "maxResults": max_results}
+    if fields:
+        params["fields"] = ",".join(fields)
+    if next_page_token:
+        params["nextPageToken"] = next_page_token
+    return params
+
+
+def _search_page_issues(payload: dict[str, Any]) -> list[JiraIssue]:
+    raw_issues = payload.get("issues")
+    if not isinstance(raw_issues, list):
+        raise AtlassianClientError("Jira search response did not include an issues list.")
+
+    issues: list[JiraIssue] = []
+    for raw_issue in raw_issues:
+        if not isinstance(raw_issue, dict):
+            raise AtlassianClientError("Jira search response contained a non-object issue.")
+        issues.append(_normalize_issue(raw_issue))
+    return issues
+
+
+def _next_search_page(payload: dict[str, Any]) -> tuple[str | None, str | None]:
+    if payload.get("isLast") is True:
+        return None, "is_last"
+    next_token = payload.get("nextPageToken")
+    if not isinstance(next_token, str) or not next_token:
+        return None, "no_next_token"
+    return next_token, None
 
 
 def _split_order_by(jql: str) -> tuple[str, str]:

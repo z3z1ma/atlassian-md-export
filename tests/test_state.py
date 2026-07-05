@@ -4,6 +4,7 @@ import sqlite3
 from pathlib import Path
 
 from atlassian_md_export.confluence.client import confluence_updated_since_cql
+from atlassian_md_export.state import ConfluenceSyncDecision
 from atlassian_md_export.state import ConfluencePageState
 from atlassian_md_export.state import IssueState
 from atlassian_md_export.state import confluence_representative_page_ids
@@ -141,11 +142,14 @@ def test_partial_failure_does_not_advance_representative_run(tmp_path: Path) -> 
         representative_issue_keys=("ABC-1",),
     )
 
-    assert last_successful_representative_run(
-        db_path,
-        scope_type="project",
-        scope_value="ABC",
-    ) is None
+    assert (
+        last_successful_representative_run(
+            db_path,
+            scope_type="project",
+            scope_value="ABC",
+        )
+        is None
+    )
 
     decision = decide_incremental_sync(
         db_path,
@@ -337,9 +341,7 @@ def test_confluence_page_state_tracks_required_fields(tmp_path: Path) -> None:
 
     with sqlite3.connect(db_path) as connection:
         connection.row_factory = sqlite3.Row
-        row = connection.execute(
-            "SELECT * FROM confluence_pages WHERE page_id = '123'"
-        ).fetchone()
+        row = connection.execute("SELECT * FROM confluence_pages WHERE page_id = '123'").fetchone()
 
     assert row["space_id"] == "space-1"
     assert row["space_key"] == "DOC"
@@ -501,23 +503,49 @@ def test_confluence_since_force_exact_and_representative_cleanup_semantics(
         exact_page_ids=("123",),
     )
 
-    assert explicit_since.since == "2026-07-01T00:00:00+00:00"
-    assert explicit_since.full_refresh is False
-    assert confluence_representative_page_ids(explicit_since, ("123",)) is None
-    assert forced.full_refresh is True
-    assert forced.reason == "force"
-    assert confluence_representative_page_ids(forced, ("123", "456")) == ("123", "456")
-    assert default_ancestor.full_refresh is True
-    assert default_ancestor.since is None
-    assert default_ancestor.reason == "ancestor_full_scope"
-    assert confluence_representative_page_ids(default_ancestor, ("123", "456")) == (
-        "123",
-        "456",
+    _assert_confluence_scope_decisions(
+        explicit_since,
+        forced,
+        default_ancestor,
+        exact,
     )
-    assert exact.full_refresh is True
-    assert exact.since is None
-    assert exact.representative is False
-    assert exact.reason == "exact_page"
+
+
+def _assert_confluence_scope_decisions(
+    explicit_since: ConfluenceSyncDecision,
+    forced: ConfluenceSyncDecision,
+    default_ancestor: ConfluenceSyncDecision,
+    exact: ConfluenceSyncDecision,
+) -> None:
+    assert {
+        "explicit_since": (
+            explicit_since.since,
+            explicit_since.full_refresh,
+            confluence_representative_page_ids(explicit_since, ("123",)),
+        ),
+        "forced": (
+            forced.full_refresh,
+            forced.reason,
+            confluence_representative_page_ids(forced, ("123", "456")),
+        ),
+        "default_ancestor": (
+            default_ancestor.full_refresh,
+            default_ancestor.since,
+            default_ancestor.reason,
+            confluence_representative_page_ids(default_ancestor, ("123", "456")),
+        ),
+        "exact": (
+            exact.full_refresh,
+            exact.since,
+            exact.representative,
+            exact.reason,
+        ),
+    } == {
+        "explicit_since": ("2026-07-01T00:00:00+00:00", False, None),
+        "forced": (True, "force", ("123", "456")),
+        "default_ancestor": (True, None, "ancestor_full_scope", ("123", "456")),
+        "exact": (True, None, False, "exact_page"),
+    }
 
 
 def test_confluence_partial_failure_does_not_advance_cursor_or_cleanup_authority(
@@ -588,8 +616,7 @@ def test_confluence_cql_date_literal_formats_iso_without_seconds_or_timezone() -
     )
 
     assert cql == (
-        '(space = "DOC") AND lastmodified >= "2026-07-01 12:20" '
-        "ORDER BY lastmodified DESC"
+        '(space = "DOC") AND lastmodified >= "2026-07-01 12:20" ORDER BY lastmodified DESC'
     )
     assert "T12:20:59" not in cql
     assert "+00:00" not in cql

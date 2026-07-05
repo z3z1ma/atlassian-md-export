@@ -16,6 +16,7 @@ from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
+from typing import TypeGuard
 from urllib.parse import unquote
 from urllib.parse import urlparse
 
@@ -53,6 +54,9 @@ from atlassian_md_export.models import NormalizedConfluencePage
 from atlassian_md_export.models import NormalizedJiraAttachment
 from atlassian_md_export.models import NormalizedJiraIssue
 from atlassian_md_export.models import OutputMetadata
+from atlassian_md_export.payloads import confluence_payload_space_key
+from atlassian_md_export.payloads import confluence_payload_url
+from atlassian_md_export.payloads import dict_list
 from atlassian_md_export.renderer import AdfMarkdownRenderer
 from atlassian_md_export.state import ConfluencePageState
 from atlassian_md_export.state import ConfluenceSyncDecision
@@ -364,7 +368,9 @@ def run_confluence_comments(
                 failure_message="; ".join(failures),
             )
             update_confluence_manifest(result.out_dir, site_host=_site_host(site_url))
-            raise ExportCommandError(_partial_failure_message("comments", failures, provider="confluence"))
+            raise ExportCommandError(
+                _partial_failure_message("comments", failures, provider="confluence")
+            )
 
         finish_confluence_export_run(result.state_path, run_id, succeeded=True)
         update_confluence_manifest(result.out_dir, site_host=_site_host(site_url))
@@ -535,7 +541,9 @@ def run_pull(
     concurrency: int = 4,
     attachment_options: AttachmentOptions = AttachmentOptions(),
 ) -> ExportSummary:
-    scope_type, scope_value, base_jql, exact_keys = _pull_scope(project=project, jql=jql, issue=issue)
+    scope_type, scope_value, base_jql, exact_keys = _pull_scope(
+        project=project, jql=jql, issue=issue
+    )
     return _run_search_export(
         out_dir,
         client=client,
@@ -771,7 +779,9 @@ def verify_export(out_dir: Path) -> VerificationResult:
         errors.append(f"Missing required file: {_display_path(manifest_path)}")
     else:
         try:
-            manifest = Manifest.model_validate(json.loads(manifest_path.read_text(encoding="utf-8")))
+            manifest = Manifest.model_validate(
+                json.loads(manifest_path.read_text(encoding="utf-8"))
+            )
         except ValueError as error:
             errors.append(f"Manifest is not parseable: {_display_path(manifest_path)}: {error}")
 
@@ -836,13 +846,13 @@ def update_confluence_manifest(out_dir: Path, *, site_host: str | None = None) -
     payloads = _read_confluence_page_payloads(result.out_dir)
     page_ids = sorted(_confluence_page_id(payload, path) for path, payload in payloads)
     footer_comments = sum(
-        len(_dict_list(payload.get("fetched_footer_comments"))) for _path, payload in payloads
+        len(dict_list(payload.get("fetched_footer_comments"))) for _path, payload in payloads
     )
     inline_comments = sum(
-        len(_dict_list(payload.get("fetched_inline_comments"))) for _path, payload in payloads
+        len(dict_list(payload.get("fetched_inline_comments"))) for _path, payload in payloads
     )
     attachments = sum(
-        len(_dict_list(payload.get("attachment_metadata"))) for _path, payload in payloads
+        len(dict_list(payload.get("attachment_metadata"))) for _path, payload in payloads
     )
     manifest = _confluence_manifest_payload(
         result.out_dir,
@@ -863,7 +873,12 @@ def verify_confluence_export(out_dir: Path) -> VerificationResult:
     out = out_dir.resolve()
     errors: list[str] = []
 
-    for directory in (out / "pages", confluence_page_raw_dir(out), out / "attachments", out / "indexes"):
+    for directory in (
+        out / "pages",
+        confluence_page_raw_dir(out),
+        out / "attachments",
+        out / "indexes",
+    ):
         if not directory.is_dir():
             errors.append(f"Missing required directory: {_display_path(directory)}")
 
@@ -1119,7 +1134,9 @@ def _run_confluence_page_export(
         )
         missing_page_ids = sorted(set(exact_page_ids) - set(fetched_page_ids))
         if missing_page_ids:
-            failures.append(f"Missing page(s) from Confluence response: {', '.join(missing_page_ids)}")
+            failures.append(
+                f"Missing page(s) from Confluence response: {', '.join(missing_page_ids)}"
+            )
 
         prepared_pages = _prepare_confluence_page_exports(
             result.out_dir,
@@ -1177,7 +1194,9 @@ def _run_confluence_page_export(
                 failure_message="; ".join(failures),
             )
             update_confluence_manifest(result.out_dir, site_host=_site_host(site_url))
-            raise ExportCommandError(_partial_failure_message(command, failures, provider="confluence"))
+            raise ExportCommandError(
+                _partial_failure_message(command, failures, provider="confluence")
+            )
 
         representative_page_ids = confluence_representative_page_ids(decision, fetched_page_ids)
         finish_confluence_export_run(
@@ -1315,7 +1334,9 @@ def _fetch_confluence_scope_pages(
     if scope_type == "page":
         page_ids = decision.exact_page_ids or (scope_value,)
         return tuple(client.fetch_page(page_id, body_format=body_format) for page_id in page_ids)
-    raise ExportCommandError("Choose exactly one Confluence pull scope: --space, --cql, --ancestor, or --page.")
+    raise ExportCommandError(
+        "Choose exactly one Confluence pull scope: --space, --cql, --ancestor, or --page."
+    )
 
 
 def _hydrate_confluence_page(
@@ -1528,7 +1549,9 @@ def _download_attachments(
             continue
 
         if not attachment.content_url:
-            failures.append(f"{issue.key}/{attachment.id or attachment.filename}: missing content URL")
+            failures.append(
+                f"{issue.key}/{attachment.id or attachment.filename}: missing content URL"
+            )
             attachments.append(attachment.model_copy(update={"local_path": None}))
             continue
 
@@ -1694,7 +1717,9 @@ def _write_prepared_confluence_attachment_downloads(
     return page.model_copy(update={"attachments": attachments})
 
 
-def _attachment_download_target(content_url: str, *, site_url: str) -> tuple[str | None, str | None]:
+def _attachment_download_target(
+    content_url: str, *, site_url: str
+) -> tuple[str | None, str | None]:
     parsed = urlparse(content_url)
     if not parsed.scheme and not parsed.netloc:
         return content_url, None
@@ -1703,7 +1728,10 @@ def _attachment_download_target(content_url: str, *, site_url: str) -> tuple[str
     if parsed.scheme in {"http", "https"} and _same_origin(parsed, site):
         return content_url, None
 
-    return None, f"attachment content URL origin {_origin(parsed)} does not match Jira site {_origin(site)}"
+    return (
+        None,
+        f"attachment content URL origin {_origin(parsed)} does not match Jira site {_origin(site)}",
+    )
 
 
 def _confluence_attachment_download_target(
@@ -1754,9 +1782,9 @@ def _same_origin(first: Any, second: Any) -> bool:
         return False
     if first.hostname is None or second.hostname is None:
         return False
-    return first.hostname.lower() == second.hostname.lower() and _origin_port(first) == _origin_port(
-        second
-    )
+    return first.hostname.lower() == second.hostname.lower() and _origin_port(
+        first
+    ) == _origin_port(second)
 
 
 def _origin(value: Any) -> str:
@@ -1891,12 +1919,12 @@ def _read_local_issue_source(
     metadata = payload.get("attachment_metadata")
     if not isinstance(raw_issue, dict):
         raise ValueError(f"Local issue JSON lacks raw_issue: {key}")
-    return raw_issue, _dict_list(metadata)
+    return raw_issue, dict_list(metadata)
 
 
 def _read_local_comments(out_dir: Path, key: str) -> list[dict[str, Any]]:
     payload = _read_issue_payload(issue_raw_path(out_dir, key))
-    return _dict_list(payload.get("fetched_comments"))
+    return dict_list(payload.get("fetched_comments"))
 
 
 def _read_issue_payload(path: Path) -> dict[str, Any]:
@@ -1936,14 +1964,14 @@ def _read_local_confluence_page_source(
         raise ValueError(f"Local Confluence page JSON lacks raw_page: {page_id}")
     return _LocalConfluencePageSource(
         raw_page=raw_page,
-        space_key=_confluence_payload_space_key(payload),
-        url=_confluence_payload_url(payload),
-        footer_comments=_dict_list(payload.get("fetched_footer_comments")),
-        inline_comments=_dict_list(payload.get("fetched_inline_comments")),
-        attachments=_dict_list(payload.get("attachment_metadata")),
-        labels=_dict_list(payload.get("labels")),
-        ancestors=_dict_list(payload.get("ancestors")),
-        child_pages=_dict_list(payload.get("child_page_references")),
+        space_key=confluence_payload_space_key(payload),
+        url=confluence_payload_url(payload),
+        footer_comments=dict_list(payload.get("fetched_footer_comments")),
+        inline_comments=dict_list(payload.get("fetched_inline_comments")),
+        attachments=dict_list(payload.get("attachment_metadata")),
+        labels=dict_list(payload.get("labels")),
+        ancestors=dict_list(payload.get("ancestors")),
+        child_pages=dict_list(payload.get("child_page_references")),
     )
 
 
@@ -1958,10 +1986,7 @@ def _read_confluence_page_payloads(out_dir: Path) -> list[tuple[Path, dict[str, 
     raw_dir = confluence_page_raw_dir(out_dir)
     if not raw_dir.exists():
         return []
-    return [
-        (path, _read_confluence_page_payload(path))
-        for path in sorted(raw_dir.glob("*.json"))
-    ]
+    return [(path, _read_confluence_page_payload(path)) for path in sorted(raw_dir.glob("*.json"))]
 
 
 def _local_confluence_exported_pages(
@@ -1989,15 +2014,15 @@ def _confluence_export_context(
             continue
         pages_by_id[page_id] = normalize_confluence_page(
             raw_page,
-            footer_comments=_dict_list(payload.get("fetched_footer_comments")),
-            inline_comments=_dict_list(payload.get("fetched_inline_comments")),
-            attachments=_dict_list(payload.get("attachment_metadata")),
-            labels=_dict_list(payload.get("labels")),
-            ancestors=_dict_list(payload.get("ancestors")),
-            child_pages=_dict_list(payload.get("child_page_references")),
+            footer_comments=dict_list(payload.get("fetched_footer_comments")),
+            inline_comments=dict_list(payload.get("fetched_inline_comments")),
+            attachments=dict_list(payload.get("attachment_metadata")),
+            labels=dict_list(payload.get("labels")),
+            ancestors=dict_list(payload.get("ancestors")),
+            child_pages=dict_list(payload.get("child_page_references")),
             site_url=site_url,
-            space_key=_confluence_payload_space_key(payload),
-            url=_confluence_payload_url(payload),
+            space_key=confluence_payload_space_key(payload),
+            url=confluence_payload_url(payload),
         )
     return tuple(page for _page_id, page in sorted(pages_by_id.items()))
 
@@ -2147,62 +2172,47 @@ def _confluence_page_id(payload: dict[str, Any], path: Path) -> str:
     return path.stem
 
 
-def _confluence_payload_space_key(payload: Mapping[str, Any]) -> str | None:
-    normalized = payload.get("normalized_page")
-    if isinstance(normalized, Mapping):
-        normalized_space_key = normalized.get("space_key")
-        if isinstance(normalized_space_key, str) and normalized_space_key:
-            return normalized_space_key
-    raw_page = payload.get("raw_page")
-    if isinstance(raw_page, Mapping):
-        raw_space_key = raw_page.get("spaceKey")
-        if isinstance(raw_space_key, str) and raw_space_key:
-            return raw_space_key
-        raw_space = raw_page.get("space")
-        if isinstance(raw_space, Mapping):
-            embedded_space_key = raw_space.get("key")
-            if isinstance(embedded_space_key, str) and embedded_space_key:
-                return embedded_space_key
-    return None
-
-
-def _confluence_payload_url(payload: Mapping[str, Any]) -> str | None:
-    normalized = payload.get("normalized_page")
-    if isinstance(normalized, Mapping):
-        normalized_url = normalized.get("url")
-        if isinstance(normalized_url, str) and normalized_url:
-            return normalized_url
-    return None
-
-
 def _site_host_from_payloads(payloads: list[tuple[Path, dict[str, Any]]]) -> str | None:
     for _path, payload in payloads:
-        exporter = payload.get("exporter")
-        if isinstance(exporter, dict):
-            site_host = exporter.get("site_host")
-            if isinstance(site_host, str):
-                return site_host
-        raw_issue = payload.get("raw_issue")
-        if isinstance(raw_issue, dict):
-            host = _site_host(str(raw_issue.get("self") or ""))
-            if host:
-                return host
+        host = _payload_exporter_site_host(payload) or _payload_raw_url_host(
+            payload, raw_key="raw_issue", url_keys=("self",)
+        )
+        if host:
+            return host
     return None
 
 
 def _confluence_site_host_from_payloads(payloads: list[tuple[Path, dict[str, Any]]]) -> str | None:
     for _path, payload in payloads:
-        exporter = payload.get("exporter")
-        if isinstance(exporter, dict):
-            site_host = exporter.get("site_host")
-            if isinstance(site_host, str):
-                return site_host
-        raw_page = payload.get("raw_page")
-        if isinstance(raw_page, dict):
-            for value in (raw_page.get("self"), raw_page.get("url")):
-                host = _site_host(str(value or ""))
-                if host:
-                    return host
+        host = _payload_exporter_site_host(payload) or _payload_raw_url_host(
+            payload, raw_key="raw_page", url_keys=("self", "url")
+        )
+        if host:
+            return host
+    return None
+
+
+def _payload_exporter_site_host(payload: Mapping[str, Any]) -> str | None:
+    exporter = payload.get("exporter")
+    if not isinstance(exporter, Mapping):
+        return None
+    site_host = exporter.get("site_host")
+    return site_host if isinstance(site_host, str) else None
+
+
+def _payload_raw_url_host(
+    payload: Mapping[str, Any],
+    *,
+    raw_key: str,
+    url_keys: tuple[str, ...],
+) -> str | None:
+    raw_payload = payload.get(raw_key)
+    if not isinstance(raw_payload, Mapping):
+        return None
+    for key in url_keys:
+        host = _site_host(str(raw_payload.get(key) or ""))
+        if host:
+            return host
     return None
 
 
@@ -2213,12 +2223,13 @@ def _verify_sqlite(path: Path) -> list[str]:
     except sqlite3.Error as error:
         return [f"SQLite state is not parseable: {_display_path(path)}: {error}"]
     if row is None or row[0] != "ok":
-        return [f"SQLite integrity check failed: {_display_path(path)}: {row[0] if row else 'no result'}"]
+        return [
+            f"SQLite integrity check failed: {_display_path(path)}: {row[0] if row else 'no result'}"
+        ]
     return []
 
 
 def _verify_state_issue_hashes(out_dir: Path, state_path: Path) -> list[str]:
-    errors: list[str] = []
     try:
         with sqlite3.connect(state_path) as connection:
             connection.row_factory = sqlite3.Row
@@ -2232,55 +2243,14 @@ def _verify_state_issue_hashes(out_dir: Path, state_path: Path) -> list[str]:
     except sqlite3.Error as error:
         return [f"SQLite issue state is not readable: {_display_path(state_path)}: {error}"]
 
+    errors: list[str] = []
     for row in rows:
         issue_key = str(row["issue_key"])
-        markdown_path = issue_markdown_path(out_dir, issue_key)
-        raw_path = issue_raw_path(out_dir, issue_key)
-        expected_markdown_hash = row["markdown_hash"]
-        expected_content_hash = row["stable_content_hash"]
-        expected_raw_hash = row["raw_json_hash"]
-
-        if not markdown_path.is_file() and (
-            _has_hash(expected_markdown_hash) or _has_hash(expected_content_hash)
-        ):
-            errors.append(f"State issue Markdown missing: {_display_path(markdown_path)}")
-        elif markdown_path.is_file():
-            if isinstance(expected_markdown_hash, str) and expected_markdown_hash:
-                actual_markdown_hash = _sha256_file(markdown_path)
-                if actual_markdown_hash != expected_markdown_hash:
-                    errors.append(
-                        "State Markdown hash mismatch: "
-                        f"{_display_path(markdown_path)} expected {expected_markdown_hash} "
-                        f"got {actual_markdown_hash}"
-                    )
-
-            if isinstance(expected_content_hash, str) and expected_content_hash:
-                content_hash, content_error = _markdown_frontmatter_content_hash(markdown_path)
-                if content_error is not None:
-                    errors.append(f"State content hash unreadable: {content_error}")
-                elif content_hash != expected_content_hash:
-                    errors.append(
-                        "State content hash mismatch: "
-                        f"{_display_path(markdown_path)} expected {expected_content_hash} "
-                        f"got {content_hash or '<missing>'}"
-                    )
-
-        if not raw_path.is_file() and _has_hash(expected_raw_hash):
-            errors.append(f"State issue JSON missing: {_display_path(raw_path)}")
-        elif raw_path.is_file():
-            if isinstance(expected_raw_hash, str) and expected_raw_hash:
-                actual_raw_hash = _sha256_file(raw_path)
-                if actual_raw_hash != expected_raw_hash:
-                    errors.append(
-                        "State raw JSON hash mismatch: "
-                        f"{_display_path(raw_path)} expected {expected_raw_hash} "
-                        f"got {actual_raw_hash}"
-                )
+        errors.extend(_verify_issue_state_hash_row(out_dir, issue_key, row))
     return errors
 
 
 def _verify_state_confluence_page_hashes(out_dir: Path, state_path: Path) -> list[str]:
-    errors: list[str] = []
     try:
         with sqlite3.connect(state_path) as connection:
             connection.row_factory = sqlite3.Row
@@ -2292,54 +2262,131 @@ def _verify_state_confluence_page_hashes(out_dir: Path, state_path: Path) -> lis
                 """
             ).fetchall()
     except sqlite3.Error as error:
-        return [f"SQLite Confluence page state is not readable: {_display_path(state_path)}: {error}"]
+        return [
+            f"SQLite Confluence page state is not readable: {_display_path(state_path)}: {error}"
+        ]
 
+    errors: list[str] = []
     for row in rows:
         page_id = str(row["page_id"])
-        raw_path = confluence_page_raw_path(out_dir, page_id)
-        markdown_path = _confluence_markdown_path_for_page_id(out_dir, page_id)
-        expected_markdown_hash = row["markdown_hash"]
-        expected_content_hash = row["content_hash"]
-        expected_raw_hash = row["raw_json_hash"]
-
-        if markdown_path is None and (
-            _has_hash(expected_markdown_hash) or _has_hash(expected_content_hash)
-        ):
-            errors.append(
-                "State Confluence page Markdown missing: "
-                f"{_display_path(_display_confluence_markdown_path(out_dir, page_id))}"
-            )
-        elif markdown_path is not None:
-            if isinstance(expected_markdown_hash, str) and expected_markdown_hash:
-                actual_markdown_hash = _sha256_file(markdown_path)
-                if actual_markdown_hash != expected_markdown_hash:
-                    errors.append(
-                        "State Confluence Markdown hash mismatch: "
-                        f"{_display_path(markdown_path)} expected {expected_markdown_hash} "
-                        f"got {actual_markdown_hash}"
-                    )
-
-            if isinstance(expected_content_hash, str) and expected_content_hash:
-                content_hash, content_error = _markdown_frontmatter_content_hash(markdown_path)
-                if content_error is not None:
-                    errors.append(f"State Confluence content hash unreadable: {content_error}")
-                elif content_hash != expected_content_hash:
-                    errors.append(
-                        "State Confluence content hash mismatch: "
-                        f"{_display_path(markdown_path)} expected {expected_content_hash} "
-                        f"got {content_hash or '<missing>'}"
-                    )
-
-        if not raw_path.is_file() and _has_hash(expected_raw_hash):
-            errors.append(f"State Confluence page JSON missing: {_display_path(raw_path)}")
-        elif raw_path.is_file() and isinstance(expected_raw_hash, str) and expected_raw_hash:
-            actual_raw_hash = _sha256_file(raw_path)
-            if actual_raw_hash != expected_raw_hash:
-                errors.append(
-                    "State Confluence raw JSON hash mismatch: "
-                    f"{_display_path(raw_path)} expected {expected_raw_hash} got {actual_raw_hash}"
-                )
+        errors.extend(_verify_confluence_state_hash_row(out_dir, page_id, row))
     return errors
+
+
+def _verify_issue_state_hash_row(
+    out_dir: Path,
+    issue_key: str,
+    row: sqlite3.Row,
+) -> list[str]:
+    markdown_path = issue_markdown_path(out_dir, issue_key)
+    raw_path = issue_raw_path(out_dir, issue_key)
+    errors = _verify_state_markdown_hashes(
+        markdown_path,
+        row["markdown_hash"],
+        row["stable_content_hash"],
+        missing_message=f"State issue Markdown missing: {_display_path(markdown_path)}",
+        hash_label="State Markdown hash mismatch",
+        content_label="State content hash",
+    )
+    errors.extend(
+        _verify_state_file_hash(
+            raw_path,
+            row["raw_json_hash"],
+            missing_message=f"State issue JSON missing: {_display_path(raw_path)}",
+            mismatch_label="State raw JSON hash mismatch",
+        )
+    )
+    return errors
+
+
+def _verify_confluence_state_hash_row(
+    out_dir: Path,
+    page_id: str,
+    row: sqlite3.Row,
+) -> list[str]:
+    raw_path = confluence_page_raw_path(out_dir, page_id)
+    markdown_path = _confluence_markdown_path_for_page_id(out_dir, page_id)
+    missing_markdown_path = _display_confluence_markdown_path(out_dir, page_id)
+    errors = _verify_state_markdown_hashes(
+        markdown_path,
+        row["markdown_hash"],
+        row["content_hash"],
+        missing_message=(
+            f"State Confluence page Markdown missing: {_display_path(missing_markdown_path)}"
+        ),
+        hash_label="State Confluence Markdown hash mismatch",
+        content_label="State Confluence content hash",
+    )
+    errors.extend(
+        _verify_state_file_hash(
+            raw_path,
+            row["raw_json_hash"],
+            missing_message=f"State Confluence page JSON missing: {_display_path(raw_path)}",
+            mismatch_label="State Confluence raw JSON hash mismatch",
+        )
+    )
+    return errors
+
+
+def _verify_state_markdown_hashes(
+    path: Path | None,
+    expected_markdown_hash: object,
+    expected_content_hash: object,
+    *,
+    missing_message: str,
+    hash_label: str,
+    content_label: str,
+) -> list[str]:
+    if path is None or not path.is_file():
+        return (
+            [missing_message]
+            if _has_hash(expected_markdown_hash) or _has_hash(expected_content_hash)
+            else []
+        )
+    errors = _verify_state_file_hash(
+        path,
+        expected_markdown_hash,
+        missing_message=missing_message,
+        mismatch_label=hash_label,
+    )
+    errors.extend(_verify_state_content_hash(path, expected_content_hash, label=content_label))
+    return errors
+
+
+def _verify_state_file_hash(
+    path: Path,
+    expected_hash: object,
+    *,
+    missing_message: str,
+    mismatch_label: str,
+) -> list[str]:
+    if not path.is_file():
+        return [missing_message] if _has_hash(expected_hash) else []
+    if not _has_hash(expected_hash):
+        return []
+    actual_hash = _sha256_file(path)
+    if actual_hash == expected_hash:
+        return []
+    return [f"{mismatch_label}: {_display_path(path)} expected {expected_hash} got {actual_hash}"]
+
+
+def _verify_state_content_hash(
+    path: Path,
+    expected_hash: object,
+    *,
+    label: str,
+) -> list[str]:
+    if not _has_hash(expected_hash):
+        return []
+    content_hash, content_error = _markdown_frontmatter_content_hash(path)
+    if content_error is not None:
+        return [f"{label} unreadable: {content_error}"]
+    if content_hash == expected_hash:
+        return []
+    return [
+        f"{label} mismatch: {_display_path(path)} expected {expected_hash} "
+        f"got {content_hash or '<missing>'}"
+    ]
 
 
 def _markdown_frontmatter_content_hash(path: Path) -> tuple[str | None, str | None]:
@@ -2364,7 +2411,7 @@ def _markdown_frontmatter_content_hash(path: Path) -> tuple[str | None, str | No
     return value if isinstance(value, str) else None, None
 
 
-def _has_hash(value: object) -> bool:
+def _has_hash(value: object) -> TypeGuard[str]:
     return isinstance(value, str) and bool(value)
 
 
@@ -2381,7 +2428,9 @@ def _verify_manifest_issue_files(out_dir: Path, manifest: Manifest) -> list[str]
             try:
                 _read_issue_payload(json_path)
             except (OSError, ValueError) as error:
-                errors.append(f"Manifest issue JSON not parseable: {_display_path(json_path)}: {error}")
+                errors.append(
+                    f"Manifest issue JSON not parseable: {_display_path(json_path)}: {error}"
+                )
     return errors
 
 
@@ -2412,7 +2461,9 @@ def _verify_manifest_confluence_page_files(
         markdown_path = _confluence_markdown_path_from_payload(out_dir, payload)
         if markdown_path is None or not markdown_path.is_file():
             display_path = markdown_path or _display_confluence_markdown_path(out_dir, page_id)
-            errors.append(f"Manifest Confluence page Markdown missing: {_display_path(display_path)}")
+            errors.append(
+                f"Manifest Confluence page Markdown missing: {_display_path(display_path)}"
+            )
     return errors
 
 
@@ -2468,38 +2519,14 @@ def _verify_attachment_references(out_dir: Path) -> list[str]:
         try:
             payload = _read_issue_payload(path)
         except (OSError, ValueError) as error:
-            errors.append(f"Issue JSON not parseable for attachment check: {_display_path(path)}: {error}")
+            errors.append(
+                f"Issue JSON not parseable for attachment check: {_display_path(path)}: {error}"
+            )
             continue
-        for metadata in _dict_list(payload.get("attachment_metadata")):
-            local_path = metadata.get("local_path")
-            if isinstance(local_path, str):
-                target = ((out_dir / "issues") / local_path).resolve()
-                if not _within(out_dir, target):
-                    errors.append(
-                        f"Attachment path escapes export dir: {_display_path(path)} -> {local_path}"
-                    )
-                elif not target.is_file():
-                    errors.append(
-                        f"Downloaded attachment missing: {_display_path(path)} -> {local_path}"
-                    )
+        errors.extend(_verify_issue_attachment_metadata(out_dir, path, payload))
         markdown_path = issue_markdown_path(out_dir, path.stem)
-        if not markdown_path.exists():
-            continue
-        content = markdown_path.read_text(encoding="utf-8")
-        for link in _MARKDOWN_LINK_RE.findall(content):
-            if _is_external_or_anchor(link):
-                continue
-            if "attachments/" not in link:
-                continue
-            target = (markdown_path.parent / link).resolve()
-            if not _within(out_dir, target):
-                errors.append(
-                    f"Markdown attachment link escapes export dir: {_display_path(markdown_path)} -> {link}"
-                )
-            elif not target.is_file():
-                errors.append(
-                    f"Markdown attachment link target missing: {_display_path(markdown_path)} -> {link}"
-                )
+        if markdown_path.exists():
+            errors.extend(_verify_markdown_attachment_links(out_dir, markdown_path))
     return errors
 
 
@@ -2517,44 +2544,115 @@ def _verify_confluence_attachment_references(out_dir: Path) -> list[str]:
             )
             continue
         markdown_path = _confluence_markdown_path_from_payload(out_dir, payload)
-        for metadata in _dict_list(payload.get("attachment_metadata")):
-            local_path = metadata.get("local_path")
-            if not isinstance(local_path, str):
-                continue
-            if markdown_path is None or not markdown_path.is_file():
-                errors.append(
-                    "Downloaded Confluence attachment cannot be resolved because "
-                    f"page Markdown is missing: {_display_path(path)} -> {local_path}"
+        errors.extend(_verify_confluence_attachment_metadata(out_dir, path, payload, markdown_path))
+        if markdown_path is not None and markdown_path.exists():
+            errors.extend(
+                _verify_markdown_attachment_links(
+                    out_dir,
+                    markdown_path,
+                    escape_label="Confluence Markdown attachment link escapes export dir",
+                    missing_label="Confluence Markdown attachment link target missing",
                 )
-                continue
-            target = (markdown_path.parent / local_path).resolve()
-            if not _within(out_dir, target):
-                errors.append(
-                    f"Confluence attachment path escapes export dir: {_display_path(path)} -> {local_path}"
-                )
-            elif not target.is_file():
-                errors.append(
-                    f"Downloaded Confluence attachment missing: {_display_path(path)} -> {local_path}"
-                )
-
-        if markdown_path is None or not markdown_path.exists():
-            continue
-        content = markdown_path.read_text(encoding="utf-8")
-        for link in _MARKDOWN_LINK_RE.findall(content):
-            if _is_external_or_anchor(link) or "attachments/" not in link:
-                continue
-            target = (markdown_path.parent / link).resolve()
-            if not _within(out_dir, target):
-                errors.append(
-                    f"Confluence Markdown attachment link escapes export dir: "
-                    f"{_display_path(markdown_path)} -> {link}"
-                )
-            elif not target.is_file():
-                errors.append(
-                    f"Confluence Markdown attachment link target missing: "
-                    f"{_display_path(markdown_path)} -> {link}"
-                )
+            )
     return errors
+
+
+def _verify_issue_attachment_metadata(
+    out_dir: Path,
+    source_path: Path,
+    payload: Mapping[str, Any],
+) -> list[str]:
+    errors: list[str] = []
+    for metadata in dict_list(payload.get("attachment_metadata")):
+        local_path = metadata.get("local_path")
+        if isinstance(local_path, str):
+            errors.extend(
+                _verify_relative_file_reference(
+                    out_dir,
+                    source_path,
+                    out_dir / "issues",
+                    local_path,
+                    escape_label="Attachment path escapes export dir",
+                    missing_label="Downloaded attachment missing",
+                )
+            )
+    return errors
+
+
+def _verify_confluence_attachment_metadata(
+    out_dir: Path,
+    source_path: Path,
+    payload: Mapping[str, Any],
+    markdown_path: Path | None,
+) -> list[str]:
+    errors: list[str] = []
+    for metadata in dict_list(payload.get("attachment_metadata")):
+        local_path = metadata.get("local_path")
+        if not isinstance(local_path, str):
+            continue
+        if markdown_path is None or not markdown_path.is_file():
+            errors.append(
+                "Downloaded Confluence attachment cannot be resolved because "
+                f"page Markdown is missing: {_display_path(source_path)} -> {local_path}"
+            )
+            continue
+        errors.extend(
+            _verify_relative_file_reference(
+                out_dir,
+                source_path,
+                markdown_path.parent,
+                local_path,
+                escape_label="Confluence attachment path escapes export dir",
+                missing_label="Downloaded Confluence attachment missing",
+            )
+        )
+    return errors
+
+
+def _verify_markdown_attachment_links(
+    out_dir: Path,
+    markdown_path: Path,
+    *,
+    escape_label: str = "Markdown attachment link escapes export dir",
+    missing_label: str = "Markdown attachment link target missing",
+) -> list[str]:
+    content = markdown_path.read_text(encoding="utf-8")
+    errors: list[str] = []
+    for link in _MARKDOWN_LINK_RE.findall(content):
+        if not _is_attachment_link(link):
+            continue
+        errors.extend(
+            _verify_relative_file_reference(
+                out_dir,
+                markdown_path,
+                markdown_path.parent,
+                link,
+                escape_label=escape_label,
+                missing_label=missing_label,
+            )
+        )
+    return errors
+
+
+def _is_attachment_link(link: str) -> bool:
+    return not _is_external_or_anchor(link) and "attachments/" in link
+
+
+def _verify_relative_file_reference(
+    out_dir: Path,
+    source_path: Path,
+    base_path: Path,
+    relative_path: str,
+    *,
+    escape_label: str,
+    missing_label: str,
+) -> list[str]:
+    target = (base_path / relative_path).resolve()
+    if not _within(out_dir, target):
+        return [f"{escape_label}: {_display_path(source_path)} -> {relative_path}"]
+    if not target.is_file():
+        return [f"{missing_label}: {_display_path(source_path)} -> {relative_path}"]
+    return []
 
 
 def _local_issue_keys(out_dir: Path) -> set[str]:
@@ -2614,11 +2712,11 @@ def _confluence_markdown_path_from_payload(
         return None
     page = normalize_confluence_page(
         raw_page,
-        labels=_dict_list(payload.get("labels")),
-        ancestors=_dict_list(payload.get("ancestors")),
-        child_pages=_dict_list(payload.get("child_page_references")),
-        space_key=_confluence_payload_space_key(payload),
-        url=_confluence_payload_url(payload),
+        labels=dict_list(payload.get("labels")),
+        ancestors=dict_list(payload.get("ancestors")),
+        child_pages=dict_list(payload.get("child_page_references")),
+        space_key=confluence_payload_space_key(payload),
+        url=confluence_payload_url(payload),
     )
     return confluence_page_markdown_path(out_dir, page)
 
@@ -2749,13 +2847,9 @@ def _safe_resource_path(path_or_url: str) -> str:
 
 
 def _list(value: object) -> list[object]:
-    return value if isinstance(value, list) else []
-
-
-def _dict_list(value: object) -> list[dict[str, Any]]:
     if not isinstance(value, list):
         return []
-    return [item for item in value if isinstance(item, dict)]
+    return [item for item in value]
 
 
 def _display_path(path: Path) -> str:

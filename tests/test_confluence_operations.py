@@ -5,6 +5,7 @@ import logging
 import sqlite3
 import threading
 from collections.abc import Callable
+from collections.abc import Mapping
 from pathlib import Path
 from typing import Any
 
@@ -46,46 +47,9 @@ def test_confluence_pull_fetches_resources_downloads_filtered_attachments_and_ve
 ) -> None:
     requested_paths: list[str] = []
 
-    def handler(request: httpx.Request) -> httpx.Response:
-        requested_paths.append(request.url.path)
-        if request.url.path == "/wiki/api/v2/spaces":
-            assert request.url.params["keys"] == "DOC"
-            return httpx.Response(200, json={"results": [{"id": "space-1", "key": "DOC"}]})
-        if request.url.path == "/wiki/api/v2/spaces/space-1/pages":
-            return httpx.Response(200, json={"results": [{"id": "123", "title": "Launch"}]})
-        if request.url.path == "/wiki/api/v2/pages/123":
-            assert request.url.params["body-format"] == "atlas_doc_format"
-            return httpx.Response(200, json=_raw_page("123", "Launch", updated="2026-07-01T00:00:00Z"))
-        if request.url.path == "/wiki/api/v2/pages/123/footer-comments":
-            return httpx.Response(
-                200,
-                json={"results": [_comment("2", "Second", "2026-07-01T12:00:00Z"), _comment("1", "First", "2026-07-01T11:00:00Z")]},
-            )
-        if request.url.path == "/wiki/api/v2/pages/123/inline-comments":
-            return httpx.Response(200, json={"results": [_comment("10", "Inline", "2026-07-01T13:00:00Z", resolution_status="open")]})
-        if request.url.path == "/wiki/api/v2/pages/123/attachments":
-            return httpx.Response(
-                200,
-                json={
-                    "results": [
-                        _attachment("att-1", "debug.log", "text/plain", 4),
-                        _attachment("att-2", "screenshot.png", "image/png", 4),
-                    ]
-                },
-            )
-        if request.url.path == "/wiki/api/v2/pages/123/labels":
-            return httpx.Response(200, json={"results": [{"id": "label-1", "prefix": "team", "name": "alpha"}]})
-        if request.url.path == "/wiki/api/v2/pages/123/ancestors":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/descendants":
-            return httpx.Response(200, json={"results": [{"id": "124", "title": "Child", "type": "page"}]})
-        if request.url.path == "/download/attachments/att-1/debug.log":
-            return httpx.Response(200, content=b"log!")
-        raise AssertionError(f"unexpected request: {request.url}")
-
     summary = run_confluence_pull(
         tmp_path,
-        client=_client(handler),
+        client=_client(_full_pull_handler(requested_paths)),
         site_url=SITE,
         config=_config(),
         space="DOC",
@@ -97,52 +61,12 @@ def test_confluence_pull_fetches_resources_downloads_filtered_attachments_and_ve
         ),
     )
 
-    assert summary.page_ids == ("123",)
-    assert "/wiki/api/v2/pages/123/footer-comments" in requested_paths
-    assert "/wiki/api/v2/pages/123/inline-comments" in requested_paths
-    assert "/wiki/api/v2/pages/123/attachments" in requested_paths
-    assert "/wiki/api/v2/pages/123/labels" in requested_paths
-    assert "/wiki/api/v2/pages/123/ancestors" in requested_paths
-    assert "/wiki/api/v2/pages/123/descendants" in requested_paths
-
-    downloaded = tmp_path / "attachments" / "123" / "att-1-debug.log"
-    skipped = tmp_path / "attachments" / "123" / "att-2-screenshot.png"
-    assert downloaded.read_bytes() == b"log!"
-    assert not skipped.exists()
-
-    markdown = (tmp_path / "pages" / "DOC" / "123-Launch.md").read_text(encoding="utf-8")
-    assert "[local file](../../attachments/123/att-1-debug.log)" in markdown
-    assert "screenshot.png" in markdown
-    assert markdown.index("### Footer Comment 1") < markdown.index("### Footer Comment 2")
-    assert "First" in markdown
-    assert "Second" in markdown
-    assert "Inline Resolution Status: open" in markdown
-
-    payload = json.loads((tmp_path / "pages" / "_raw" / "123.json").read_text(encoding="utf-8"))
-    metadata_by_id = {item["id"]: item for item in payload["attachment_metadata"]}
-    assert metadata_by_id["att-1"]["local_path"] == "../../attachments/123/att-1-debug.log"
-    assert metadata_by_id["att-2"]["local_path"] is None
-    assert [comment["id"] for comment in payload["fetched_footer_comments"]] == ["1", "2"]
-    assert [comment["id"] for comment in payload["fetched_inline_comments"]] == ["10"]
-
-    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["counts"] == {
-        "attachments": 2,
-        "footer_comments": 2,
-        "inline_comments": 1,
-        "pages": 1,
-    }
-    assert manifest["last_successful_representative_run"]["page_ids"] == ["123"]
-    assert "attachments/123/att-1-debug.log" in manifest["hashes"]
-    assert "[Launch](../pages/DOC/123-Launch.md)" in (
-        tmp_path / "indexes" / "all.md"
-    ).read_text(encoding="utf-8")
-    assert verify_confluence_export(tmp_path).ok
-
-    downloaded.unlink()
-    failure = verify_confluence_export(tmp_path)
-    assert not failure.ok
-    assert any("Downloaded Confluence attachment missing" in error for error in failure.errors)
+    downloaded = _assert_full_confluence_pull_outputs(
+        tmp_path,
+        page_ids=summary.page_ids,
+        requested_paths=requested_paths,
+    )
+    _assert_missing_confluence_download_fails_verification(tmp_path, downloaded)
 
 
 def test_confluence_pull_logs_safe_structured_context(
@@ -152,60 +76,16 @@ def test_confluence_pull_logs_safe_structured_context(
     caplog.set_level(logging.DEBUG, logger="atlassian_md_export.operations")
     caplog.set_level(logging.DEBUG, logger="atlassian_md_export.client")
 
-    def handler(request: httpx.Request) -> httpx.Response:
-        if request.url.path == "/wiki/api/v2/spaces":
-            return httpx.Response(200, json={"results": [{"id": "space-1", "key": "DOC"}]})
-        if request.url.path == "/wiki/api/v2/spaces/space-1/pages":
-            return httpx.Response(200, json={"results": [{"id": "123", "title": "Launch"}]})
-        if request.url.path == "/wiki/api/v2/pages/123":
-            return httpx.Response(
-                200,
-                json=_raw_page("123", "Launch with hidden body text"),
-            )
-        if request.url.path == "/wiki/api/v2/pages/123/footer-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/inline-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/attachments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/labels":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/ancestors":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/descendants":
-            return httpx.Response(200, json={"results": []})
-        raise AssertionError(f"unexpected request: {request.url}")
-
     summary = run_confluence_pull(
         tmp_path,
-        client=_client(handler),
+        client=_client(_single_page_pull_handler("Launch with hidden body text")),
         site_url=SITE,
         config=_config(),
         space="DOC",
         concurrency=1,
     )
 
-    assert summary.page_ids == ("123",)
-    write_record = _log_record(caplog, "confluence_page_write")
-    assert getattr(write_record, "provider") == "confluence"
-    assert getattr(write_record, "command") == "pull"
-    assert getattr(write_record, "site_host") == "example.atlassian.net"
-    assert getattr(write_record, "page_id") == "123"
-    assert getattr(write_record, "space_key") == "DOC"
-    assert str(getattr(write_record, "output_path")).endswith("pages/DOC/123-Launch-with-hidden-body-text.md")
-    assert str(getattr(write_record, "raw_json_path")).endswith("pages/_raw/123.json")
-
-    fetch_record = _log_record(caplog, "confluence_footer_comments_fetch")
-    assert getattr(fetch_record, "command") == "pull"
-    assert getattr(fetch_record, "page_id") == "123"
-
-    http_record = _log_record(caplog, "http_request", logger_name="atlassian_md_export.client")
-    assert getattr(http_record, "provider") == "confluence"
-    assert getattr(http_record, "resource_path") == "/wiki/api/v2/spaces"
-    assert getattr(http_record, "status_code") == 200
-    assert getattr(http_record, "retry_attempt") == 1
-    assert getattr(http_record, "retry_count") == 1
-
+    _assert_safe_confluence_log_context(caplog, page_ids=summary.page_ids)
     assert "hidden body text body" not in caplog.text
     assert "Authorization" not in caplog.text
 
@@ -213,95 +93,11 @@ def test_confluence_pull_logs_safe_structured_context(
 def test_confluence_pull_honors_concurrency_and_preserves_export_order(
     tmp_path: Path,
 ) -> None:
-    active_lock = threading.Lock()
-    page_1_footer_started = threading.Event()
-    page_2_downloaded = threading.Event()
-    active_network_requests = 0
-    max_active_network_requests = 0
-    download_order: list[str] = []
-
-    def enter_network_request() -> None:
-        nonlocal active_network_requests, max_active_network_requests
-        with active_lock:
-            active_network_requests += 1
-            max_active_network_requests = max(
-                max_active_network_requests,
-                active_network_requests,
-            )
-
-    def leave_network_request() -> None:
-        nonlocal active_network_requests
-        with active_lock:
-            active_network_requests -= 1
-
-    def tracked_page_resource(page_id: str, resource: str) -> httpx.Response:
-        enter_network_request()
-        try:
-            if page_id == "1" and resource == "footer-comments":
-                page_1_footer_started.set()
-                page_2_downloaded.wait(timeout=2)
-            if page_id == "2" and resource == "footer-comments":
-                assert page_1_footer_started.wait(timeout=2)
-            if resource == "attachments":
-                return httpx.Response(
-                    200,
-                    json={
-                        "results": [
-                            _attachment(
-                                f"att-{page_id}",
-                                f"page-{page_id}.txt",
-                                "text/plain",
-                                10,
-                            )
-                        ]
-                    },
-                )
-            return httpx.Response(200, json={"results": []})
-        finally:
-            leave_network_request()
-
-    def tracked_download(page_id: str) -> httpx.Response:
-        enter_network_request()
-        try:
-            download_order.append(page_id)
-            if page_id == "2":
-                page_2_downloaded.set()
-            return httpx.Response(200, content=f"download-{page_id}".encode())
-        finally:
-            leave_network_request()
-
-    def handler(request: httpx.Request) -> httpx.Response:
-        path = request.url.path
-        if path == "/wiki/api/v2/spaces":
-            return httpx.Response(200, json={"results": [{"id": "space-1", "key": "DOC"}]})
-        if path == "/wiki/api/v2/spaces/space-1/pages":
-            return httpx.Response(
-                200,
-                json={
-                    "results": [
-                        {"id": "1", "title": "One"},
-                        {"id": "2", "title": "Two"},
-                        {"id": "3", "title": "Three"},
-                    ]
-                },
-            )
-        if path.startswith("/wiki/api/v2/pages/"):
-            page_path = path.removeprefix("/wiki/api/v2/pages/")
-            if "/" not in page_path:
-                return httpx.Response(
-                    200,
-                    json=_raw_page(page_path, f"Page {page_path}"),
-                )
-            page_id, resource = page_path.split("/", 1)
-            return tracked_page_resource(page_id, resource)
-        if path.startswith("/download/attachments/att-"):
-            page_id = path.split("/", 4)[3].removeprefix("att-")
-            return tracked_download(page_id)
-        raise AssertionError(f"unexpected request: {request.url}")
+    probe = _ConcurrencyProbe()
 
     summary = run_confluence_pull(
         tmp_path,
-        client=_client(handler),
+        client=_client(probe.handler),
         site_url=SITE,
         config=_config(),
         space="DOC",
@@ -310,8 +106,8 @@ def test_confluence_pull_honors_concurrency_and_preserves_export_order(
     )
 
     assert summary.page_ids == ("1", "2", "3")
-    assert max_active_network_requests == 2
-    assert download_order.index("2") < download_order.index("1")
+    assert probe.max_active_network_requests == 2
+    assert probe.download_order.index("2") < probe.download_order.index("1")
     with sqlite3.connect(tmp_path / "state.sqlite") as connection:
         rows = connection.execute("SELECT page_id FROM confluence_pages ORDER BY rowid").fetchall()
     assert rows == [("1",), ("2",), ("3",)]
@@ -372,29 +168,9 @@ def test_confluence_page_resolves_space_key_and_wiki_urls_for_v2_page_payload(
         "webui": "/spaces/DOC/pages/123/Live",
     }
 
-    def handler(request: httpx.Request) -> httpx.Response:
-        requested_paths.append(request.url.path)
-        if request.url.path == "/wiki/api/v2/pages/123":
-            return httpx.Response(200, json=raw_page)
-        if request.url.path == "/wiki/api/v2/spaces/space-1":
-            return httpx.Response(200, json={"id": "space-1", "key": "DOC"})
-        if request.url.path == "/wiki/api/v2/pages/123/footer-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/inline-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/attachments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/labels":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/ancestors":
-            return httpx.Response(200, json={"results": [{"id": "100", "type": "page"}]})
-        if request.url.path == "/wiki/api/v2/pages/123/descendants":
-            return httpx.Response(200, json={"results": []})
-        raise AssertionError(f"unexpected request: {request.url}")
-
     run_confluence_page(
         tmp_path,
-        client=_client(handler),
+        client=_client(_space_resolution_handler(requested_paths, raw_page)),
         site_url=SITE,
         config=_config(),
         page_ids=["123"],
@@ -500,7 +276,16 @@ def test_confluence_ancestor_pull_refreshes_cleanup_authority(
                     json={"results": [{"id": "123", "title": "Removed", "type": "page"}]},
                 )
             return httpx.Response(200, json={"results": []})
-        if request.url.path.endswith(("/footer-comments", "/inline-comments", "/attachments", "/labels", "/ancestors", "/descendants")):
+        if request.url.path.endswith(
+            (
+                "/footer-comments",
+                "/inline-comments",
+                "/attachments",
+                "/labels",
+                "/ancestors",
+                "/descendants",
+            )
+        ):
             return httpx.Response(200, json={"results": []})
         raise AssertionError(f"unexpected request: {request.url}")
 
@@ -567,7 +352,9 @@ def test_confluence_attachment_filename_and_url_safety(tmp_path: Path) -> None:
 
 def test_confluence_indexes_cover_all_groupings_and_stale_pages(tmp_path: Path) -> None:
     initialize_confluence_output(tmp_path)
-    root = normalize_confluence_page(_raw_page("100", "Root", updated="2026-07-01T00:00:00Z"), site_url=SITE)
+    root = normalize_confluence_page(
+        _raw_page("100", "Root", updated="2026-07-01T00:00:00Z"), site_url=SITE
+    )
     old = normalize_confluence_page(
         _raw_page("123", "Old Page", parent_id="100", updated="2026-01-01T00:00:00Z"),
         labels=[{"id": "label-1", "prefix": "team", "name": "alpha"}],
@@ -579,8 +366,12 @@ def test_confluence_indexes_cover_all_groupings_and_stale_pages(tmp_path: Path) 
         site_url=SITE,
     )
     exported_pages = (root, old, recent)
-    write_confluence_page_files(tmp_path, old, stable_exported_at=True, exported_pages=exported_pages)
-    write_confluence_page_files(tmp_path, recent, stable_exported_at=True, exported_pages=exported_pages)
+    write_confluence_page_files(
+        tmp_path, old, stable_exported_at=True, exported_pages=exported_pages
+    )
+    write_confluence_page_files(
+        tmp_path, recent, stable_exported_at=True, exported_pages=exported_pages
+    )
 
     paths = generate_confluence_indexes(tmp_path, stale_days=10)
 
@@ -609,8 +400,12 @@ def test_confluence_clean_remove_missing_uses_representative_authority_and_prese
     initialize_confluence_output(tmp_path)
     page_1 = normalize_confluence_page(_raw_page("123", "Keep"), site_url=SITE)
     page_2 = normalize_confluence_page(_raw_page("456", "Remove"), site_url=SITE)
-    write_confluence_page_files(tmp_path, page_1, stable_exported_at=True, exported_pages=(page_1, page_2))
-    write_confluence_page_files(tmp_path, page_2, stable_exported_at=True, exported_pages=(page_1, page_2))
+    write_confluence_page_files(
+        tmp_path, page_1, stable_exported_at=True, exported_pages=(page_1, page_2)
+    )
+    write_confluence_page_files(
+        tmp_path, page_2, stable_exported_at=True, exported_pages=(page_1, page_2)
+    )
     (tmp_path / "attachments" / "456").mkdir(parents=True)
     (tmp_path / "attachments" / "456" / "att-old.txt").write_bytes(b"old")
     upsert_confluence_page_state(tmp_path / "state.sqlite", ConfluencePageState(page_id="456"))
@@ -644,33 +439,10 @@ def test_confluence_clean_remove_missing_uses_representative_authority_and_prese
 def test_confluence_attachment_partial_failure_does_not_advance_representative_run(
     tmp_path: Path,
 ) -> None:
-    def handler(request: httpx.Request) -> httpx.Response:
-        if request.url.path == "/wiki/api/v2/spaces":
-            return httpx.Response(200, json={"results": [{"id": "space-1", "key": "DOC"}]})
-        if request.url.path == "/wiki/api/v2/spaces/space-1/pages":
-            return httpx.Response(200, json={"results": [{"id": "123", "title": "Launch"}]})
-        if request.url.path == "/wiki/api/v2/pages/123":
-            return httpx.Response(200, json=_raw_page("123", "Launch"))
-        if request.url.path == "/wiki/api/v2/pages/123/footer-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/inline-comments":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/attachments":
-            attachment = _attachment("att-1", "debug.log", "text/plain", 4)
-            attachment["downloadLink"] = "https://files.example.test/download/debug.log"
-            return httpx.Response(200, json={"results": [attachment]})
-        if request.url.path == "/wiki/api/v2/pages/123/labels":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/ancestors":
-            return httpx.Response(200, json={"results": []})
-        if request.url.path == "/wiki/api/v2/pages/123/descendants":
-            return httpx.Response(200, json={"results": []})
-        raise AssertionError(f"unexpected request: {request.url}")
-
     with pytest.raises(ExportCommandError, match="partial failures"):
         run_confluence_pull(
             tmp_path,
-            client=_client(handler),
+            client=_client(_attachment_partial_failure_handler()),
             site_url=SITE,
             config=_config(),
             space="DOC",
@@ -681,6 +453,383 @@ def test_confluence_attachment_partial_failure_does_not_advance_representative_r
     assert latest_successful_confluence_representative_run(tmp_path / "state.sqlite") is None
     manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["last_successful_representative_run"] is None
+
+
+type _Route = Callable[[httpx.Request], httpx.Response]
+
+
+def _assert_full_confluence_pull_outputs(
+    tmp_path: Path,
+    *,
+    page_ids: tuple[str, ...],
+    requested_paths: list[str],
+) -> Path:
+    assert page_ids == ("123",)
+    assert {
+        "/wiki/api/v2/pages/123/footer-comments",
+        "/wiki/api/v2/pages/123/inline-comments",
+        "/wiki/api/v2/pages/123/attachments",
+        "/wiki/api/v2/pages/123/labels",
+        "/wiki/api/v2/pages/123/ancestors",
+        "/wiki/api/v2/pages/123/descendants",
+    } <= set(requested_paths)
+
+    downloaded = tmp_path / "attachments" / "123" / "att-1-debug.log"
+    skipped = tmp_path / "attachments" / "123" / "att-2-screenshot.png"
+    assert (downloaded.read_bytes(), skipped.exists()) == (b"log!", False)
+
+    _assert_full_confluence_pull_markdown(tmp_path)
+    _assert_full_confluence_pull_payload(tmp_path)
+    _assert_full_confluence_pull_manifest(tmp_path)
+    assert verify_confluence_export(tmp_path).ok
+    return downloaded
+
+
+def _assert_full_confluence_pull_markdown(tmp_path: Path) -> None:
+    markdown = (tmp_path / "pages" / "DOC" / "123-Launch.md").read_text(encoding="utf-8")
+    assert all(
+        fragment in markdown
+        for fragment in (
+            "[local file](../../attachments/123/att-1-debug.log)",
+            "screenshot.png",
+            "First",
+            "Second",
+            "Inline Resolution Status: open",
+        )
+    )
+    assert markdown.index("### Footer Comment 1") < markdown.index("### Footer Comment 2")
+
+
+def _assert_full_confluence_pull_payload(tmp_path: Path) -> None:
+    payload = json.loads((tmp_path / "pages" / "_raw" / "123.json").read_text(encoding="utf-8"))
+    metadata_by_id = {item["id"]: item for item in payload["attachment_metadata"]}
+    assert {
+        "att-1": metadata_by_id["att-1"]["local_path"],
+        "att-2": metadata_by_id["att-2"]["local_path"],
+        "footer_comment_ids": [comment["id"] for comment in payload["fetched_footer_comments"]],
+        "inline_comment_ids": [comment["id"] for comment in payload["fetched_inline_comments"]],
+    } == {
+        "att-1": "../../attachments/123/att-1-debug.log",
+        "att-2": None,
+        "footer_comment_ids": ["1", "2"],
+        "inline_comment_ids": ["10"],
+    }
+
+
+def _assert_full_confluence_pull_manifest(tmp_path: Path) -> None:
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert {
+        "counts": manifest["counts"],
+        "page_ids": manifest["last_successful_representative_run"]["page_ids"],
+        "has_attachment_hash": "attachments/123/att-1-debug.log" in manifest["hashes"],
+        "has_all_index_link": "[Launch](../pages/DOC/123-Launch.md)"
+        in (tmp_path / "indexes" / "all.md").read_text(encoding="utf-8"),
+    } == {
+        "counts": {
+            "attachments": 2,
+            "footer_comments": 2,
+            "inline_comments": 1,
+            "pages": 1,
+        },
+        "page_ids": ["123"],
+        "has_attachment_hash": True,
+        "has_all_index_link": True,
+    }
+
+
+def _assert_missing_confluence_download_fails_verification(
+    tmp_path: Path,
+    downloaded: Path,
+) -> None:
+    downloaded.unlink()
+    failure = verify_confluence_export(tmp_path)
+    assert not failure.ok
+    assert any("Downloaded Confluence attachment missing" in error for error in failure.errors)
+
+
+def _assert_safe_confluence_log_context(
+    caplog: pytest.LogCaptureFixture,
+    *,
+    page_ids: tuple[str, ...],
+) -> None:
+    assert page_ids == ("123",)
+    write_record = _log_record(caplog, "confluence_page_write")
+    assert _record_attrs(
+        write_record, "provider", "command", "site_host", "page_id", "space_key"
+    ) == {
+        "provider": "confluence",
+        "command": "pull",
+        "site_host": "example.atlassian.net",
+        "page_id": "123",
+        "space_key": "DOC",
+    }
+    assert str(getattr(write_record, "output_path")).endswith(
+        "pages/DOC/123-Launch-with-hidden-body-text.md"
+    )
+    assert str(getattr(write_record, "raw_json_path")).endswith("pages/_raw/123.json")
+
+    fetch_record = _log_record(caplog, "confluence_footer_comments_fetch")
+    assert _record_attrs(fetch_record, "command", "page_id") == {
+        "command": "pull",
+        "page_id": "123",
+    }
+
+    http_record = _log_record(caplog, "http_request", logger_name="atlassian_md_export.client")
+    assert _record_attrs(
+        http_record,
+        "provider",
+        "resource_path",
+        "status_code",
+        "retry_attempt",
+        "retry_count",
+    ) == {
+        "provider": "confluence",
+        "resource_path": "/wiki/api/v2/spaces",
+        "status_code": 200,
+        "retry_attempt": 1,
+        "retry_count": 1,
+    }
+
+
+def _record_attrs(record: logging.LogRecord, *names: str) -> dict[str, object]:
+    return {name: getattr(record, name) for name in names}
+
+
+def _route_handler(
+    routes: Mapping[str, _Route],
+    requested_paths: list[str] | None = None,
+) -> Callable[[httpx.Request], httpx.Response]:
+    def handler(request: httpx.Request) -> httpx.Response:
+        requested_paths.append(request.url.path) if requested_paths is not None else None
+        route = routes.get(request.url.path)
+        if route is None:
+            raise AssertionError(f"unexpected request: {request.url}")
+        return route(request)
+
+    return handler
+
+
+def _json_response(payload: object) -> httpx.Response:
+    return httpx.Response(200, json=payload)
+
+
+def _empty_results(_request: httpx.Request) -> httpx.Response:
+    return _json_response({"results": []})
+
+
+def _space_response(request: httpx.Request) -> httpx.Response:
+    assert request.url.params["keys"] == "DOC"
+    return _json_response({"results": [{"id": "space-1", "key": "DOC"}]})
+
+
+def _full_pull_handler(requested_paths: list[str]) -> Callable[[httpx.Request], httpx.Response]:
+    def page_response(request: httpx.Request) -> httpx.Response:
+        assert request.url.params["body-format"] == "atlas_doc_format"
+        return _json_response(_raw_page("123", "Launch", updated="2026-07-01T00:00:00Z"))
+
+    return _route_handler(
+        {
+            "/wiki/api/v2/spaces": _space_response,
+            "/wiki/api/v2/spaces/space-1/pages": lambda _request: _json_response(
+                {"results": [{"id": "123", "title": "Launch"}]}
+            ),
+            "/wiki/api/v2/pages/123": page_response,
+            "/wiki/api/v2/pages/123/footer-comments": lambda _request: _json_response(
+                {
+                    "results": [
+                        _comment("2", "Second", "2026-07-01T12:00:00Z"),
+                        _comment("1", "First", "2026-07-01T11:00:00Z"),
+                    ]
+                }
+            ),
+            "/wiki/api/v2/pages/123/inline-comments": lambda _request: _json_response(
+                {
+                    "results": [
+                        _comment(
+                            "10",
+                            "Inline",
+                            "2026-07-01T13:00:00Z",
+                            resolution_status="open",
+                        )
+                    ]
+                }
+            ),
+            "/wiki/api/v2/pages/123/attachments": lambda _request: _json_response(
+                {
+                    "results": [
+                        _attachment("att-1", "debug.log", "text/plain", 4),
+                        _attachment("att-2", "screenshot.png", "image/png", 4),
+                    ]
+                }
+            ),
+            "/wiki/api/v2/pages/123/labels": lambda _request: _json_response(
+                {"results": [{"id": "label-1", "prefix": "team", "name": "alpha"}]}
+            ),
+            "/wiki/api/v2/pages/123/ancestors": _empty_results,
+            "/wiki/api/v2/pages/123/descendants": lambda _request: _json_response(
+                {"results": [{"id": "124", "title": "Child", "type": "page"}]}
+            ),
+            "/download/attachments/att-1/debug.log": lambda _request: httpx.Response(
+                200, content=b"log!"
+            ),
+        },
+        requested_paths,
+    )
+
+
+def _single_page_pull_handler(title: str) -> Callable[[httpx.Request], httpx.Response]:
+    return _route_handler(
+        {
+            "/wiki/api/v2/spaces": lambda _request: _json_response(
+                {"results": [{"id": "space-1", "key": "DOC"}]}
+            ),
+            "/wiki/api/v2/spaces/space-1/pages": lambda _request: _json_response(
+                {"results": [{"id": "123", "title": "Launch"}]}
+            ),
+            "/wiki/api/v2/pages/123": lambda _request: _json_response(_raw_page("123", title)),
+            "/wiki/api/v2/pages/123/footer-comments": _empty_results,
+            "/wiki/api/v2/pages/123/inline-comments": _empty_results,
+            "/wiki/api/v2/pages/123/attachments": _empty_results,
+            "/wiki/api/v2/pages/123/labels": _empty_results,
+            "/wiki/api/v2/pages/123/ancestors": _empty_results,
+            "/wiki/api/v2/pages/123/descendants": _empty_results,
+        }
+    )
+
+
+class _ConcurrencyProbe:
+    def __init__(self) -> None:
+        self._active_lock = threading.Lock()
+        self._page_1_footer_started = threading.Event()
+        self._page_2_downloaded = threading.Event()
+        self._active_network_requests = 0
+        self.max_active_network_requests = 0
+        self.download_order: list[str] = []
+
+    def handler(self, request: httpx.Request) -> httpx.Response:
+        path = request.url.path
+        if path == "/wiki/api/v2/spaces":
+            return _json_response({"results": [{"id": "space-1", "key": "DOC"}]})
+        if path == "/wiki/api/v2/spaces/space-1/pages":
+            return _json_response(
+                {
+                    "results": [
+                        {"id": "1", "title": "One"},
+                        {"id": "2", "title": "Two"},
+                        {"id": "3", "title": "Three"},
+                    ]
+                }
+            )
+        if path.startswith("/wiki/api/v2/pages/"):
+            return self._page_response(path.removeprefix("/wiki/api/v2/pages/"))
+        if path.startswith("/download/attachments/att-"):
+            page_id = path.split("/", 4)[3].removeprefix("att-")
+            return self._tracked_download(page_id)
+        raise AssertionError(f"unexpected request: {request.url}")
+
+    def _page_response(self, page_path: str) -> httpx.Response:
+        if "/" not in page_path:
+            return _json_response(_raw_page(page_path, f"Page {page_path}"))
+        page_id, resource = page_path.split("/", 1)
+        return self._tracked_page_resource(page_id, resource)
+
+    def _tracked_page_resource(self, page_id: str, resource: str) -> httpx.Response:
+        self._enter_network_request()
+        try:
+            self._coordinate_page_fetch(page_id, resource)
+            if resource == "attachments":
+                return _json_response(
+                    {
+                        "results": [
+                            _attachment(
+                                f"att-{page_id}",
+                                f"page-{page_id}.txt",
+                                "text/plain",
+                                10,
+                            )
+                        ]
+                    }
+                )
+            return _json_response({"results": []})
+        finally:
+            self._leave_network_request()
+
+    def _coordinate_page_fetch(self, page_id: str, resource: str) -> None:
+        if page_id == "1" and resource == "footer-comments":
+            self._page_1_footer_started.set()
+            self._page_2_downloaded.wait(timeout=2)
+        if page_id == "2" and resource == "footer-comments":
+            assert self._page_1_footer_started.wait(timeout=2)
+
+    def _tracked_download(self, page_id: str) -> httpx.Response:
+        self._enter_network_request()
+        try:
+            self.download_order.append(page_id)
+            if page_id == "2":
+                self._page_2_downloaded.set()
+            return httpx.Response(200, content=f"download-{page_id}".encode())
+        finally:
+            self._leave_network_request()
+
+    def _enter_network_request(self) -> None:
+        with self._active_lock:
+            self._active_network_requests += 1
+            self.max_active_network_requests = max(
+                self.max_active_network_requests,
+                self._active_network_requests,
+            )
+
+    def _leave_network_request(self) -> None:
+        with self._active_lock:
+            self._active_network_requests -= 1
+
+
+def _space_resolution_handler(
+    requested_paths: list[str],
+    raw_page: dict[str, Any],
+) -> Callable[[httpx.Request], httpx.Response]:
+    return _route_handler(
+        {
+            "/wiki/api/v2/pages/123": lambda _request: _json_response(raw_page),
+            "/wiki/api/v2/spaces/space-1": lambda _request: _json_response(
+                {"id": "space-1", "key": "DOC"}
+            ),
+            "/wiki/api/v2/pages/123/footer-comments": _empty_results,
+            "/wiki/api/v2/pages/123/inline-comments": _empty_results,
+            "/wiki/api/v2/pages/123/attachments": _empty_results,
+            "/wiki/api/v2/pages/123/labels": _empty_results,
+            "/wiki/api/v2/pages/123/ancestors": lambda _request: _json_response(
+                {"results": [{"id": "100", "type": "page"}]}
+            ),
+            "/wiki/api/v2/pages/123/descendants": _empty_results,
+        },
+        requested_paths,
+    )
+
+
+def _attachment_partial_failure_handler() -> Callable[[httpx.Request], httpx.Response]:
+    def attachments(_request: httpx.Request) -> httpx.Response:
+        attachment = _attachment("att-1", "debug.log", "text/plain", 4)
+        attachment["downloadLink"] = "https://files.example.test/download/debug.log"
+        return _json_response({"results": [attachment]})
+
+    return _route_handler(
+        {
+            "/wiki/api/v2/spaces": lambda _request: _json_response(
+                {"results": [{"id": "space-1", "key": "DOC"}]}
+            ),
+            "/wiki/api/v2/spaces/space-1/pages": lambda _request: _json_response(
+                {"results": [{"id": "123", "title": "Launch"}]}
+            ),
+            "/wiki/api/v2/pages/123": lambda _request: _json_response(_raw_page("123", "Launch")),
+            "/wiki/api/v2/pages/123/footer-comments": _empty_results,
+            "/wiki/api/v2/pages/123/inline-comments": _empty_results,
+            "/wiki/api/v2/pages/123/attachments": attachments,
+            "/wiki/api/v2/pages/123/labels": _empty_results,
+            "/wiki/api/v2/pages/123/ancestors": _empty_results,
+            "/wiki/api/v2/pages/123/descendants": _empty_results,
+        }
+    )
 
 
 def _client(handler: Callable[[httpx.Request], httpx.Response]) -> ConfluenceClient:

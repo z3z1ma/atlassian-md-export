@@ -8,6 +8,7 @@ from typing import Any
 import pytest
 import yaml
 
+from atlassian_md_export.models import ConfluencePageWriteResult
 from atlassian_md_export.writer import CONFLUENCE_PAGE_FRONTMATTER_FIELDS
 from atlassian_md_export.writer import STABLE_EXPORTED_AT
 from atlassian_md_export.writer import confluence_page_content_hash
@@ -30,7 +31,9 @@ def test_representative_confluence_page_markdown_snapshot() -> None:
         exported_pages=exported_pages,
     )
 
-    assert markdown == f"""---
+    assert (
+        markdown
+        == f"""---
 schema_version: 1
 source: confluence-cloud:example.atlassian.net
 id: '123'
@@ -133,6 +136,7 @@ Inline note
 
 - Raw page field preserved but not rendered: `metadata`
 """
+    )
 
 
 def test_confluence_frontmatter_order_and_section_order_are_stable() -> None:
@@ -209,30 +213,8 @@ def test_confluence_raw_json_is_under_pages_raw_and_preserves_source(
         exported_at=exported_at,
     )
 
-    assert raw_json.endswith("\n")
-    assert result.exported_at == exported_at
-    assert result.json_path == tmp_path / "pages" / "_raw" / "123.json"
-    assert result.json_path.read_text(encoding="utf-8") == raw_json
-    assert payload["raw_page"] == _raw_page()
-    assert payload["normalized_page"] == {
-        "space_id": "space-1",
-        "space_key": "DOC",
-        "url": "https://example.atlassian.net/wiki/spaces/DOC/pages/123/Launch+Plan",
-    }
-    assert [comment["id"] for comment in payload["fetched_footer_comments"]] == ["1", "2"]
-    assert [comment["id"] for comment in payload["fetched_inline_comments"]] == ["10"]
-    assert payload["raw_adf"]["page"] == _adf_doc("Hello ", "world")
-    assert payload["attachment_metadata"][0]["raw"] == _attachments()[0]
-    assert payload["labels"] == _labels_sorted_raw()
-    assert payload["ancestors"] == [_ancestor_ref()]
-    assert payload["child_page_references"] == [_child_ref()]
-    assert payload["exporter"] == {
-        "exported_at": exported_at,
-        "name": "atlassian-md-export",
-        "site_host": "example.atlassian.net",
-        "source": "confluence-cloud:example.atlassian.net",
-        "version": "0.1.0",
-    }
+    _assert_confluence_raw_json_file(tmp_path, raw_json, result, exported_at)
+    _assert_confluence_raw_json_payload(payload, exported_at)
 
 
 def test_confluence_normalization_uses_resolved_space_key_and_wiki_base() -> None:
@@ -338,7 +320,9 @@ def test_write_confluence_page_files_uses_atomic_replace(
     )
 
     assert result.exported_at == "2026-07-01T12:00:00Z"
-    frontmatter = yaml.safe_load(result.markdown_path.read_text(encoding="utf-8").split("---\n", 2)[1])
+    frontmatter = yaml.safe_load(
+        result.markdown_path.read_text(encoding="utf-8").split("---\n", 2)[1]
+    )
     assert frontmatter["exported_at"] == STABLE_EXPORTED_AT
     assert result.markdown_path == tmp_path / "pages" / "DOC" / "123-Launch-Plan-Q3.md"
     assert result.json_path == tmp_path / "pages" / "_raw" / "123.json"
@@ -350,6 +334,61 @@ def test_write_confluence_page_files_uses_atomic_replace(
     ]
     assert not list((tmp_path / "pages" / "DOC").glob(".*.tmp"))
     assert not list((tmp_path / "pages" / "_raw").glob(".*.tmp"))
+
+
+def _assert_confluence_raw_json_file(
+    tmp_path: Path,
+    raw_json: str,
+    result: ConfluencePageWriteResult,
+    exported_at: str,
+) -> None:
+    assert {
+        "has_trailing_newline": raw_json.endswith("\n"),
+        "exported_at": result.exported_at,
+        "json_path": result.json_path,
+        "written_json": result.json_path.read_text(encoding="utf-8"),
+    } == {
+        "has_trailing_newline": True,
+        "exported_at": exported_at,
+        "json_path": tmp_path / "pages" / "_raw" / "123.json",
+        "written_json": raw_json,
+    }
+
+
+def _assert_confluence_raw_json_payload(payload: dict[str, Any], exported_at: str) -> None:
+    assert {
+        "raw_page": payload["raw_page"],
+        "normalized_page": payload["normalized_page"],
+        "footer_comment_ids": [comment["id"] for comment in payload["fetched_footer_comments"]],
+        "inline_comment_ids": [comment["id"] for comment in payload["fetched_inline_comments"]],
+        "raw_adf": payload["raw_adf"]["page"],
+        "attachment_raw": payload["attachment_metadata"][0]["raw"],
+        "labels": payload["labels"],
+        "ancestors": payload["ancestors"],
+        "child_page_references": payload["child_page_references"],
+        "exporter": payload["exporter"],
+    } == {
+        "raw_page": _raw_page(),
+        "normalized_page": {
+            "space_id": "space-1",
+            "space_key": "DOC",
+            "url": "https://example.atlassian.net/wiki/spaces/DOC/pages/123/Launch+Plan",
+        },
+        "footer_comment_ids": ["1", "2"],
+        "inline_comment_ids": ["10"],
+        "raw_adf": _adf_doc("Hello ", "world"),
+        "attachment_raw": _attachments()[0],
+        "labels": _labels_sorted_raw(),
+        "ancestors": [_ancestor_ref()],
+        "child_page_references": [_child_ref()],
+        "exporter": {
+            "exported_at": exported_at,
+            "name": "atlassian-md-export",
+            "site_host": "example.atlassian.net",
+            "source": "confluence-cloud:example.atlassian.net",
+            "version": "0.1.0",
+        },
+    }
 
 
 def _normalized_page_set() -> tuple[Any, Any, Any]:

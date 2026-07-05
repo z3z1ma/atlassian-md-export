@@ -407,9 +407,7 @@ def issue_content_hash(
         ],
         "custom_fields": [field.model_dump(mode="json") for field in issue.custom_fields],
         "renderer": {
-            "include_raw_adf_on_unknown_nodes": (
-                active_renderer.include_raw_adf_on_unknown_nodes
-            ),
+            "include_raw_adf_on_unknown_nodes": (active_renderer.include_raw_adf_on_unknown_nodes),
         },
     }
     return _sha256_text(canonical_json(payload))
@@ -533,14 +531,11 @@ def confluence_page_content_hash(
         "ancestors": [ancestor.raw for ancestor in page.ancestors],
         "child_page_references": [child.raw for child in page.child_pages],
         "attachment_metadata": [
-            _confluence_attachment_hash_metadata(attachment)
-            for attachment in page.attachments
+            _attachment_hash_metadata(attachment) for attachment in page.attachments
         ],
         "exported_page_links": _confluence_exported_page_hash_inputs(exported_pages),
         "renderer": {
-            "include_raw_adf_on_unknown_nodes": (
-                active_renderer.include_raw_adf_on_unknown_nodes
-            ),
+            "include_raw_adf_on_unknown_nodes": (active_renderer.include_raw_adf_on_unknown_nodes),
         },
     }
     return _sha256_text(canonical_json(payload))
@@ -574,12 +569,10 @@ def confluence_page_raw_export_json(
         "raw_adf": {
             "page": page.body_adf,
             "footer_comments": [
-                {"id": comment.id, "body": comment.body_adf}
-                for comment in page.footer_comments
+                {"id": comment.id, "body": comment.body_adf} for comment in page.footer_comments
             ],
             "inline_comments": [
-                {"id": comment.id, "body": comment.body_adf}
-                for comment in page.inline_comments
+                {"id": comment.id, "body": comment.body_adf} for comment in page.inline_comments
             ],
         },
         "attachment_metadata": [
@@ -718,9 +711,7 @@ def _confluence_frontmatter_payload(
         "space_id": page.space_id,
         "status": page.status,
         "parent": _confluence_reference_payload(page.parent),
-        "ancestors": [
-            _confluence_reference_payload(ancestor) for ancestor in page.ancestors
-        ],
+        "ancestors": [_confluence_reference_payload(ancestor) for ancestor in page.ancestors],
         "version": page.version,
         "author": page.author,
         "owner": page.owner,
@@ -847,26 +838,18 @@ def _confluence_content(
 def _confluence_attachments(page: NormalizedConfluencePage) -> str:
     if not page.attachments:
         return "_No attachments._"
-    lines = []
-    for attachment in page.attachments:
-        filename = attachment.filename or "unnamed attachment"
-        details = [
-            f"id={attachment.id}" if attachment.id else None,
-            f"mime={attachment.mime_type}" if attachment.mime_type else None,
-            f"size={attachment.size}" if attachment.size is not None else None,
-            f"created={attachment.created}" if attachment.created else None,
-            f"author={attachment.author_display_name}"
-            if attachment.author_display_name
-            else None,
-        ]
-        suffix = _compact_join(details, separator=", ")
-        line = f"- {escape_markdown_text(filename)}"
-        if suffix:
-            line += f" ({escape_markdown_text(suffix)})"
-        if attachment.local_path:
-            line += f" - [local file]({_escape_url(attachment.local_path)})"
-        lines.append(line)
-    return "\n".join(lines)
+    return "\n".join(
+        _attachment_line(
+            filename=attachment.filename,
+            attachment_id=attachment.id,
+            mime_type=attachment.mime_type,
+            size=attachment.size,
+            created=attachment.created,
+            author_display_name=attachment.author_display_name,
+            local_path=attachment.local_path,
+        )
+        for attachment in page.attachments
+    )
 
 
 def _confluence_labels(page: NormalizedConfluencePage) -> str:
@@ -933,9 +916,7 @@ def _confluence_raw_field_notes(page: NormalizedConfluencePage) -> str:
     fields = sorted(set(page.raw_page) - _CONFLUENCE_RENDERED_RAW_FIELDS)
     if not fields:
         return "_No additional raw field notes._"
-    return "\n".join(
-        f"- Raw page field preserved but not rendered: `{field}`" for field in fields
-    )
+    return "\n".join(f"- Raw page field preserved but not rendered: `{field}`" for field in fields)
 
 
 def _issue_body(issue: NormalizedJiraIssue, renderer: AdfMarkdownRenderer) -> str:
@@ -1010,40 +991,50 @@ def _subtasks(issue: NormalizedJiraIssue) -> str:
 def _attachments(issue: NormalizedJiraIssue) -> str:
     if not issue.attachments:
         return "_No attachments._"
-    lines = []
-    for attachment in issue.attachments:
-        filename = attachment.filename or "unnamed attachment"
-        details = [
-            f"id={attachment.id}" if attachment.id else None,
-            f"mime={attachment.mime_type}" if attachment.mime_type else None,
-            f"size={attachment.size}" if attachment.size is not None else None,
-            f"created={attachment.created}" if attachment.created else None,
-            f"author={attachment.author_display_name}" if attachment.author_display_name else None,
-        ]
-        suffix = _compact_join(details, separator=", ")
-        line = f"- {escape_markdown_text(filename)}"
-        if suffix:
-            line += f" ({escape_markdown_text(suffix)})"
-        if attachment.local_path:
-            line += f" - [local file]({_escape_url(attachment.local_path)})"
-        lines.append(line)
-    return "\n".join(lines)
+    return "\n".join(
+        _attachment_line(
+            filename=attachment.filename,
+            attachment_id=attachment.id,
+            mime_type=attachment.mime_type,
+            size=attachment.size,
+            created=attachment.created,
+            author_display_name=attachment.author_display_name,
+            local_path=attachment.local_path,
+        )
+        for attachment in issue.attachments
+    )
 
 
-def _attachment_hash_metadata(attachment: NormalizedJiraAttachment) -> dict[str, object]:
-    return {
-        "id": attachment.id,
-        "filename": attachment.filename,
-        "mime_type": attachment.mime_type,
-        "size": attachment.size,
-        "created": attachment.created,
-        "author_display_name": attachment.author_display_name,
-        "local_path": attachment.local_path,
-    }
+def _attachment_line(
+    *,
+    filename: str | None,
+    attachment_id: str | None,
+    mime_type: str | None,
+    size: int | None,
+    created: str | None,
+    author_display_name: str | None,
+    local_path: str | None,
+) -> str:
+    suffix = _compact_join(
+        [
+            f"id={attachment_id}" if attachment_id else None,
+            f"mime={mime_type}" if mime_type else None,
+            f"size={size}" if size is not None else None,
+            f"created={created}" if created else None,
+            f"author={author_display_name}" if author_display_name else None,
+        ],
+        separator=", ",
+    )
+    line = f"- {escape_markdown_text(filename or 'unnamed attachment')}"
+    if suffix:
+        line += f" ({escape_markdown_text(suffix)})"
+    if local_path:
+        line += f" - [local file]({_escape_url(local_path)})"
+    return line
 
 
-def _confluence_attachment_hash_metadata(
-    attachment: NormalizedConfluenceAttachment,
+def _attachment_hash_metadata(
+    attachment: NormalizedJiraAttachment | NormalizedConfluenceAttachment,
 ) -> dict[str, object]:
     return {
         "id": attachment.id,
@@ -1231,9 +1222,7 @@ def _confluence_parent(
     fallback_space_key: str | None = None,
 ) -> NormalizedConfluencePageReference | None:
     raw_parent = _mapping(raw_page.get("parent"))
-    parent_id = _optional_string(raw_page.get("parentId")) or _optional_string(
-        raw_parent.get("id")
-    )
+    parent_id = _optional_string(raw_page.get("parentId")) or _optional_string(raw_parent.get("id"))
     if not parent_id:
         return None
     for ancestor in reversed(ancestors):
@@ -1615,15 +1604,23 @@ def _display_value(
     if isinstance(value, bool | int | float):
         return str(value)
     if isinstance(value, list):
-        rendered = [_display_value(item) for item in value]
-        return ", ".join(sorted(item for item in rendered if item))
+        return _display_list_value(value)
     if isinstance(value, Mapping):
-        for key in preferred_keys:
-            rendered_field = _display_value(value.get(key))
-            if rendered_field:
-                return rendered_field
-        return canonical_json(_json_object(value)).strip()
+        return _display_mapping_value(value, preferred_keys)
     return str(value)
+
+
+def _display_list_value(value: Sequence[object]) -> str:
+    rendered = [_display_value(item) for item in value]
+    return ", ".join(sorted(item for item in rendered if item))
+
+
+def _display_mapping_value(value: Mapping[Any, Any], preferred_keys: Sequence[str]) -> str:
+    for key in preferred_keys:
+        rendered_field = _display_value(value.get(key))
+        if rendered_field:
+            return rendered_field
+    return canonical_json(_json_object(value)).strip()
 
 
 def _visibility(value: object) -> str | None:
@@ -1641,11 +1638,8 @@ def _compact_join(values: Sequence[str | None], *, separator: str) -> str:
     return separator.join(value for value in values if value)
 
 
-def _json_object(value: Mapping[str, Any]) -> dict[str, Any]:
-    result = _jsonable(value)
-    if not isinstance(result, dict):
-        raise ValueError("Expected a JSON object.")
-    return result
+def _json_object(value: Mapping[Any, Any]) -> dict[str, Any]:
+    return {str(key): _jsonable(item) for key, item in value.items()}
 
 
 def _jsonable(value: object) -> object:

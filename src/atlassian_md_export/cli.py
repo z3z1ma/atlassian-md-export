@@ -517,7 +517,9 @@ def comments(
         Path | None,
         typer.Option("--config", help="YAML config path.", exists=True, dir_okay=False),
     ] = None,
-    force: Annotated[bool, typer.Option("--force", help="Refresh comments even if cached.")] = False,
+    force: Annotated[
+        bool, typer.Option("--force", help="Refresh comments even if cached.")
+    ] = False,
     stable_exported_at: Annotated[
         bool,
         typer.Option("--stable-exported-at", help="Freeze exported_at for cleaner diffs."),
@@ -653,8 +655,7 @@ def _resolved_confluence_site(site: str | None, config_values: ExportConfig) -> 
     resolved = _confluence_site(site, config_values)
     if not resolved:
         raise ExportCommandError(
-            "Missing Confluence site: set CONFLUENCE_SITE, ATLASSIAN_SITE, "
-            "config site, or --site."
+            "Missing Confluence site: set CONFLUENCE_SITE, ATLASSIAN_SITE, config site, or --site."
         )
     return resolved
 
@@ -714,8 +715,7 @@ def _load_jira_context(config_path: Path | None, site: str | None) -> ExportConf
 
     if missing:
         console.print(
-            "Missing Jira configuration: set "
-            f"{', '.join(missing)}. API tokens are never printed."
+            f"Missing Jira configuration: set {', '.join(missing)}. API tokens are never printed."
         )
         raise typer.Exit(2)
 
@@ -746,11 +746,7 @@ def _with_stable_exported_at(config_values: ExportConfig, enabled: bool) -> Expo
     if not enabled:
         return config_values
     return config_values.model_copy(
-        update={
-            "markdown": config_values.markdown.model_copy(
-                update={"stable_exported_at": True}
-            )
-        }
+        update={"markdown": config_values.markdown.model_copy(update={"stable_exported_at": True})}
     )
 
 

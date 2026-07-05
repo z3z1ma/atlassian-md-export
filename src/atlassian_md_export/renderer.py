@@ -153,23 +153,14 @@ class AdfMarkdownRenderer:
         lines: list[str] = []
         inline_nodes: list[Mapping[str, Any]] = []
 
-        def append_inline_nodes() -> None:
-            nonlocal inline_nodes
-            if not inline_nodes:
-                return
-            rendered = self._render_inlines(inline_nodes).strip()
-            inline_nodes = []
-            if not rendered:
-                return
-            inline_lines = rendered.splitlines()
-            if not lines:
-                lines.append(prefix + inline_lines[0])
-                inline_lines = inline_lines[1:]
-            lines.extend(continuation + line if line else "" for line in inline_lines)
-
         for child in content:
             if child.get("type") == "taskList":
-                append_inline_nodes()
+                inline_nodes = self._append_task_inline_nodes(
+                    lines,
+                    inline_nodes,
+                    prefix=prefix,
+                    continuation=continuation,
+                )
                 if not lines:
                     lines.append(prefix.rstrip())
                 nested = self._render_task_list(child, indent + 2)
@@ -177,10 +168,35 @@ class AdfMarkdownRenderer:
             else:
                 inline_nodes.append(child)
 
-        append_inline_nodes()
+        self._append_task_inline_nodes(
+            lines,
+            inline_nodes,
+            prefix=prefix,
+            continuation=continuation,
+        )
         if not lines:
             return prefix.rstrip()
         return "\n".join(lines)
+
+    def _append_task_inline_nodes(
+        self,
+        lines: list[str],
+        inline_nodes: list[Mapping[str, Any]],
+        *,
+        prefix: str,
+        continuation: str,
+    ) -> list[Mapping[str, Any]]:
+        if not inline_nodes:
+            return []
+        rendered = self._render_inlines(inline_nodes).strip()
+        if not rendered:
+            return []
+        inline_lines = rendered.splitlines()
+        if not lines:
+            lines.append(prefix + inline_lines[0])
+            inline_lines = inline_lines[1:]
+        lines.extend(continuation + line if line else "" for line in inline_lines)
+        return []
 
     def _render_code_block(self, node: Mapping[str, Any]) -> str:
         attrs = _attrs(node)

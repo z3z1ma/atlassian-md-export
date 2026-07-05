@@ -57,7 +57,10 @@ def redact(value: Any, key: str | None = None) -> Any:
     if isinstance(value, str):
         return _redact_string(value)
     if isinstance(value, Mapping):
-        return {item_key: redact(item_value, key=str(item_key)) for item_key, item_value in value.items()}
+        return {
+            item_key: redact(item_value, key=str(item_key))
+            for item_key, item_value in value.items()
+        }
     if isinstance(value, list):
         return [redact(item) for item in value]
     if isinstance(value, tuple):

@@ -1,0 +1,161 @@
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/attachments.py[39m[22m [39:43 - 46:20] (8 lines, 57 tokens)
+   atlassian_md_export/writer.py [237:47 - 244:20]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [68:9 - 81:2] (14 lines, 59 tokens)
+   atlassian_md_export/cli.py [82:20 - 95:2]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [140:20 - 145:14] (6 lines, 54 tokens)
+   atlassian_md_export/cli.py [335:22 - 340:14]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [140:20 - 146:26] (7 lines, 60 tokens)
+   atlassian_md_export/cli.py [356:21 - 363:7]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [140:20 - 145:14] (6 lines, 54 tokens)
+   atlassian_md_export/cli.py [372:21 - 377:14]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [140:20 - 146:61] (7 lines, 70 tokens)
+   atlassian_md_export/cli.py [392:9 - 398:61]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [141:5 - 146:93] (6 lines, 75 tokens)
+   atlassian_md_export/cli.py [220:5 - 225:93]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [161:94 - 183:7] (23 lines, 108 tokens)
+   atlassian_md_export/cli.py [409:88 - 431:7]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [161:94 - 183:7] (23 lines, 108 tokens)
+   atlassian_md_export/cli.py [467:87 - 489:7]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [166:14 - 183:7] (18 lines, 82 tokens)
+   atlassian_md_export/cli.py [294:92 - 311:7]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [218:20 - 225:93] (8 lines, 95 tokens)
+   atlassian_md_export/cli.py [250:24 - 257:93]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [218:20 - 225:93] (8 lines, 95 tokens)
+   atlassian_md_export/cli.py [287:27 - 294:93]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [219:68 - 224:14] (6 lines, 56 tokens)
+   atlassian_md_export/cli.py [463:60 - 468:14]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [294:84 - 311:7] (18 lines, 85 tokens)
+   atlassian_md_export/cli.py [554:5 - 571:7]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [462:10 - 468:14] (7 lines, 73 tokens)
+   atlassian_md_export/cli.py [513:13 - 519:14]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/cli.py[39m[22m [462:10 - 468:14] (7 lines, 73 tokens)
+   atlassian_md_export/cli.py [548:16 - 554:14]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/confluence/client.py[39m[22m [165:15 - 173:38] (9 lines, 62 tokens)
+   atlassian_md_export/confluence/client.py [187:26 - 195:38]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/confluence/client.py[39m[22m [448:19 - 461:40] (14 lines, 59 tokens)
+   atlassian_md_export/jira/client.py [317:19 - 330:40]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/confluence/client.py[39m[22m [707:5 - 716:4] (10 lines, 64 tokens)
+   atlassian_md_export/operations.py [1781:5 - 1790:4]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/confluence/client.py[39m[22m [716:1 - 727:16] (12 lines, 58 tokens)
+   atlassian_md_export/operations.py [1799:1 - 1810:16]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/indexes.py[39m[22m [359:5 - 366:6] (8 lines, 57 tokens)
+   atlassian_md_export/operations.py [2713:5 - 2720:6]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [298:27 - 309:84] (12 lines, 57 tokens)
+   atlassian_md_export/operations.py [426:30 - 437:84]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [354:39 - 372:42] (19 lines, 85 tokens)
+   atlassian_md_export/operations.py [485:42 - 503:42]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [361:9 - 372:42] (12 lines, 53 tokens)
+   atlassian_md_export/operations.py [1187:9 - 1198:42]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [380:31 - 399:4] (20 lines, 76 tokens)
+   atlassian_md_export/operations.py [511:34 - 530:4]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [625:67 - 641:63] (17 lines, 94 tokens)
+   atlassian_md_export/operations.py [704:21 - 720:63]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [631:9 - 641:63] (11 lines, 53 tokens)
+   atlassian_md_export/operations.py [1028:9 - 1038:63]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [641:73 - 658:4] (18 lines, 82 tokens)
+   atlassian_md_export/operations.py [720:76 - 737:4]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [1541:40 - 1551:27] (11 lines, 53 tokens)
+   atlassian_md_export/operations.py [1607:72 - 1617:31]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [1968:44 - 1974:69] (7 lines, 73 tokens)
+   atlassian_md_export/operations.py [2016:21 - 2022:73]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/operations.py[39m[22m [2123:29 - 2134:4] (12 lines, 70 tokens)
+   atlassian_md_export/operations.py [2138:28 - 2149:4]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/state.py[39m[22m [517:30 - 526:19] (10 lines, 60 tokens)
+   atlassian_md_export/state.py [554:28 - 563:19]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/state.py[39m[22m [587:6 - 598:28] (12 lines, 52 tokens)
+   atlassian_md_export/state.py [650:17 - 661:28]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/state.py[39m[22m [617:6 - 629:28] (13 lines, 58 tokens)
+   atlassian_md_export/state.py [680:17 - 692:28]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/state.py[39m[22m [961:21 - 969:54] (9 lines, 81 tokens)
+   atlassian_md_export/state.py [978:31 - 986:54]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/writer.py[39m[22m [521:24 - 529:86] (9 lines, 58 tokens)
+   atlassian_md_export/writer.py [560:10 - 568:86]
+[1mClone found (python)[22m
+ - [1m[32matlassian_md_export/writer.py[39m[22m [839:16 - 851:26] (13 lines, 58 tokens)
+   atlassian_md_export/writer.py [992:17 - 1004:26]
+[1mClone found (python)[22m
+ - [1m[32mtest_confluence_client.py[39m[22m [38:79 - 45:52] (8 lines, 50 tokens)
+   test_confluence_client.py [163:81 - 168:69]
+[1mClone found (python)[22m
+ - [1m[32mtest_confluence_operations.py[39m[22m [681:5 - 689:87] (9 lines, 63 tokens)
+   test_confluence_operations.py [816:5 - 824:87]
+[1mClone found (python)[22m
+ - [1m[32mtest_confluence_writer.py[39m[22m [305:47 - 315:13] (11 lines, 88 tokens)
+   test_writer.py [321:30 - 331:13]
+[1mClone found (python)[22m
+ - [1m[32mtest_confluence_writer.py[39m[22m [317:13 - 327:46] (11 lines, 60 tokens)
+   test_writer.py [333:14 - 343:46]
+[1mClone found (python)[22m
+ - [1m[32mtest_jira_client.py[39m[22m [150:52 - 155:72] (6 lines, 63 tokens)
+   test_jira_client.py [204:70 - 209:72]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [81:5 - 87:65] (7 lines, 69 tokens)
+   test_operations.py [221:5 - 227:65]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [81:5 - 88:24] (8 lines, 78 tokens)
+   test_operations.py [329:35 - 336:67]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [122:13 - 127:13] (6 lines, 52 tokens)
+   test_operations.py [261:13 - 266:9]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [150:43 - 156:46] (7 lines, 61 tokens)
+   test_operations.py [182:35 - 188:46]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [186:64 - 200:10] (15 lines, 109 tokens)
+   test_operations.py [303:48 - 320:11]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [360:61 - 373:21] (14 lines, 52 tokens)
+   test_operations.py [638:34 - 651:21]
+[1mClone found (python)[22m
+ - [1m[32mtest_operations.py[39m[22m [470:66 - 477:31] (8 lines, 50 tokens)
+   test_operations.py [502:55 - 509:31]
+[90m┌────────┬────────────────┬─────────────┬──────────────┬──────────────┬──────────────────┬───────────────────┐[39m
+[90m│[39m[31m Format [39m[90m│[39m[31m Files analyzed [39m[90m│[39m[31m Total lines [39m[90m│[39m[31m Total tokens [39m[90m│[39m[31m Clones found [39m[90m│[39m[31m Duplicated lines [39m[90m│[39m[31m Duplicated tokens [39m[90m│[39m
+[90m├────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤[39m
+[90m│[39m python [90m│[39m 25             [90m│[39m 14268       [90m│[39m 76695        [90m│[39m 49           [90m│[39m 491 (3.44%)      [90m│[39m 3362 (4.38%)      [90m│[39m
+[90m├────────┼────────────────┼─────────────┼──────────────┼──────────────┼──────────────────┼───────────────────┤[39m
+[90m│[39m [1mTotal:[22m [90m│[39m 25             [90m│[39m 14268       [90m│[39m 76695        [90m│[39m 49           [90m│[39m 491 (3.44%)      [90m│[39m 3362 (4.38%)      [90m│[39m
+[90m└────────┴────────────────┴─────────────┴──────────────┴──────────────┴──────────────────┴───────────────────┘[39m
+[90mFound 49 clones.[39m
+[32mJSON report saved to reports/ai-quality/jscpd/jscpd-report.json[39m
+[90mtime: 17.941ms[39m
+
+[90m💡 Auto-refactor with AI: [1m[39mnpx skills add https://github.com/kucherenko/jscpd --skill dry-refactoring[90m[22m
+[90m🎩 New: Gangsta Agents — discipline your AI coding → gangsta.page[39m
+[90m💖 Support jscpd project → https://opencollective.com/jscpd[39m

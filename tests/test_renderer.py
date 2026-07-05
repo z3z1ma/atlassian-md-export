@@ -75,16 +75,12 @@ def test_renderer_supports_required_nodes_and_marks() -> None:
             },
             {
                 "type": "blockquote",
-                "content": [
-                    {"type": "paragraph", "content": [{"type": "text", "text": "quote"}]}
-                ],
+                "content": [{"type": "paragraph", "content": [{"type": "text", "text": "quote"}]}],
             },
             {
                 "type": "panel",
                 "attrs": {"panelType": "info"},
-                "content": [
-                    {"type": "paragraph", "content": [{"type": "text", "text": "panel"}]}
-                ],
+                "content": [{"type": "paragraph", "content": [{"type": "text", "text": "panel"}]}],
             },
             {
                 "type": "table",
@@ -95,13 +91,19 @@ def test_renderer_supports_required_nodes_and_marks() -> None:
                             {
                                 "type": "tableHeader",
                                 "content": [
-                                    {"type": "paragraph", "content": [{"type": "text", "text": "A|B"}]}
+                                    {
+                                        "type": "paragraph",
+                                        "content": [{"type": "text", "text": "A|B"}],
+                                    }
                                 ],
                             },
                             {
                                 "type": "tableHeader",
                                 "content": [
-                                    {"type": "paragraph", "content": [{"type": "text", "text": "Value"}]}
+                                    {
+                                        "type": "paragraph",
+                                        "content": [{"type": "text", "text": "Value"}],
+                                    }
                                 ],
                             },
                         ],
@@ -112,13 +114,19 @@ def test_renderer_supports_required_nodes_and_marks() -> None:
                             {
                                 "type": "tableCell",
                                 "content": [
-                                    {"type": "paragraph", "content": [{"type": "text", "text": "one"}]}
+                                    {
+                                        "type": "paragraph",
+                                        "content": [{"type": "text", "text": "one"}],
+                                    }
                                 ],
                             },
                             {
                                 "type": "tableCell",
                                 "content": [
-                                    {"type": "paragraph", "content": [{"type": "text", "text": "two"}]}
+                                    {
+                                        "type": "paragraph",
+                                        "content": [{"type": "text", "text": "two"}],
+                                    }
                                 ],
                             },
                         ],
@@ -156,7 +164,10 @@ def test_renderer_supports_required_nodes_and_marks() -> None:
     assert "> quote" in rendered
     assert "> [!INFO]\n> panel" in rendered
     assert "| A\\|B | Value |" in rendered
-    assert "\n---\n\n[Media: id=media-1 collection=jira alt=diagram fileName=diagram.png type=file]" in rendered
+    assert (
+        "\n---\n\n[Media: id=media-1 collection=jira alt=diagram fileName=diagram.png type=file]"
+        in rendered
+    )
 
 
 def test_task_list_renders_checked_unchecked_and_rich_inline_content() -> None:

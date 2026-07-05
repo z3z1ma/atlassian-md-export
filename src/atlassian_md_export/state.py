@@ -16,6 +16,74 @@ SCHEMA_VERSION = 3
 REPRESENTATIVE_SCOPE_TYPES = frozenset({"project", "jql"})
 CONFLUENCE_STATE_COMPATIBILITY_VERSION = "confluence-v1"
 CONFLUENCE_REPRESENTATIVE_SCOPE_TYPES = frozenset({"space", "cql", "ancestor"})
+_SCHEMA_VERSION_STATEMENTS = {3: "PRAGMA user_version = 3"}
+_CONFLUENCE_COMPATIBILITY_COLUMN = "TEXT NOT NULL DEFAULT 'confluence-v1'"
+_COLUMN_MIGRATION_STATEMENTS = {
+    ("export_runs", "partial_failure", "INTEGER NOT NULL DEFAULT 0"): (
+        "ALTER TABLE export_runs ADD COLUMN partial_failure INTEGER NOT NULL DEFAULT 0"
+    ),
+    ("export_runs", "failure_message", "TEXT"): (
+        "ALTER TABLE export_runs ADD COLUMN failure_message TEXT"
+    ),
+    ("export_runs", "sync_since", "TEXT"): "ALTER TABLE export_runs ADD COLUMN sync_since TEXT",
+    ("export_runs", "force", "INTEGER NOT NULL DEFAULT 0"): (
+        "ALTER TABLE export_runs ADD COLUMN force INTEGER NOT NULL DEFAULT 0"
+    ),
+    ("export_runs", "exact_issue_keys_json", "TEXT"): (
+        "ALTER TABLE export_runs ADD COLUMN exact_issue_keys_json TEXT"
+    ),
+    ("confluence_export_runs", "partial_failure", "INTEGER NOT NULL DEFAULT 0"): (
+        "ALTER TABLE confluence_export_runs ADD COLUMN partial_failure INTEGER NOT NULL DEFAULT 0"
+    ),
+    ("confluence_export_runs", "failure_message", "TEXT"): (
+        "ALTER TABLE confluence_export_runs ADD COLUMN failure_message TEXT"
+    ),
+    ("confluence_export_runs", "sync_since", "TEXT"): (
+        "ALTER TABLE confluence_export_runs ADD COLUMN sync_since TEXT"
+    ),
+    ("confluence_export_runs", "force", "INTEGER NOT NULL DEFAULT 0"): (
+        "ALTER TABLE confluence_export_runs ADD COLUMN force INTEGER NOT NULL DEFAULT 0"
+    ),
+    ("confluence_export_runs", "exact_page_ids_json", "TEXT"): (
+        "ALTER TABLE confluence_export_runs ADD COLUMN exact_page_ids_json TEXT"
+    ),
+    ("confluence_export_runs", "compatibility_version", _CONFLUENCE_COMPATIBILITY_COLUMN): (
+        "ALTER TABLE confluence_export_runs "
+        "ADD COLUMN compatibility_version TEXT NOT NULL DEFAULT 'confluence-v1'"
+    ),
+    ("confluence_pages", "space_id", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN space_id TEXT"
+    ),
+    ("confluence_pages", "space_key", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN space_key TEXT"
+    ),
+    ("confluence_pages", "title", "TEXT"): "ALTER TABLE confluence_pages ADD COLUMN title TEXT",
+    ("confluence_pages", "status", "TEXT"): "ALTER TABLE confluence_pages ADD COLUMN status TEXT",
+    ("confluence_pages", "parent_id", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN parent_id TEXT"
+    ),
+    ("confluence_pages", "updated_at", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN updated_at TEXT"
+    ),
+    ("confluence_pages", "version", "INTEGER"): (
+        "ALTER TABLE confluence_pages ADD COLUMN version INTEGER"
+    ),
+    ("confluence_pages", "content_hash", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN content_hash TEXT"
+    ),
+    ("confluence_pages", "raw_json_hash", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN raw_json_hash TEXT"
+    ),
+    ("confluence_pages", "markdown_hash", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN markdown_hash TEXT"
+    ),
+    ("confluence_pages", "last_seen_at", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN last_seen_at TEXT"
+    ),
+    ("confluence_pages", "last_exported_at", "TEXT"): (
+        "ALTER TABLE confluence_pages ADD COLUMN last_exported_at TEXT"
+    ),
+}
 
 
 @dataclass(frozen=True)
@@ -190,7 +258,7 @@ def initialize_state(db_path: Path) -> None:
             connection,
             "confluence_export_runs",
             "compatibility_version",
-            f"TEXT NOT NULL DEFAULT '{CONFLUENCE_STATE_COMPATIBILITY_VERSION}'",
+            _CONFLUENCE_COMPATIBILITY_COLUMN,
         )
         _ensure_column(connection, "confluence_pages", "space_id", "TEXT")
         _ensure_column(connection, "confluence_pages", "space_key", "TEXT")
@@ -223,7 +291,7 @@ def initialize_state(db_path: Path) -> None:
             )
             """
         )
-        connection.execute(f"PRAGMA user_version = {SCHEMA_VERSION}")
+        connection.execute(_SCHEMA_VERSION_STATEMENTS[SCHEMA_VERSION])
 
 
 def upsert_issue_state(db_path: Path, issue: IssueState) -> None:
@@ -667,16 +735,16 @@ def latest_successful_confluence_representative_run(
     compatibility_version: str = CONFLUENCE_STATE_COMPATIBILITY_VERSION,
 ) -> ConfluenceExportRun | None:
     initialize_state(db_path)
-    placeholders = ",".join("?" for _scope_type in CONFLUENCE_REPRESENTATIVE_SCOPE_TYPES)
-    params = (*sorted(CONFLUENCE_REPRESENTATIVE_SCOPE_TYPES), compatibility_version)
+    scope_types = tuple(sorted(CONFLUENCE_REPRESENTATIVE_SCOPE_TYPES))
+    params = (*scope_types, compatibility_version)
     with sqlite3.connect(db_path) as connection:
         connection.row_factory = sqlite3.Row
         row = connection.execute(
-            f"""
+            """
             SELECT *
             FROM confluence_export_runs
             WHERE command = 'pull'
-                AND scope_type IN ({placeholders})
+                AND scope_type IN (?, ?, ?)
                 AND compatibility_version = ?
                 AND succeeded = 1
                 AND partial_failure = 0
@@ -750,7 +818,9 @@ def decide_incremental_sync(
             reason="no_previous_success",
         )
 
-    overlapped_since = _format_iso(_parse_iso(prior.finished_at) - timedelta(minutes=overlap_minutes))
+    overlapped_since = _format_iso(
+        _parse_iso(prior.finished_at) - timedelta(minutes=overlap_minutes)
+    )
     return SyncDecision(
         full_refresh=False,
         since=overlapped_since,
@@ -831,7 +901,9 @@ def decide_confluence_incremental_sync(
             reason="no_previous_success",
         )
 
-    overlapped_since = _format_iso(_parse_iso(prior.finished_at) - timedelta(minutes=overlap_minutes))
+    overlapped_since = _format_iso(
+        _parse_iso(prior.finished_at) - timedelta(minutes=overlap_minutes)
+    )
     return ConfluenceSyncDecision(
         full_refresh=False,
         since=overlapped_since,
@@ -874,11 +946,15 @@ def _ensure_column(
     definition: str,
 ) -> None:
     columns = {
-        str(row[1])
-        for row in connection.execute(f"PRAGMA table_info({table_name})").fetchall()
+        str(row[0])
+        for row in connection.execute(
+            "SELECT name FROM pragma_table_info(?)",
+            (table_name,),
+        ).fetchall()
     }
     if column_name not in columns:
-        connection.execute(f"ALTER TABLE {table_name} ADD COLUMN {column_name} {definition}")
+        statement = _COLUMN_MIGRATION_STATEMENTS[(table_name, column_name, definition)]
+        connection.execute(statement)
 
 
 def _run_from_row(row: sqlite3.Row) -> ExportRun:

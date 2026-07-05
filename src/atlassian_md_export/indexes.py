@@ -14,6 +14,9 @@ import os
 from pathlib import Path
 from typing import Any
 
+from atlassian_md_export.payloads import confluence_payload_space_key
+from atlassian_md_export.payloads import confluence_payload_url
+from atlassian_md_export.payloads import dict_list
 from atlassian_md_export.writer import atomic_write_text
 from atlassian_md_export.writer import confluence_page_markdown_path
 from atlassian_md_export.writer import confluence_page_raw_dir
@@ -237,7 +240,9 @@ def _write_stale_index(
     if not stale:
         lines.append("_No stale issues._")
     for issue in sorted(stale, key=lambda item: (item.updated or "", item.key)):
-        lines.append(f"- [{issue.key}](../issues/{issue.key}.md) - Updated {issue.updated} - {issue.summary}")
+        lines.append(
+            f"- [{issue.key}](../issues/{issue.key}.md) - Updated {issue.updated} - {issue.summary}"
+        )
     atomic_write_text(path, "\n".join(lines).rstrip() + "\n")
     return path
 
@@ -260,7 +265,9 @@ def _write_confluence_stale_index(
     lines = ["# Stale Confluence Pages", "", f"Threshold: {stale_days} days", ""]
     if not stale:
         lines.append("_No stale pages._")
-    for page in sorted(stale, key=lambda item: (item.updated or "", item.title.casefold(), item.page_id)):
+    for page in sorted(
+        stale, key=lambda item: (item.updated or "", item.title.casefold(), item.page_id)
+    ):
         lines.append(
             f"- [{page.title}]({page.relative_markdown_path}) - "
             f"id={page.page_id} - Updated {page.updated}"
@@ -271,9 +278,7 @@ def _write_confluence_stale_index(
 
 def _deterministic_reference_time(issues: list[IndexIssue]) -> datetime:
     updated_values = [
-        _parse_atlassian_datetime(issue.updated)
-        for issue in issues
-        if issue.updated is not None
+        _parse_atlassian_datetime(issue.updated) for issue in issues if issue.updated is not None
     ]
     if updated_values:
         return max(updated_values)
@@ -282,9 +287,7 @@ def _deterministic_reference_time(issues: list[IndexIssue]) -> datetime:
 
 def _deterministic_confluence_reference_time(pages: list[IndexConfluencePage]) -> datetime:
     updated_values = [
-        _parse_atlassian_datetime(page.updated)
-        for page in pages
-        if page.updated is not None
+        _parse_atlassian_datetime(page.updated) for page in pages if page.updated is not None
     ]
     if updated_values:
         return max(updated_values)
@@ -355,11 +358,11 @@ def _confluence_page_from_json(out_dir: Path, path: Path) -> IndexConfluencePage
 
     page = normalize_confluence_page(
         raw_page,
-        labels=_dict_list(payload.get("labels")),
-        ancestors=_dict_list(payload.get("ancestors")),
-        child_pages=_dict_list(payload.get("child_page_references")),
-        space_key=_confluence_payload_space_key(payload),
-        url=_confluence_payload_url(payload),
+        labels=dict_list(payload.get("labels")),
+        ancestors=dict_list(payload.get("ancestors")),
+        child_pages=dict_list(payload.get("child_page_references")),
+        space_key=confluence_payload_space_key(payload),
+        url=confluence_payload_url(payload),
     )
     markdown_path = confluence_page_markdown_path(out_dir, page)
     return IndexConfluencePage(
@@ -385,34 +388,6 @@ def _label_text(label: Any) -> str:
     if prefix:
         return f"{prefix}:{name}"
     return str(name)
-
-
-def _confluence_payload_space_key(payload: Mapping[str, Any]) -> str | None:
-    normalized = payload.get("normalized_page")
-    if isinstance(normalized, Mapping):
-        normalized_space_key = normalized.get("space_key")
-        if isinstance(normalized_space_key, str) and normalized_space_key:
-            return normalized_space_key
-    raw_page = payload.get("raw_page")
-    if isinstance(raw_page, Mapping):
-        raw_space_key = raw_page.get("spaceKey")
-        if isinstance(raw_space_key, str) and raw_space_key:
-            return raw_space_key
-        raw_space = raw_page.get("space")
-        if isinstance(raw_space, Mapping):
-            embedded_space_key = raw_space.get("key")
-            if isinstance(embedded_space_key, str) and embedded_space_key:
-                return embedded_space_key
-    return None
-
-
-def _confluence_payload_url(payload: Mapping[str, Any]) -> str | None:
-    normalized = payload.get("normalized_page")
-    if isinstance(normalized, Mapping):
-        normalized_url = normalized.get("url")
-        if isinstance(normalized_url, str) and normalized_url:
-            return normalized_url
-    return None
 
 
 def _confluence_parent_group(page: IndexConfluencePage) -> str:
@@ -461,9 +436,3 @@ def _parse_atlassian_datetime(value: str) -> datetime:
     if parsed.tzinfo is None:
         parsed = parsed.replace(tzinfo=timezone.utc)
     return parsed.astimezone(timezone.utc)
-
-
-def _dict_list(value: object) -> list[dict[str, Any]]:
-    if not isinstance(value, list):
-        return []
-    return [dict(item) for item in value if isinstance(item, Mapping)]

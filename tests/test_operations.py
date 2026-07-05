@@ -102,35 +102,12 @@ def test_pull_downloads_eligible_attachments_and_verify_checks_local_refs(
         ),
     )
 
-    assert summary.issue_keys == ("ABC-1",)
-    downloaded = tmp_path / "attachments" / "ABC-1" / "att-1-debug.log"
-    skipped = tmp_path / "attachments" / "ABC-1" / "att-2-screenshot.png"
-    assert downloaded.read_bytes() == b"log!"
-    assert not skipped.exists()
-
-    markdown = (tmp_path / "issues" / "ABC-1.md").read_text(encoding="utf-8")
-    assert "[local file](../attachments/ABC-1/att-1-debug.log)" in markdown
-    assert f"[external evidence]({external_attachment_url})" in markdown
-    assert "screenshot.png" in markdown
-    payload = json.loads((tmp_path / "issues" / "_raw" / "ABC-1.json").read_text(encoding="utf-8"))
-    assert not (tmp_path / "issues" / "ABC-1.json").exists()
-    metadata_by_id = {item["id"]: item for item in payload["attachment_metadata"]}
-    assert metadata_by_id["att-1"]["local_path"] == "../attachments/ABC-1/att-1-debug.log"
-    assert metadata_by_id["att-2"]["local_path"] is None
-
-    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
-    assert manifest["counts"] == {"attachments": 2, "comments": 1, "issues": 1}
-    assert manifest["last_successful_representative_run"]["issue_keys"] == ["ABC-1"]
-    assert "attachments/ABC-1/att-1-debug.log" in manifest["hashes"]
-    assert "[ABC-1](../issues/ABC-1.md)" in (
-        tmp_path / "indexes" / "by-status.md"
-    ).read_text(encoding="utf-8")
-    assert verify_export(tmp_path).ok
-
-    downloaded.unlink()
-    failure = verify_export(tmp_path)
-    assert not failure.ok
-    assert any("Downloaded attachment missing" in error for error in failure.errors)
+    downloaded = _assert_pull_download_outputs(
+        tmp_path,
+        issue_keys=summary.issue_keys,
+        external_attachment_url=external_attachment_url,
+    )
+    _assert_missing_download_fails_verification(tmp_path, downloaded)
 
 
 def test_pull_renders_configured_custom_fields_from_public_config_shape(
@@ -298,8 +275,7 @@ def test_pull_blocks_external_attachment_content_url_without_request(tmp_path: P
 
     assert external_url not in requested_urls
     assert (
-        "https://files.example.test:443 does not match Jira site "
-        "https://example.atlassian.net:443"
+        "https://files.example.test:443 does not match Jira site https://example.atlassian.net:443"
     ) in str(error.value)
     assert not (tmp_path / "attachments" / "ABC-1" / "att-1-debug.log").exists()
 
@@ -417,8 +393,7 @@ def test_incremental_pull_formats_since_as_jira_date_literal(tmp_path: Path) -> 
 
     assert summary.issue_keys == ()
     assert seen_jql == [
-        '(project = "ABC") AND updated >= "2026-07-01 05:20" '
-        "ORDER BY updated ASC, key ASC"
+        '(project = "ABC") AND updated >= "2026-07-01 05:20" ORDER BY updated ASC, key ASC'
     ]
 
 
@@ -567,6 +542,73 @@ def test_stale_index_uses_issue_data_not_wall_clock(tmp_path: Path) -> None:
     stale = (tmp_path / "indexes" / "stale.md").read_text(encoding="utf-8")
     assert "[ABC-1]" in stale
     assert "[ABC-2]" not in stale
+
+
+def _assert_pull_download_outputs(
+    tmp_path: Path,
+    *,
+    issue_keys: tuple[str, ...],
+    external_attachment_url: str,
+) -> Path:
+    assert issue_keys == ("ABC-1",)
+    downloaded = tmp_path / "attachments" / "ABC-1" / "att-1-debug.log"
+    skipped = tmp_path / "attachments" / "ABC-1" / "att-2-screenshot.png"
+    assert (downloaded.read_bytes(), skipped.exists()) == (b"log!", False)
+
+    _assert_pull_download_markdown(tmp_path, external_attachment_url)
+    _assert_pull_download_payload(tmp_path)
+    _assert_pull_download_manifest(tmp_path)
+    assert verify_export(tmp_path).ok
+    return downloaded
+
+
+def _assert_pull_download_markdown(tmp_path: Path, external_attachment_url: str) -> None:
+    markdown = (tmp_path / "issues" / "ABC-1.md").read_text(encoding="utf-8")
+    assert all(
+        fragment in markdown
+        for fragment in (
+            "[local file](../attachments/ABC-1/att-1-debug.log)",
+            f"[external evidence]({external_attachment_url})",
+            "screenshot.png",
+        )
+    )
+
+
+def _assert_pull_download_payload(tmp_path: Path) -> None:
+    payload = json.loads((tmp_path / "issues" / "_raw" / "ABC-1.json").read_text(encoding="utf-8"))
+    metadata_by_id = {item["id"]: item for item in payload["attachment_metadata"]}
+    assert {
+        "legacy_raw_exists": (tmp_path / "issues" / "ABC-1.json").exists(),
+        "att-1": metadata_by_id["att-1"]["local_path"],
+        "att-2": metadata_by_id["att-2"]["local_path"],
+    } == {
+        "legacy_raw_exists": False,
+        "att-1": "../attachments/ABC-1/att-1-debug.log",
+        "att-2": None,
+    }
+
+
+def _assert_pull_download_manifest(tmp_path: Path) -> None:
+    manifest = json.loads((tmp_path / "manifest.json").read_text(encoding="utf-8"))
+    assert {
+        "counts": manifest["counts"],
+        "issue_keys": manifest["last_successful_representative_run"]["issue_keys"],
+        "has_attachment_hash": "attachments/ABC-1/att-1-debug.log" in manifest["hashes"],
+        "has_status_index_link": "[ABC-1](../issues/ABC-1.md)"
+        in (tmp_path / "indexes" / "by-status.md").read_text(encoding="utf-8"),
+    } == {
+        "counts": {"attachments": 2, "comments": 1, "issues": 1},
+        "issue_keys": ["ABC-1"],
+        "has_attachment_hash": True,
+        "has_status_index_link": True,
+    }
+
+
+def _assert_missing_download_fails_verification(tmp_path: Path, downloaded: Path) -> None:
+    downloaded.unlink()
+    failure = verify_export(tmp_path)
+    assert not failure.ok
+    assert any("Downloaded attachment missing" in error for error in failure.errors)
 
 
 def _client(handler: Callable[[httpx.Request], httpx.Response]) -> JiraClient:

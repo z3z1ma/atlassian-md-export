@@ -32,9 +32,7 @@ def test_space_discovery_uses_v2_link_pagination_and_hydrates_pages() -> None:
                 return httpx.Response(200, json={"results": [{"id": "2", "title": "Child"}]})
             return httpx.Response(
                 200,
-                headers={
-                    "Link": '</wiki/api/v2/spaces/space-1/pages?cursor=next>; rel="next"'
-                },
+                headers={"Link": '</wiki/api/v2/spaces/space-1/pages?cursor=next>; rel="next"'},
                 json={"results": [{"id": "1", "title": "Root"}]},
             )
         if request.url.path in {"/wiki/api/v2/pages/1", "/wiki/api/v2/pages/2"}:
@@ -95,7 +93,7 @@ def test_v2_pagination_accepts_same_origin_absolute_links_and_rejects_cross_orig
                 headers={
                     "Link": (
                         "<https://example.atlassian.net/wiki/api/v2/pages/123/labels"
-                        "?cursor=next>; rel=\"next\""
+                        '?cursor=next>; rel="next"'
                     )
                 },
                 json={"results": [{"id": "1", "name": "alpha"}]},
@@ -114,7 +112,7 @@ def test_v2_pagination_accepts_same_origin_absolute_links_and_rejects_cross_orig
                 headers={
                     "Link": (
                         "<https://evil.example.test/wiki/api/v2/pages/123/labels"
-                        "?cursor=next>; rel=\"next\""
+                        '?cursor=next>; rel="next"'
                     )
                 },
                 json={"results": [{"id": "1", "name": "alpha"}]},
@@ -131,9 +129,7 @@ def test_cql_pagination_rejects_scheme_relative_next_links() -> None:
             return httpx.Response(
                 200,
                 json={
-                    "results": [
-                        {"content": {"id": "10", "type": "page", "title": "Search 10"}}
-                    ],
+                    "results": [{"content": {"id": "10", "type": "page", "title": "Search 10"}}],
                     "_links": {"next": "//evil.example.test/wiki/rest/api/search?cursor=bad"},
                 },
             )
@@ -153,18 +149,14 @@ def test_cql_discovery_uses_v1_search_then_v2_page_hydration() -> None:
                 return httpx.Response(
                     200,
                     json={
-                        "results": [
-                            {"content": {"id": "11", "type": "page", "title": "Search 11"}}
-                        ]
+                        "results": [{"content": {"id": "11", "type": "page", "title": "Search 11"}}]
                     },
                 )
             assert request.url.params["cql"] == 'space = "DOC"'
             return httpx.Response(
                 200,
                 json={
-                    "results": [
-                        {"content": {"id": "10", "type": "page", "title": "Search 10"}}
-                    ],
+                    "results": [{"content": {"id": "10", "type": "page", "title": "Search 10"}}],
                     "_links": {"next": "/wiki/rest/api/search?cursor=page-2"},
                 },
             )
@@ -230,7 +222,7 @@ def test_footer_and_inline_comments_paginate_with_default_body_format() -> None:
                 headers={
                     "Link": (
                         "</wiki/api/v2/pages/123/footer-comments"
-                        "?cursor=footer-2&body-format=atlas_doc_format>; rel=\"next\""
+                        '?cursor=footer-2&body-format=atlas_doc_format>; rel="next"'
                     )
                 },
                 json={"results": [{"id": "footer-1"}]},
@@ -259,7 +251,9 @@ def test_labels_ancestors_descendants_and_attachment_metadata_methods_validate_p
         if request.url.path == "/wiki/api/v2/pages/123/ancestors":
             return httpx.Response(
                 200,
-                json={"results": [{"id": "root", "type": "page"}, {"id": "folder", "type": "folder"}]},
+                json={
+                    "results": [{"id": "root", "type": "page"}, {"id": "folder", "type": "folder"}]
+                },
             )
         if request.url.path == "/wiki/api/v2/pages/123/descendants":
             return httpx.Response(

@@ -1,0 +1,1797 @@
+{
+  "duplicates": [
+    {
+      "firstFile": {
+        "end": 46,
+        "endLoc": {
+          "column": 19,
+          "line": 46,
+          "position": 1454
+        },
+        "name": "atlassian_md_export/attachments.py",
+        "start": 39,
+        "startLoc": {
+          "column": 42,
+          "line": 39,
+          "position": 1199
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 244,
+        "endLoc": {
+          "column": 19,
+          "line": 244,
+          "position": 6800
+        },
+        "name": "atlassian_md_export/writer.py",
+        "start": 237,
+        "startLoc": {
+          "column": 46,
+          "line": 237,
+          "position": 6545
+        }
+      },
+      "tokens": 57
+    },
+    {
+      "firstFile": {
+        "end": 81,
+        "endLoc": {
+          "column": 1,
+          "line": 81,
+          "position": 3014
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 68,
+        "startLoc": {
+          "column": 8,
+          "line": 68,
+          "position": 2679
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 14,
+      "secondFile": {
+        "end": 95,
+        "endLoc": {
+          "column": 1,
+          "line": 95,
+          "position": 3394
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 82,
+        "startLoc": {
+          "column": 19,
+          "line": 82,
+          "position": 3059
+        }
+      },
+      "tokens": 59
+    },
+    {
+      "firstFile": {
+        "end": 145,
+        "endLoc": {
+          "column": 13,
+          "line": 145,
+          "position": 5029
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 140,
+        "startLoc": {
+          "column": 19,
+          "line": 140,
+          "position": 4789
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 340,
+        "endLoc": {
+          "column": 13,
+          "line": 340,
+          "position": 12814
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 335,
+        "startLoc": {
+          "column": 21,
+          "line": 335,
+          "position": 12574
+        }
+      },
+      "tokens": 54
+    },
+    {
+      "firstFile": {
+        "end": 146,
+        "endLoc": {
+          "column": 25,
+          "line": 146,
+          "position": 5055
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 140,
+        "startLoc": {
+          "column": 19,
+          "line": 140,
+          "position": 4789
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 363,
+        "endLoc": {
+          "column": 6,
+          "line": 363,
+          "position": 13569
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 356,
+        "startLoc": {
+          "column": 20,
+          "line": 356,
+          "position": 13311
+        }
+      },
+      "tokens": 60
+    },
+    {
+      "firstFile": {
+        "end": 145,
+        "endLoc": {
+          "column": 13,
+          "line": 145,
+          "position": 5029
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 140,
+        "startLoc": {
+          "column": 19,
+          "line": 140,
+          "position": 4789
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 377,
+        "endLoc": {
+          "column": 13,
+          "line": 377,
+          "position": 14117
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 372,
+        "startLoc": {
+          "column": 20,
+          "line": 372,
+          "position": 13877
+        }
+      },
+      "tokens": 54
+    },
+    {
+      "firstFile": {
+        "end": 146,
+        "endLoc": {
+          "column": 60,
+          "line": 146,
+          "position": 5090
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 140,
+        "startLoc": {
+          "column": 19,
+          "line": 140,
+          "position": 4789
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 398,
+        "endLoc": {
+          "column": 60,
+          "line": 398,
+          "position": 14914
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 392,
+        "startLoc": {
+          "column": 8,
+          "line": 392,
+          "position": 14613
+        }
+      },
+      "tokens": 70
+    },
+    {
+      "firstFile": {
+        "end": 146,
+        "endLoc": {
+          "column": 92,
+          "line": 146,
+          "position": 5122
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 141,
+        "startLoc": {
+          "column": 4,
+          "line": 141,
+          "position": 4795
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 225,
+        "endLoc": {
+          "column": 92,
+          "line": 225,
+          "position": 8392
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 220,
+        "startLoc": {
+          "column": 4,
+          "line": 220,
+          "position": 8065
+        }
+      },
+      "tokens": 75
+    },
+    {
+      "firstFile": {
+        "end": 183,
+        "endLoc": {
+          "column": 6,
+          "line": 183,
+          "position": 6681
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 161,
+        "startLoc": {
+          "column": 93,
+          "line": 161,
+          "position": 5947
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 23,
+      "secondFile": {
+        "end": 431,
+        "endLoc": {
+          "column": 6,
+          "line": 431,
+          "position": 16337
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 409,
+        "startLoc": {
+          "column": 87,
+          "line": 409,
+          "position": 15603
+        }
+      },
+      "tokens": 108
+    },
+    {
+      "firstFile": {
+        "end": 183,
+        "endLoc": {
+          "column": 6,
+          "line": 183,
+          "position": 6681
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 161,
+        "startLoc": {
+          "column": 93,
+          "line": 161,
+          "position": 5947
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 23,
+      "secondFile": {
+        "end": 489,
+        "endLoc": {
+          "column": 6,
+          "line": 489,
+          "position": 18530
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 467,
+        "startLoc": {
+          "column": 86,
+          "line": 467,
+          "position": 17796
+        }
+      },
+      "tokens": 108
+    },
+    {
+      "firstFile": {
+        "end": 183,
+        "endLoc": {
+          "column": 6,
+          "line": 183,
+          "position": 6681
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 166,
+        "startLoc": {
+          "column": 13,
+          "line": 166,
+          "position": 6123
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 18,
+      "secondFile": {
+        "end": 311,
+        "endLoc": {
+          "column": 6,
+          "line": 311,
+          "position": 11662
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 294,
+        "startLoc": {
+          "column": 91,
+          "line": 294,
+          "position": 11104
+        }
+      },
+      "tokens": 82
+    },
+    {
+      "firstFile": {
+        "end": 225,
+        "endLoc": {
+          "column": 92,
+          "line": 225,
+          "position": 8392
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 218,
+        "startLoc": {
+          "column": 19,
+          "line": 218,
+          "position": 7988
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 257,
+        "endLoc": {
+          "column": 92,
+          "line": 257,
+          "position": 9639
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 250,
+        "startLoc": {
+          "column": 23,
+          "line": 250,
+          "position": 9235
+        }
+      },
+      "tokens": 95
+    },
+    {
+      "firstFile": {
+        "end": 225,
+        "endLoc": {
+          "column": 92,
+          "line": 225,
+          "position": 8392
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 218,
+        "startLoc": {
+          "column": 19,
+          "line": 218,
+          "position": 7988
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 294,
+        "endLoc": {
+          "column": 92,
+          "line": 294,
+          "position": 11105
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 287,
+        "startLoc": {
+          "column": 26,
+          "line": 287,
+          "position": 10701
+        }
+      },
+      "tokens": 95
+    },
+    {
+      "firstFile": {
+        "end": 224,
+        "endLoc": {
+          "column": 13,
+          "line": 224,
+          "position": 8299
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 219,
+        "startLoc": {
+          "column": 67,
+          "line": 219,
+          "position": 8057
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 468,
+        "endLoc": {
+          "column": 13,
+          "line": 468,
+          "position": 17812
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 463,
+        "startLoc": {
+          "column": 59,
+          "line": 463,
+          "position": 17570
+        }
+      },
+      "tokens": 56
+    },
+    {
+      "firstFile": {
+        "end": 311,
+        "endLoc": {
+          "column": 6,
+          "line": 311,
+          "position": 11662
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 294,
+        "startLoc": {
+          "column": 83,
+          "line": 294,
+          "position": 11096
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 18,
+      "secondFile": {
+        "end": 571,
+        "endLoc": {
+          "column": 6,
+          "line": 571,
+          "position": 21492
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 554,
+        "startLoc": {
+          "column": 4,
+          "line": 554,
+          "position": 20926
+        }
+      },
+      "tokens": 85
+    },
+    {
+      "firstFile": {
+        "end": 468,
+        "endLoc": {
+          "column": 13,
+          "line": 468,
+          "position": 17812
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 462,
+        "startLoc": {
+          "column": 9,
+          "line": 462,
+          "position": 17509
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 519,
+        "endLoc": {
+          "column": 13,
+          "line": 519,
+          "position": 19669
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 513,
+        "startLoc": {
+          "column": 12,
+          "line": 513,
+          "position": 19366
+        }
+      },
+      "tokens": 73
+    },
+    {
+      "firstFile": {
+        "end": 468,
+        "endLoc": {
+          "column": 13,
+          "line": 468,
+          "position": 17812
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 462,
+        "startLoc": {
+          "column": 9,
+          "line": 462,
+          "position": 17509
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 554,
+        "endLoc": {
+          "column": 13,
+          "line": 554,
+          "position": 20935
+        },
+        "name": "atlassian_md_export/cli.py",
+        "start": 548,
+        "startLoc": {
+          "column": 15,
+          "line": 548,
+          "position": 20632
+        }
+      },
+      "tokens": 73
+    },
+    {
+      "firstFile": {
+        "end": 173,
+        "endLoc": {
+          "column": 37,
+          "line": 173,
+          "position": 5457
+        },
+        "name": "atlassian_md_export/confluence/client.py",
+        "start": 165,
+        "startLoc": {
+          "column": 14,
+          "line": 165,
+          "position": 5170
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 9,
+      "secondFile": {
+        "end": 195,
+        "endLoc": {
+          "column": 37,
+          "line": 195,
+          "position": 6169
+        },
+        "name": "atlassian_md_export/confluence/client.py",
+        "start": 187,
+        "startLoc": {
+          "column": 25,
+          "line": 187,
+          "position": 5882
+        }
+      },
+      "tokens": 62
+    },
+    {
+      "firstFile": {
+        "end": 461,
+        "endLoc": {
+          "column": 39,
+          "line": 461,
+          "position": 14594
+        },
+        "name": "atlassian_md_export/confluence/client.py",
+        "start": 448,
+        "startLoc": {
+          "column": 18,
+          "line": 448,
+          "position": 14233
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 14,
+      "secondFile": {
+        "end": 330,
+        "endLoc": {
+          "column": 39,
+          "line": 330,
+          "position": 10721
+        },
+        "name": "atlassian_md_export/jira/client.py",
+        "start": 317,
+        "startLoc": {
+          "column": 18,
+          "line": 317,
+          "position": 10360
+        }
+      },
+      "tokens": 59
+    },
+    {
+      "firstFile": {
+        "end": 716,
+        "endLoc": {
+          "column": 3,
+          "line": 716,
+          "position": 23929
+        },
+        "name": "atlassian_md_export/confluence/client.py",
+        "start": 707,
+        "startLoc": {
+          "column": 4,
+          "line": 707,
+          "position": 23651
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 10,
+      "secondFile": {
+        "end": 1790,
+        "endLoc": {
+          "column": 3,
+          "line": 1790,
+          "position": 63551
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1781,
+        "startLoc": {
+          "column": 4,
+          "line": 1781,
+          "position": 63273
+        }
+      },
+      "tokens": 64
+    },
+    {
+      "firstFile": {
+        "end": 727,
+        "endLoc": {
+          "column": 15,
+          "line": 727,
+          "position": 24240
+        },
+        "name": "atlassian_md_export/confluence/client.py",
+        "start": 716,
+        "startLoc": {
+          "column": 0,
+          "line": 716,
+          "position": 23926
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 12,
+      "secondFile": {
+        "end": 1810,
+        "endLoc": {
+          "column": 15,
+          "line": 1810,
+          "position": 64115
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1799,
+        "startLoc": {
+          "column": 0,
+          "line": 1799,
+          "position": 63801
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 366,
+        "endLoc": {
+          "column": 5,
+          "line": 366,
+          "position": 11776
+        },
+        "name": "atlassian_md_export/indexes.py",
+        "start": 359,
+        "startLoc": {
+          "column": 4,
+          "line": 359,
+          "position": 11444
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 2720,
+        "endLoc": {
+          "column": 5,
+          "line": 2720,
+          "position": 95756
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 2713,
+        "startLoc": {
+          "column": 4,
+          "line": 2713,
+          "position": 95424
+        }
+      },
+      "tokens": 57
+    },
+    {
+      "firstFile": {
+        "end": 309,
+        "endLoc": {
+          "column": 83,
+          "line": 309,
+          "position": 10464
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 298,
+        "startLoc": {
+          "column": 26,
+          "line": 298,
+          "position": 10118
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 12,
+      "secondFile": {
+        "end": 437,
+        "endLoc": {
+          "column": 83,
+          "line": 437,
+          "position": 15086
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 426,
+        "startLoc": {
+          "column": 29,
+          "line": 426,
+          "position": 14740
+        }
+      },
+      "tokens": 57
+    },
+    {
+      "firstFile": {
+        "end": 372,
+        "endLoc": {
+          "column": 41,
+          "line": 372,
+          "position": 12954
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 354,
+        "startLoc": {
+          "column": 38,
+          "line": 354,
+          "position": 12248
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 19,
+      "secondFile": {
+        "end": 503,
+        "endLoc": {
+          "column": 41,
+          "line": 503,
+          "position": 17823
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 485,
+        "startLoc": {
+          "column": 41,
+          "line": 485,
+          "position": 17117
+        }
+      },
+      "tokens": 85
+    },
+    {
+      "firstFile": {
+        "end": 372,
+        "endLoc": {
+          "column": 41,
+          "line": 372,
+          "position": 12954
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 361,
+        "startLoc": {
+          "column": 8,
+          "line": 361,
+          "position": 12484
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 12,
+      "secondFile": {
+        "end": 1198,
+        "endLoc": {
+          "column": 41,
+          "line": 1198,
+          "position": 43040
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1187,
+        "startLoc": {
+          "column": 8,
+          "line": 1187,
+          "position": 42570
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 399,
+        "endLoc": {
+          "column": 3,
+          "line": 399,
+          "position": 13885
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 380,
+        "startLoc": {
+          "column": 30,
+          "line": 380,
+          "position": 13309
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 20,
+      "secondFile": {
+        "end": 530,
+        "endLoc": {
+          "column": 3,
+          "line": 530,
+          "position": 18763
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 511,
+        "startLoc": {
+          "column": 33,
+          "line": 511,
+          "position": 18187
+        }
+      },
+      "tokens": 76
+    },
+    {
+      "firstFile": {
+        "end": 641,
+        "endLoc": {
+          "column": 62,
+          "line": 641,
+          "position": 22176
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 625,
+        "startLoc": {
+          "column": 66,
+          "line": 625,
+          "position": 21500
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 17,
+      "secondFile": {
+        "end": 720,
+        "endLoc": {
+          "column": 62,
+          "line": 720,
+          "position": 25110
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 704,
+        "startLoc": {
+          "column": 20,
+          "line": 704,
+          "position": 24418
+        }
+      },
+      "tokens": 94
+    },
+    {
+      "firstFile": {
+        "end": 641,
+        "endLoc": {
+          "column": 62,
+          "line": 641,
+          "position": 22176
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 631,
+        "startLoc": {
+          "column": 8,
+          "line": 631,
+          "position": 21756
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 11,
+      "secondFile": {
+        "end": 1038,
+        "endLoc": {
+          "column": 62,
+          "line": 1038,
+          "position": 37650
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1028,
+        "startLoc": {
+          "column": 8,
+          "line": 1028,
+          "position": 37230
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 658,
+        "endLoc": {
+          "column": 3,
+          "line": 658,
+          "position": 22728
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 641,
+        "startLoc": {
+          "column": 72,
+          "line": 641,
+          "position": 22186
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 18,
+      "secondFile": {
+        "end": 737,
+        "endLoc": {
+          "column": 3,
+          "line": 737,
+          "position": 25665
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 720,
+        "startLoc": {
+          "column": 75,
+          "line": 720,
+          "position": 25123
+        }
+      },
+      "tokens": 82
+    },
+    {
+      "firstFile": {
+        "end": 1551,
+        "endLoc": {
+          "column": 26,
+          "line": 1551,
+          "position": 54334
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1541,
+        "startLoc": {
+          "column": 39,
+          "line": 1541,
+          "position": 53975
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 11,
+      "secondFile": {
+        "end": 1617,
+        "endLoc": {
+          "column": 30,
+          "line": 1617,
+          "position": 57086
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1607,
+        "startLoc": {
+          "column": 71,
+          "line": 1607,
+          "position": 56691
+        }
+      },
+      "tokens": 53
+    },
+    {
+      "firstFile": {
+        "end": 1974,
+        "endLoc": {
+          "column": 68,
+          "line": 1974,
+          "position": 69451
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 1968,
+        "startLoc": {
+          "column": 43,
+          "line": 1968,
+          "position": 69060
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 2022,
+        "endLoc": {
+          "column": 72,
+          "line": 2022,
+          "position": 71293
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 2016,
+        "startLoc": {
+          "column": 20,
+          "line": 2016,
+          "position": 70878
+        }
+      },
+      "tokens": 73
+    },
+    {
+      "firstFile": {
+        "end": 2134,
+        "endLoc": {
+          "column": 3,
+          "line": 2134,
+          "position": 75019
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 2123,
+        "startLoc": {
+          "column": 28,
+          "line": 2123,
+          "position": 74702
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 12,
+      "secondFile": {
+        "end": 2149,
+        "endLoc": {
+          "column": 3,
+          "line": 2149,
+          "position": 75494
+        },
+        "name": "atlassian_md_export/operations.py",
+        "start": 2138,
+        "startLoc": {
+          "column": 27,
+          "line": 2138,
+          "position": 75177
+        }
+      },
+      "tokens": 70
+    },
+    {
+      "firstFile": {
+        "end": 526,
+        "endLoc": {
+          "column": 18,
+          "line": 526,
+          "position": 18112
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 517,
+        "startLoc": {
+          "column": 29,
+          "line": 517,
+          "position": 17798
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 10,
+      "secondFile": {
+        "end": 563,
+        "endLoc": {
+          "column": 18,
+          "line": 563,
+          "position": 19217
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 554,
+        "startLoc": {
+          "column": 27,
+          "line": 554,
+          "position": 18903
+        }
+      },
+      "tokens": 60
+    },
+    {
+      "firstFile": {
+        "end": 598,
+        "endLoc": {
+          "column": 27,
+          "line": 598,
+          "position": 20235
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 587,
+        "startLoc": {
+          "column": 5,
+          "line": 587,
+          "position": 19916
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 12,
+      "secondFile": {
+        "end": 661,
+        "endLoc": {
+          "column": 27,
+          "line": 661,
+          "position": 22145
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 650,
+        "startLoc": {
+          "column": 16,
+          "line": 650,
+          "position": 21826
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 629,
+        "endLoc": {
+          "column": 27,
+          "line": 629,
+          "position": 21199
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 617,
+        "startLoc": {
+          "column": 5,
+          "line": 617,
+          "position": 20786
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 13,
+      "secondFile": {
+        "end": 692,
+        "endLoc": {
+          "column": 27,
+          "line": 692,
+          "position": 23059
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 680,
+        "startLoc": {
+          "column": 16,
+          "line": 680,
+          "position": 22646
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 969,
+        "endLoc": {
+          "column": 53,
+          "line": 969,
+          "position": 31177
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 961,
+        "startLoc": {
+          "column": 20,
+          "line": 961,
+          "position": 30800
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 9,
+      "secondFile": {
+        "end": 986,
+        "endLoc": {
+          "column": 53,
+          "line": 986,
+          "position": 31915
+        },
+        "name": "atlassian_md_export/state.py",
+        "start": 978,
+        "startLoc": {
+          "column": 30,
+          "line": 978,
+          "position": 31538
+        }
+      },
+      "tokens": 81
+    },
+    {
+      "firstFile": {
+        "end": 529,
+        "endLoc": {
+          "column": 85,
+          "line": 529,
+          "position": 17626
+        },
+        "name": "atlassian_md_export/writer.py",
+        "start": 521,
+        "startLoc": {
+          "column": 23,
+          "line": 521,
+          "position": 17269
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 9,
+      "secondFile": {
+        "end": 568,
+        "endLoc": {
+          "column": 85,
+          "line": 568,
+          "position": 19177
+        },
+        "name": "atlassian_md_export/writer.py",
+        "start": 560,
+        "startLoc": {
+          "column": 9,
+          "line": 560,
+          "position": 18820
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 851,
+        "endLoc": {
+          "column": 25,
+          "line": 851,
+          "position": 28822
+        },
+        "name": "atlassian_md_export/writer.py",
+        "start": 839,
+        "startLoc": {
+          "column": 15,
+          "line": 839,
+          "position": 28379
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 13,
+      "secondFile": {
+        "end": 1004,
+        "endLoc": {
+          "column": 25,
+          "line": 1004,
+          "position": 34428
+        },
+        "name": "atlassian_md_export/writer.py",
+        "start": 992,
+        "startLoc": {
+          "column": 16,
+          "line": 992,
+          "position": 33985
+        }
+      },
+      "tokens": 58
+    },
+    {
+      "firstFile": {
+        "end": 45,
+        "endLoc": {
+          "column": 51,
+          "line": 45,
+          "position": 2010
+        },
+        "name": "test_confluence_client.py",
+        "start": 38,
+        "startLoc": {
+          "column": 78,
+          "line": 38,
+          "position": 1709
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 168,
+        "endLoc": {
+          "column": 68,
+          "line": 168,
+          "position": 7113
+        },
+        "name": "test_confluence_client.py",
+        "start": 163,
+        "startLoc": {
+          "column": 80,
+          "line": 163,
+          "position": 6853
+        }
+      },
+      "tokens": 50
+    },
+    {
+      "firstFile": {
+        "end": 689,
+        "endLoc": {
+          "column": 86,
+          "line": 689,
+          "position": 26688
+        },
+        "name": "test_confluence_operations.py",
+        "start": 681,
+        "startLoc": {
+          "column": 4,
+          "line": 681,
+          "position": 26262
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 9,
+      "secondFile": {
+        "end": 824,
+        "endLoc": {
+          "column": 86,
+          "line": 824,
+          "position": 32350
+        },
+        "name": "test_confluence_operations.py",
+        "start": 816,
+        "startLoc": {
+          "column": 4,
+          "line": 816,
+          "position": 31924
+        }
+      },
+      "tokens": 63
+    },
+    {
+      "firstFile": {
+        "end": 315,
+        "endLoc": {
+          "column": 12,
+          "line": 315,
+          "position": 9562
+        },
+        "name": "test_confluence_writer.py",
+        "start": 305,
+        "startLoc": {
+          "column": 46,
+          "line": 305,
+          "position": 9225
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 11,
+      "secondFile": {
+        "end": 331,
+        "endLoc": {
+          "column": 12,
+          "line": 331,
+          "position": 10076
+        },
+        "name": "test_writer.py",
+        "start": 321,
+        "startLoc": {
+          "column": 29,
+          "line": 321,
+          "position": 9739
+        }
+      },
+      "tokens": 88
+    },
+    {
+      "firstFile": {
+        "end": 327,
+        "endLoc": {
+          "column": 45,
+          "line": 327,
+          "position": 9987
+        },
+        "name": "test_confluence_writer.py",
+        "start": 317,
+        "startLoc": {
+          "column": 12,
+          "line": 317,
+          "position": 9622
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 11,
+      "secondFile": {
+        "end": 343,
+        "endLoc": {
+          "column": 45,
+          "line": 343,
+          "position": 10492
+        },
+        "name": "test_writer.py",
+        "start": 333,
+        "startLoc": {
+          "column": 13,
+          "line": 333,
+          "position": 10127
+        }
+      },
+      "tokens": 60
+    },
+    {
+      "firstFile": {
+        "end": 155,
+        "endLoc": {
+          "column": 71,
+          "line": 155,
+          "position": 5749
+        },
+        "name": "test_jira_client.py",
+        "start": 150,
+        "startLoc": {
+          "column": 51,
+          "line": 150,
+          "position": 5526
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 209,
+        "endLoc": {
+          "column": 71,
+          "line": 209,
+          "position": 7865
+        },
+        "name": "test_jira_client.py",
+        "start": 204,
+        "startLoc": {
+          "column": 69,
+          "line": 204,
+          "position": 7642
+        }
+      },
+      "tokens": 63
+    },
+    {
+      "firstFile": {
+        "end": 87,
+        "endLoc": {
+          "column": 64,
+          "line": 87,
+          "position": 3529
+        },
+        "name": "test_operations.py",
+        "start": 81,
+        "startLoc": {
+          "column": 4,
+          "line": 81,
+          "position": 3195
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 227,
+        "endLoc": {
+          "column": 64,
+          "line": 227,
+          "position": 8494
+        },
+        "name": "test_operations.py",
+        "start": 221,
+        "startLoc": {
+          "column": 4,
+          "line": 221,
+          "position": 8160
+        }
+      },
+      "tokens": 69
+    },
+    {
+      "firstFile": {
+        "end": 88,
+        "endLoc": {
+          "column": 23,
+          "line": 88,
+          "position": 3563
+        },
+        "name": "test_operations.py",
+        "start": 81,
+        "startLoc": {
+          "column": 4,
+          "line": 81,
+          "position": 3195
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 336,
+        "endLoc": {
+          "column": 66,
+          "line": 336,
+          "position": 13320
+        },
+        "name": "test_operations.py",
+        "start": 329,
+        "startLoc": {
+          "column": 34,
+          "line": 329,
+          "position": 12916
+        }
+      },
+      "tokens": 78
+    },
+    {
+      "firstFile": {
+        "end": 127,
+        "endLoc": {
+          "column": 12,
+          "line": 127,
+          "position": 4923
+        },
+        "name": "test_operations.py",
+        "start": 122,
+        "startLoc": {
+          "column": 12,
+          "line": 122,
+          "position": 4636
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 6,
+      "secondFile": {
+        "end": 266,
+        "endLoc": {
+          "column": 8,
+          "line": 266,
+          "position": 10347
+        },
+        "name": "test_operations.py",
+        "start": 261,
+        "startLoc": {
+          "column": 12,
+          "line": 261,
+          "position": 10064
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 156,
+        "endLoc": {
+          "column": 45,
+          "line": 156,
+          "position": 5997
+        },
+        "name": "test_operations.py",
+        "start": 150,
+        "startLoc": {
+          "column": 42,
+          "line": 150,
+          "position": 5715
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 7,
+      "secondFile": {
+        "end": 188,
+        "endLoc": {
+          "column": 45,
+          "line": 188,
+          "position": 7061
+        },
+        "name": "test_operations.py",
+        "start": 182,
+        "startLoc": {
+          "column": 34,
+          "line": 182,
+          "position": 6779
+        }
+      },
+      "tokens": 61
+    },
+    {
+      "firstFile": {
+        "end": 200,
+        "endLoc": {
+          "column": 9,
+          "line": 200,
+          "position": 7565
+        },
+        "name": "test_operations.py",
+        "start": 186,
+        "startLoc": {
+          "column": 63,
+          "line": 186,
+          "position": 6957
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 15,
+      "secondFile": {
+        "end": 320,
+        "endLoc": {
+          "column": 10,
+          "line": 320,
+          "position": 12506
+        },
+        "name": "test_operations.py",
+        "start": 303,
+        "startLoc": {
+          "column": 47,
+          "line": 303,
+          "position": 11860
+        }
+      },
+      "tokens": 109
+    },
+    {
+      "firstFile": {
+        "end": 373,
+        "endLoc": {
+          "column": 20,
+          "line": 373,
+          "position": 14444
+        },
+        "name": "test_operations.py",
+        "start": 360,
+        "startLoc": {
+          "column": 60,
+          "line": 360,
+          "position": 14067
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 14,
+      "secondFile": {
+        "end": 651,
+        "endLoc": {
+          "column": 20,
+          "line": 651,
+          "position": 24424
+        },
+        "name": "test_operations.py",
+        "start": 638,
+        "startLoc": {
+          "column": 33,
+          "line": 638,
+          "position": 24047
+        }
+      },
+      "tokens": 52
+    },
+    {
+      "firstFile": {
+        "end": 477,
+        "endLoc": {
+          "column": 30,
+          "line": 477,
+          "position": 18063
+        },
+        "name": "test_operations.py",
+        "start": 470,
+        "startLoc": {
+          "column": 65,
+          "line": 470,
+          "position": 17748
+        }
+      },
+      "format": "python",
+      "fragment": "",
+      "lines": 8,
+      "secondFile": {
+        "end": 509,
+        "endLoc": {
+          "column": 30,
+          "line": 509,
+          "position": 19251
+        },
+        "name": "test_operations.py",
+        "start": 502,
+        "startLoc": {
+          "column": 54,
+          "line": 502,
+          "position": 18936
+        }
+      },
+      "tokens": 50
+    }
+  ],
+  "statistics": {
+    "detectionDate": "2026-07-05T03:01:01.148Z",
+    "formats": {
+      "python": {
+        "clones": 49,
+        "duplicatedLines": 491,
+        "duplicatedTokens": 3362,
+        "lines": 14268,
+        "newClones": 0,
+        "newDuplicatedLines": 0,
+        "percentage": 3.4412671712924023,
+        "percentageTokens": 4.383597366190756,
+        "sources": 25,
+        "tokens": 76695
+      }
+    },
+    "total": {
+      "clones": 49,
+      "duplicatedLines": 491,
+      "duplicatedTokens": 3362,
+      "lines": 14268,
+      "newClones": 0,
+      "newDuplicatedLines": 0,
+      "percentage": 3.4412671712924023,
+      "percentageTokens": 4.383597366190756,
+      "sources": 25,
+      "tokens": 76695
+    }
+  }
+}

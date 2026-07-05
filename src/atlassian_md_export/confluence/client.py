@@ -418,8 +418,7 @@ def confluence_cql_date_literal(value: str) -> str:
         parsed = datetime.fromisoformat(normalized)
     except ValueError as error:
         raise ValueError(
-            "--since must be an ISO timestamp or Confluence date literal like "
-            "'2026-07-01 18:46'."
+            "--since must be an ISO timestamp or Confluence date literal like '2026-07-01 18:46'."
         ) from error
 
     if parsed.tzinfo is None:
@@ -684,9 +683,7 @@ def _safe_next_path(value: str, *, base_url: str, endpoint: str) -> str:
             f"{endpoint} pagination next link has unsupported scheme: {parsed.scheme}."
         )
     if parsed.scheme and not parsed.netloc:
-        raise AtlassianClientError(
-            f"{endpoint} pagination next link is absolute but lacks a host."
-        )
+        raise AtlassianClientError(f"{endpoint} pagination next link is absolute but lacks a host.")
 
     if parsed.scheme:
         site = urlparse(base_url)
@@ -698,9 +695,7 @@ def _safe_next_path(value: str, *, base_url: str, endpoint: str) -> str:
         return _path_with_query(path, parsed.query)
 
     if not parsed.path.startswith("/"):
-        raise AtlassianClientError(
-            f"{endpoint} pagination next link must be an absolute path."
-        )
+        raise AtlassianClientError(f"{endpoint} pagination next link must be an absolute path.")
     return _path_with_query(parsed.path, parsed.query)
 
 
@@ -713,9 +708,9 @@ def _same_origin(first: Any, second: Any) -> bool:
         return False
     if first.hostname is None or second.hostname is None:
         return False
-    return first.hostname.lower() == second.hostname.lower() and _origin_port(first) == _origin_port(
-        second
-    )
+    return first.hostname.lower() == second.hostname.lower() and _origin_port(
+        first
+    ) == _origin_port(second)
 
 
 def _origin_port(value: Any) -> int | None:
