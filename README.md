@@ -9,6 +9,31 @@ uv run jira-md-export --help
 uv run confluence-md-export --help
 ```
 
+## Intended Use: Scheduled Local Context Mirrors
+
+This tool is intended to run on a schedule, typically from `crontab`, so Jira and Confluence stay mirrored as Markdown plus raw JSON on local disk. Those are often the two highest-value context stores for software engineering: Jira captures work state, tickets, comments, and delivery history; Confluence captures product, architecture, process, and operational context.
+
+Keeping both stores local changes the unit economics for AI agents and human investigation. Instead of paying remote UI and API costs for every question, agents can use `rg`, `jq`, SQLite, local indexes, embeddings, or context-graph tooling against a fresh read-optimized mirror. That makes it practical to gather broad context, cross-correlate Jira issues with Confluence pages, inspect source JSON, diff changes over time, and answer "where did this decision come from?" without repeatedly rediscovering the same remote material.
+
+The remote Atlassian systems remain authoritative. The mirror is the fast local working set.
+
+Example crontab pattern:
+
+```cron
+SHELL=/bin/sh
+PATH=/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin
+
+# Refresh Jira and Confluence every 30 minutes.
+*/30 * * * * cd /path/to/atlassian-md-export && uv run jira-md-export pull --project PROJ --out /path/to/mirror/jira >> /path/to/mirror/jira-sync.log 2>&1
+*/30 * * * * cd /path/to/atlassian-md-export && uv run confluence-md-export pull --space DOC --out /path/to/mirror/confluence >> /path/to/mirror/confluence-sync.log 2>&1
+
+# Rebuild local indexes and verify consistency after the pull window.
+10 * * * * cd /path/to/atlassian-md-export && { uv run jira-md-export index --out /path/to/mirror/jira && uv run jira-md-export verify --out /path/to/mirror/jira; } >> /path/to/mirror/jira-maintenance.log 2>&1
+15 * * * * cd /path/to/atlassian-md-export && { uv run confluence-md-export index --out /path/to/mirror/confluence && uv run confluence-md-export verify --out /path/to/mirror/confluence; } >> /path/to/mirror/confluence-maintenance.log 2>&1
+```
+
+Use absolute paths in cron. Put credentials in the environment available to cron or in the local `.env` file read from the working directory.
+
 ## Setup
 
 ```sh
